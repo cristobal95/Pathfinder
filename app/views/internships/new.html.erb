@@ -1,0 +1,21 @@
+<%= form_with model: @internship do |f| %>
+  <%= f.label :category %>
+  <%= f.string :category %>
+  <%= f.label :title %>
+  <%= f.string :title %>
+  <%= f.label :description %>
+  <%= f.text :description %>
+   <%= f.label :type %>
+  <%= f.string :type %>
+   <%= f.label :status %>
+  <%= f.boolean :status %>
+   <%= f.label :duration %>
+  <%= f.integer :duration %>
+   <%= f.label :paid %>
+  <%= f.string :paid %>
+    <%= f.label :star_date %>
+  <%= f.date :star_date %>
+    <%= f.label :end_date %>
+  <%= f.date :end_date %>
+  <%= f.submit %>
+<% end %>
