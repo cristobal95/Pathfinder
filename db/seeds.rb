@@ -21,7 +21,7 @@ students = [
     experience: "",
     languages: "Español, Inglés",
     knowledges: "Leyes comunitarias. Derecho penal",
-    email: "cris@pathfinder.com",
+    email: "selame@pathfinder.com",
     password: "123456"
   },
   {
@@ -39,7 +39,7 @@ students = [
     experience: "Marketing Digital",
     languages: "Español, Inglés, Francés",
     knowledges: "Marketing Digital",
-    email: "juanma@pathfinder.com",
+    email: "binda@pathfinder.com",
     password: "123456"
   },
   {
@@ -57,7 +57,7 @@ students = [
     experience: "Desarrollo de software de gestión. Proyecto de grado",
     languages: "Español, Inglés",
     knowledges: "PHP, HTML y CSS",
-    email: "hugo@pathfinder.com",
+    email: "acosta@pathfinder.com",
     password: "123456"
   },
   {
@@ -386,7 +386,9 @@ company = [
     name: "TechNode",
     website: "https://www.technode.com",
     industry: "Tecnología",
-    about: "TechNode es una empresa de tecnología líder en el desarrollo de soluciones innovadoras."
+    about: "TechNode es una empresa de tecnología líder en el desarrollo de soluciones innovadoras.",
+    email: "cris@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -398,7 +400,9 @@ company = [
     name: "IndusTreck",
     website: "https://www.industreck.cl",
     industry: "Manufactura",
-    about: "Industreck es una destacada empresa de fabricación que produce bienes de consumo de alta calidad."
+    about: "Industreck es una destacada empresa de fabricación que produce bienes de consumo de alta calidad.",
+    email: "juanma@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -410,7 +414,9 @@ company = [
     name: "Servi Create",
     website: "https://www.servicreate.com.br",
     industry: "Servicios",
-    about: "Servi Create es una empresa de servicios dedicada a brindar soluciones integrales para sus clientes."
+    about: "Servi Create es una empresa de servicios dedicada a brindar soluciones integrales para sus clientes.",
+    email: "hugo@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -422,7 +428,9 @@ company = [
     name: "Consult Range",
     website: "https://www.consultrange.com.ar",
     industry: "Consultoría",
-    about: "Consul Range es una empresa de consultoría especializada en estrategias de negocios y desarrollo organizacional."
+    about: "Consul Range es una empresa de consultoría especializada en estrategias de negocios y desarrollo organizacional.",
+    email: "lewagon1@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -434,7 +442,9 @@ company = [
     name: "EcoModa",
     website: "https://www.ecomoda.co",
     industry: "Moda",
-    about: "EcoModa es una empresa líder en el sector de la moda, ofreciendo prendas de vestir de alta calidad y diseño vanguardista."
+    about: "EcoModa es una empresa líder en el sector de la moda, ofreciendo prendas de vestir de alta calidad y diseño vanguardista.",
+    email: "lewagon2@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -446,7 +456,9 @@ company = [
     name: "AliTron",
     website: "https://www.alitron.com.sv",
     industry: "Alimentación",
-    about: "Alitron es una empresa dedicada a la producción y distribución de alimentos frescos y saludables para el mercado local e internacional."
+    about: "Alitron es una empresa dedicada a la producción y distribución de alimentos frescos y saludables para el mercado local e internacional.",
+    email: "lewagon3@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -458,7 +470,9 @@ company = [
     name: "EcoTuris",
     website: "https://www.ecoturis.co.cr",
     industry: "Turismo",
-    about: "EcoTuris es una agencia de viajes que ofrece experiencias turísticas inolvidables en los destinos más hermosos de Costa Rica."
+    about: "EcoTuris es una agencia de viajes que ofrece experiencias turísticas inolvidables en los destinos más hermosos de Costa Rica.",
+    email: "lewagon4@pathfinder.com",
+    password: "123456"
   },
   {
     role: true,
@@ -470,7 +484,9 @@ company = [
     name: "EnergySun",
     website: "https://www.energysun.bo",
     industry: "Energía",
-    about: "EnergySun es una empresa especializada en el desarrollo y suministro de soluciones energéticas sostenibles para el sector industrial."
+    about: "EnergySun es una empresa especializada en el desarrollo y suministro de soluciones energéticas sostenibles para el sector industrial.",
+    email: "lewagon5@pathfinder.com",
+    password: "123456"
   }
 ]
 
