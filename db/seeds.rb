@@ -582,7 +582,7 @@ internships = [
 ]
 
 internships.each do |i|
-  User.create(i)
+  Internship.create(i)
 end
 
 puts "Internships creadas"
