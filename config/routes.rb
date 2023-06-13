@@ -1,20 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
   root to: "pages#home"
-
-  # internships: index, show, new, create, edit, update (no destroy)
-
-  # postulations: index, show, new, create, destroy, edit, update
-
-  # users show
-
-  # reviews new, create, edit, update, destroy
 
   resources :internships, except: :destroy do
     resources :postulations, only: %i[index show new create]
