@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_214338) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_044839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,42 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_214338) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "internships", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.text "description"
+    t.string "type"
+    t.boolean "status"
+    t.integer "duration"
+    t.string "paid"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_internships_on_user_id"
+  end
+
+  create_table "postulations", force: :cascade do |t|
+    t.json "status", default: {}
+    t.boolean "selected"
+    t.bigint "user_id", null: false
+    t.bigint "internship_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["internship_id"], name: "index_postulations_on_internship_id"
+    t.index ["user_id"], name: "index_postulations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.float "rating"
+    t.bigint "internship_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["internship_id"], name: "index_reviews_on_internship_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,10 +86,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_214338) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "role"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "studies"
+    t.string "college"
+    t.text "experience"
+    t.string "languages"
+    t.string "knowledges"
+    t.string "name"
+    t.string "website"
+    t.string "industry"
+    t.text "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "internships", "users"
+  add_foreign_key "postulations", "internships"
+  add_foreign_key "postulations", "users"
+  add_foreign_key "reviews", "internships"
 end
