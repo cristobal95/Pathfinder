@@ -1,0 +1,13 @@
+<ul>
+  <% @internships.each do |internship| %>
+
+  <%# Logo de la empresa (user_id)%>
+
+  <li><%= internship.title %></li>
+  <li><%= internship.user_id.name %></li>
+   <li><%= internship.user_id.city %></li>
+     <li><%= internship.user_id.country %></li>
+  <li><%= internship.type %></li>
+  <li><%= internship.duration %></li>
+  <% end %>
+</ul>
