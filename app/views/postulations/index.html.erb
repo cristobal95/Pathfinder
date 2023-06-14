@@ -1,26 +1,38 @@
-<h1>INDEX DE POSTULATIONS</h1>
+<h1>Postulaciones</h1>
 <% if current_user.role == true  %>
 
-  <ul>
-    <% @postulations.each do |postulation| %>
-      <li> <%= "Titulo: #{postulation.intership.title}" %> </li>
-      <li> <%= "Estado: #{postulation.status}" %> </li>
-      <li> <%= "Postulante seleccionado: #{postulation.user.last_name}, #{postulation.user.first_name} " if current_user.role == true %> </li>
-      <li> <%= "Empresa: #{postulation.intership.user.name}" %> </li>
-      <li> <%= "Ciudad: #{postulation.intership.user}" %> </li>
-      <li> <%= "Tipo: #{postulation.tipo}" %> </li>
+
+
+   <% @postulations.each do |postulation| %>
+      <h4> <%= "Correo electronico: #{postulation.user.email}" %> </h4>
+      <li> <%= "Nombre: #{postulation.user.first_name}" %> </li>
+      <li> <%= "Apellido: #{postulation.user.last_name}" %> </li>
+       <li> <%= "Apellido: #{postulation.content}" %> </li>
+       <li> <%= "Telefono: #{postulation.user.phone}" %> </li>
+       <li> <%= "Estudios: #{postulation.user.studies}" %> </li>
+      <li> <%= "Experiencia: #{postulation.user.experience}" %> </li>
+      <li> <%= "Nombre: #{postulation.user.first_name}" %> </li>
+       <li> <%= "Estado: #{postulation.status}" %> </li>
+
+ <%= link_to "volver", internships_path %>
     <% end %>
+
   </ul>
 
 
 
 <% else %>
-    <% @postulations.each do |postulation| %>
-      <li> <%= "Titulo: #{postulation.intership.title}" %> </li>
+
+   <%
+=begin%>
+  <% @postulations.each do |postulation| %>
+
       <li> <%= "Estado: #{postulation.status}" %> </li>
-      <li> <%= "Postulante seleccionado: #{postulation.user.last_name}, #{postulation.user.first_name} " if current_user.role == true %> </li>
       <li> <%= "Empresa: #{postulation.intership.user.name}" %> </li>
       <li> <%= "Ciudad: #{postulation.intership.user}" %> </li>
       <li> <%= "Tipo: #{postulation.tipo}" %> </li>
     <% end %>
+<%
+=end
+%>
 <% end %>
