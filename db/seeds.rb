@@ -509,6 +509,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/08",
     end_date: "2023/07/08",
+    city: "Ciudad de México",
+    country:"Mexico",
     user_id: 21
   },
   {
@@ -521,6 +523,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/20",
     end_date: "2023/07/30",
+    city: "Santiago",
+    country:"Chile",
     user_id: 22
   },
   {
@@ -533,6 +537,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/21",
     end_date: "2023/08/10",
+    city: "São Paulo",
+    country:"Brasil",
     user_id: 23
   },
   {
@@ -545,6 +551,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/01",
     end_date: "2023/06/30",
+    city: "Buenos Aires",
+    country:"Argentina",
     user_id: 24
   },
   {
@@ -557,6 +565,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/10",
     end_date: "2023/07/20",
+    city: "Bogotá",
+    country:"Colombia",
     user_id: 25
   },
   {
@@ -569,6 +579,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/15",
     end_date: "2023/07/01",
+    city: "San Salvador",
+    country:"El Salvador",
     user_id: 26
   },
   {
@@ -581,6 +593,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/01",
     end_date: "2023/07/30",
+    city: "San José",
+    country:"Costa Rica",
     user_id: 27
   },
   {
@@ -593,6 +607,8 @@ internships = [
     paid: "Paga",
     start_date: "2023/06/01",
     end_date: "2023/06/30",
+    city: "Santa Cruz",
+    country:"Bolivia",
     user_id: 28
   }
 ]
