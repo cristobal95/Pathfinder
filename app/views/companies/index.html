@@ -1,0 +1,12 @@
+
+<h2>Pasantias</h2>
+<% @internships.each do |internship| %>
+  <%# Logo de la empresa (user_id) %>
+
+  <h5><i class="fa-solid fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
+  <p><%= internship.user.name %></p>
+  <p><%= internship.user.city %></p>
+  <p><%= internship.user.country %></p>
+  <p><%= internship.tipo %></p>
+  <p><%= internship.duration %></li>
+<% end %>
