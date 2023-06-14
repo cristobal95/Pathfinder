@@ -1,1 +1,17 @@
 <h1>SHOW DE POSTULATIONS</h1>
+
+<ul>
+  <li> <%= "Empresa: #{@postulation.internship.user.name}" %> </li>
+  # agregar logo de la empresa
+  <li> <%= "Ciudad: #{@postulation.internship.user.city}" %> </li>
+  <%# <li> <%= "Tipo: #{@postulation.tipo}" %> </li> %>
+  <li> <%= "Estado: #{@postulation.status}" %> </li>
+  <li> <%= "Titulo: #{@postulation.internship.title}" %> </li>
+  <li> <%= "Categoría: #{@postulation.internship.category}" %> </li>
+  <li> <%= "Descripción: #{@postulation.internship.description}" %> </li>
+  <li> <%= "Duración: #{@postulation.internship.duration}" %> </li>
+  <li> <%= "Paga: #{@postulation.internship.paid}" %> </li>
+  <li> <%= "Se reciben aplicaciones desde: #{@postulation.internship.start_date}" %> </li>
+  <li> <%= "Hasta: #{@postulation.internship.end_date}" %> </li>
+  <li> <%= "Postulante seleccionado: #{@postulation.user.last_name}, #{@postulation.user.first_name} " if current_user.role == true %> </li>
+</ul>
