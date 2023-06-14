@@ -12,31 +12,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-
-         
             <%= link_to "Pagina de inicio", "/", class: "nav-link" %>
-          </li>
-        <li class="nav-item">
-            <%= link_to "Pasantias", "/internships", class: "nav-link" %>
-          </li>
-      
           <li class="nav-item">
             <%= link_to "Publicar una pasantia ", "/internships/new", class: "nav-link" %>
-                    
-            
-     
           </li>
-          <li class="nav-item active">
-            <%= link_to "Ver pasantías", "#", class: "nav-link" %>
+            <li class="nav-item">
+            <%= link_to "Ofertas publicada ", internships_path, class: "nav-link" %>
           </li>
+
           <li class="nav-item active">
-            <%= link_to "Publicar una pasantía", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Iniciar sesión", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Registrarse", "#", class: "nav-link" %>
+            <%= link_to "Ver Postulaciónes", "/postulations", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
