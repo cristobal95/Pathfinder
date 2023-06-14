@@ -6,7 +6,11 @@ class PostulationsController < ApplicationController
       @postulations = Postulation.where(user: current_user)
     else
       #company
-      @postulations = Postulation.where(internship_id: Internship.where(user: current_user)).where(selected: true)
+      @postulations = Postulation.where(internship_id: Internship.where(user: current_user))
+=begin
+     .where(selected: true)
+=end
+
     end
   end
 
@@ -14,14 +18,22 @@ class PostulationsController < ApplicationController
     @postulation = Postulation.find(params[:id])
   end
 
+
+
+
   def new
     @postulation = Postulation.new
     @internship = Internship.find(params[:internship_id])
-    @postulation.internship_id = @internship.id
+
   end
 
   def create
     @postulation = Postulation.new(postulation_params)
+    @postulation.user_id = current_user.id
+    @internship = Internship.find(params[:internship_id])
+    @postulation.internship_id = @internship.id
+
+
     if @postulation.save
       redirect_to postulations_path
     else
@@ -45,8 +57,10 @@ class PostulationsController < ApplicationController
     redirect_to postulations_path, status: :see_other
   end
 
+  private
+
   def postulation_params
-    params.require(:postulation).permit(:user_id, :internship_id)
+    params.require(:postulation).permit(:content)
   end
 
 end

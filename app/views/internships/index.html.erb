@@ -17,7 +17,7 @@
 <%
 =end%>
 
-<h1>INDEX DE PASANTIAS</h1>
+<h2>Mis pasantias</h2>
 <% if current_user.role == true  %>
 
   <ul>
@@ -27,18 +27,18 @@
 <%
 =end%>
     <% @internships.each do |internship| %>
-      <li> <%= "Titulo: #{internship.title}" %> </li>
-      <li> <%= "Estado: #{internship.status}" %> </li>
-      <li> <%= "Postulante seleccionado: #{internship.user.last_name}, #{internship.user.first_name} " if current_user.role == true %> </li>
-      <li> <%= "Empresa: #{internship.city}" %> </li>
-      <li> <%= "Ciudad: #{internship.country}" %> </li>
-      <li> <%= "Tipo: #{internship.tipo}" %> </li>
+      <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Estado: #{internship.status}"%></li>
+      <li> <%= "Postulante seleccionado: #{internship.user.last_name}, #{internship.user.first_name} " if current_user.role == true %></li>
+      <p><i class="fas fa-map-pin"></i><%= "Ubicación: #{internship.user.city}, #{internship.user.country}" %></p>
+      <li><i class="fas fa-house-laptop"></i> <%= "Tipo: #{internship.tipo}" %> </li>
     <% end %>
   </ul>
 
 
 
 <% else %>
+
     <% @internships.each do |internship| %>
       <li> <%= "Titulo: #{internship.title}" %> </li>
       <li> <%= "Estado: #{internship.status}" %> </li>

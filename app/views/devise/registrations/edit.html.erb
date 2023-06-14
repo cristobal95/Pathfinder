@@ -14,10 +14,10 @@
                 hint: "dejar en blanco si no quieres cambiarla",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Confirmar nueva contraseña"
+    <%= f.input :password_confirmation, label: "Confirmar nueva contraseña",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password, label: "Contraseña actual"
+    <%= f.input :current_password, label: "Contraseña actual",
                 hint: "necesitamos tu contraseña actual para guardar los cambios",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
