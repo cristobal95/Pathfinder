@@ -12,30 +12,49 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
+
+         
             <%= link_to "Pagina de inicio", "/", class: "nav-link" %>
           </li>
-          <li class="nav-item">
+        <li class="nav-item">
             <%= link_to "Pasantias", "/internships", class: "nav-link" %>
           </li>
+      
           <li class="nav-item">
             <%= link_to "Publicar una pasantia ", "/internships/new", class: "nav-link" %>
+                    
+            
+     
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+          <li class="nav-item active">
+            <%= link_to "Ver pasantías", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Publicar una pasantía", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Iniciar sesión", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Registrarse", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Mi perfil", "#", class: "dropdown-item" %>
+              <%= link_to "Postulaciones", "#", class: "dropdown-item" %>
+              <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Registrarse", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

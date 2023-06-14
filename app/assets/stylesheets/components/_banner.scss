@@ -1,0 +1,17 @@
+.bg-beige {
+  background-color: #9B755D;
+}
+
+
+.image-mask {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-mask img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
