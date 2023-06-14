@@ -1,4 +1,6 @@
-<div class="container">
+<%
+=begin%>
+ <div class="container">
   <div class="d-flex justify-content-center">
     <h2 class="mx-auto">Pasantias</h2>
   </div>
@@ -11,3 +13,38 @@
     <p><i class="fas fa-hourglass-start"></i><%= "Duracion: #{internship.duration}" %></p>
   <% end %>
 </div>
+
+<%
+=end%>
+
+<h1>INDEX DE PASANTIAS</h1>
+<% if current_user.role == true  %>
+
+  <ul>
+  <%
+=begin%>
+ Poner campos de internship que quiero mostrarle a la empresa
+<%
+=end%>
+    <% @internships.each do |internship| %>
+      <li> <%= "Titulo: #{internship.title}" %> </li>
+      <li> <%= "Estado: #{internship.status}" %> </li>
+      <li> <%= "Postulante seleccionado: #{internship.user.last_name}, #{internship.user.first_name} " if current_user.role == true %> </li>
+      <li> <%= "Empresa: #{internship.city}" %> </li>
+      <li> <%= "Ciudad: #{internship.country}" %> </li>
+      <li> <%= "Tipo: #{internship.tipo}" %> </li>
+    <% end %>
+  </ul>
+
+
+
+<% else %>
+    <% @internships.each do |internship| %>
+      <li> <%= "Titulo: #{internship.title}" %> </li>
+      <li> <%= "Estado: #{internship.status}" %> </li>
+      <li> <%= "Postulante seleccionado: #{internship.user.last_name}, #{internship.user.first_name} " if current_user.role == true %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ciudad: #{internship.user}" %> </li>
+      <li> <%= "Tipo: #{internship.tipo}" %> </li>
+    <% end %>
+<% end %>

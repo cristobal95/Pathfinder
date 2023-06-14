@@ -1,7 +1,13 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: %i[show edit update]
   def index
-    @internships = Internship.all
+    if current_user.role == false
+      #student
+      @internships = Internship.all
+    else
+      #company
+      @internships = Internship.where(user: current_user)
+    end
   end
 
     def show

@@ -1,16 +1,26 @@
 <h1>INDEX DE POSTULATIONS</h1>
+<% if current_user.role == true  %>
 
-<ul>
-<% @postulations.each do |postulation| %>
+  <ul>
+    <% @postulations.each do |postulation| %>
+      <li> <%= "Titulo: #{postulation.intership.title}" %> </li>
+      <li> <%= "Estado: #{postulation.status}" %> </li>
+      <li> <%= "Postulante seleccionado: #{postulation.user.last_name}, #{postulation.user.first_name} " if current_user.role == true %> </li>
+      <li> <%= "Empresa: #{postulation.intership.user.name}" %> </li>
+      <li> <%= "Ciudad: #{postulation.intership.user}" %> </li>
+      <li> <%= "Tipo: #{postulation.tipo}" %> </li>
+    <% end %>
+  </ul>
 
-  <li> <%= "Titulo: #{postulation.intership.title}" %> </li>
-  <li> <%= "Estado: #{postulation.status}" %> </li>
-  <li> <%= "Postulante seleccionado: #{postulation.user.last_name}, #{postulation.user.first_name} " if current_user.role == true %> </li>
-  <li> <%= "Empresa: #{postulation.intership.user.name}" %> </li>
-  <li> <%= "Ciudad: #{postulation.intership.user}" %> </li>
-  <li> <%= "Tipo: #{postulation.tipo}" %> </li>
 
 
+<% else %>
+    <% @postulations.each do |postulation| %>
+      <li> <%= "Titulo: #{postulation.intership.title}" %> </li>
+      <li> <%= "Estado: #{postulation.status}" %> </li>
+      <li> <%= "Postulante seleccionado: #{postulation.user.last_name}, #{postulation.user.first_name} " if current_user.role == true %> </li>
+      <li> <%= "Empresa: #{postulation.intership.user.name}" %> </li>
+      <li> <%= "Ciudad: #{postulation.intership.user}" %> </li>
+      <li> <%= "Tipo: #{postulation.tipo}" %> </li>
+    <% end %>
 <% end %>
-
-</ul>
