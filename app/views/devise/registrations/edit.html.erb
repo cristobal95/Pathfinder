@@ -11,18 +11,18 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%= f.input :password, label: "Nueva contraseña",
-                  hint: "dejar en blanco si no quieres cambiarla",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation, label: "Confirmar nueva contraseña",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password, label: "Contraseña actual",
-                  hint: "necesitamos tu contraseña actual para guardar los cambios",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
-    </div>
+    <%= f.input :password, label: "Nueva contraseña",
+                hint: "dejar en blanco si no quieres cambiarla",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation, label: "Confirmar nueva contraseña",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :current_password, label: "Contraseña actual",
+                hint: "necesitamos tu contraseña actual para guardar los cambios",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+  </div>
 
     <div class="form-actions">
       <%= f.button :submit, "Update" %>
