@@ -1,22 +1,14 @@
 <div class="container">
   <h2>Crea una pasantía! </h2>
   <%= simple_form_for(@internship) do |f| %>
-  <%= f.input :category %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-
-  <%= f.input :tipo %>
-  <%= f.input :status %>
-
-  <%= f.input :duration %>
-
-  <%= f.input :paid %>
-
-    <%= f.input :start_date, html5: true %>
-
-    <%= f.input :end_date, html5: true %>
-
-    <%= f.submit %>
-    <% end %>
-
-  </div>
+  <%= f.input :category, label: "Puesto de trabajo" %>
+  <%= f.input :title, label: "Empresa" %>
+  <%= f.input :description, label: "Descripción" %>
+  <%= f.input :tipo, label: "Presencial o remoto (elige una opción)" %>
+  <%= f.input :duration, label: "Duración" %>
+  <%= f.input :paid, label: "Salario" %>
+  <%= f.input :start_date, html5: true, label: "Fecha de inicio" %>
+  <%= f.input :end_date, html5: true,label: "Fecha de finalización" %>
+  <%= f.submit %>
+  <% end %>
+</div>

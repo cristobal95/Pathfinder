@@ -1,7 +1,13 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: %i[show edit update]
   def index
-    @internships = Internship.all
+    if current_user.role == false
+      #student
+      @internships = Internship.all
+    else
+      #company
+      @internships = Internship.where(user: current_user)
+    end
   end
 
     def show
@@ -34,7 +40,7 @@ class InternshipsController < ApplicationController
     private
 
   def internship_params
-    params.require(:internship).permit(:category, :title, :description, :tipo, :status, :duration, :paid, :start_date, :end_date)
+    params.require(:internship).permit(:category, :title, :description, :tipo, :status, :duration, :paid, :city, :country, :start_date, :end_date)
   end
 
   def set_internship
