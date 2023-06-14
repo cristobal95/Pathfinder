@@ -1,1 +1,8 @@
 <h1>edit DE POSTULATIONS</h1>
+
+<div class="container">
+  <%= simple_form_for [@internship, @postulation] do |f| %>
+    <%= f.input :status, as: :select, required: true, label: "Cambiar estado:", collection: Postulation.statuses.keys.map { |status| [status.titleize, status] } %>
+    <%= f.submit "Confirmar", class: "btn btn-primary" %>
+  <% end %>
+</div>
