@@ -1,7 +1,13 @@
 class PostulationsController < ApplicationController
 
   def index
-    @postulation = Postulation.where(user: current_user)
+    if current_user.role == false
+      #student
+      @postulations = Postulation.where(user: current_user)
+    else
+      #company
+      @postulations = Postulation.where(internship_id: Internship.where(user: current_user)).where(selected: true)
+    end
   end
 
   def show
@@ -17,7 +23,7 @@ class PostulationsController < ApplicationController
   def create
     @postulation = Postulation.new(postulation_params)
     if @postulation.save
-      redirect_to postulations
+      redirect_to postulations_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,13 +36,13 @@ class PostulationsController < ApplicationController
   def update
     @postulation = Postulation.find(params[:id])
     @postulation.update(postulation_params)
-    redirect_to postulation(@postulation)
+    redirect_to postulation_path(@postulation)
   end
 
   def destroy
     @postulation = Postulation.find(params[:id])
     @postulation.destroy
-    redirect_to postulations, status: :see_other
+    redirect_to postulations_path, status: :see_other
   end
 
   def postulation_params
