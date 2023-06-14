@@ -12,7 +12,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
+            <%= link_to "Pagina de inicio", "/", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Pasantias", "/internships", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Publicar una pasantia ", "/internships/new", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
