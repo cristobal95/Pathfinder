@@ -46,7 +46,7 @@ class PostulationsController < ApplicationController
   end
 
   def postulation_params
-    params.require(:postulation).permit(:user_id, :internship_id)
+    params.require(:postulation).permit(:user_id, :internship_id, :content)
   end
 
 end
