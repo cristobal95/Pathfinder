@@ -34,7 +34,7 @@ class InternshipsController < ApplicationController
     private
 
   def internship_params
-    params.require(:internship).permit(:category, :title, :description, :tipo, :status, :duration, :paid, :start_date, :end_date)
+    params.require(:internship).permit(:category, :title, :description, :tipo, :status, :duration, :paid, :city, :country, :start_date, :end_date)
   end
 
   def set_internship

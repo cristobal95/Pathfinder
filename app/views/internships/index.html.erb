@@ -4,7 +4,7 @@
   </div>
   <% @internships.each do |internship| %>
     <%# Logo de la empresa (user_id) %>
-    <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
+    <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship), class: "nav-link" %></h5>
     <p>Empresa: <%= internship.user.name %></p>
     <p><i class="fas fa-map-pin"></i><%= "#{internship.user.city}, #{internship.user.country}" %></p>
     <p><i class="fas fa-house-laptop"></i><%= internship.tipo %></p>
