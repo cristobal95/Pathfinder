@@ -4,12 +4,17 @@
   </div>
 <% end %>
 <div class="container">
-<h2>Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
+<% if @internship.status == "Abierta" %>
+  <h2>Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
 
-  <%= simple_form_for [@internship, @postulation] do |f| %>
-  <br>
-    <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
-
-    <%= f.submit "Confirmar", class:"btn btn-primary"%>
-  <% end %>
+    <%= simple_form_for [@internship, @postulation] do |f| %>
+    <br>
+      <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
+      <p>*máximo 150 caracteres</p>
+      <%= f.submit "Confirmar", class:"btn btn-primary"%>
+    <% end %>
+<% else %>
+  <h2>Lo sentimos, esta oferta de pasantía ha concluido.</h2>
+  <p>Puedes buscar otras: <%= link_to "Pasantias ", internships_path %></p>
+<% end %>
 </div>
