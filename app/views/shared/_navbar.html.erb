@@ -25,13 +25,13 @@
           <% if current_user.photo.present? %>
             <% @user = User.new %>
             <% @user.id = current_user.id %>
-            <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+            <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill %>
           <% else %>
             <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mi perfil", "user_path(current_user)", class: "dropdown-item" %>
+              <%= link_to "Mi perfil", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
               <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

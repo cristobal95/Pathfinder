@@ -1,21 +1,46 @@
-
+  <div class="content text-center">
   <h2>Pathfinder</h2>
   <p>Encuentra tu camino, a través de la experiencia</p>
-
-<%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control search-input",
-            placeholder: "Busca trabajo, ciudad o país"
-        %>
-      <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
-    <% end %>
-
-
-<div class="banner vh-100 position-relative">
-  <div class="image-mask">
-    <%= image_tag("banner.jpg", style: "width: 100%;", alt: "Chica feliz con su primera pasatia", class: "imagen img-fluid") %>
-  </div>
-  <h3 class="text-center text-white position-absolute top-50 start-50 translate-middle bg-beige" style="transform: translate(-50%, -50%); margin-top: -50px;">Comienza tu camino profesional con PathFinder</h3>
-
 </div>
+
+
+<div class="banner position-relative">
+  <div class="image-home">
+    <%= image_tag("Banner", alt: "Chica feliz con su primera pasatia") %>
+
+    <div class="search-container">
+      <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
+        <div class="search-wrapper">
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control search-input",
+                placeholder: "Busca trabajo, ciudad o país"
+            %>
+          <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<%
+=begin%>
+ <div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Lunch
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Dinner
+  </div>
+</div>
+
+<%
+=end%>
