@@ -1,5 +1,5 @@
-<h1>Postulaciones</h1>
 <% if current_user.role == true  %>
+<h2>Postulantes</h2>
 
 
 
@@ -22,17 +22,21 @@
 
 
 <% else %>
+<h2>Mis postulaciones</h2>
 
-   <%
-=begin%>
   <% @postulations.each do |postulation| %>
 
-      <li> <%= "Estado: #{postulation.status}" %> </li>
-      <li> <%= "Empresa: #{postulation.intership.user.name}" %> </li>
-      <li> <%= "Ciudad: #{postulation.intership.user}" %> </li>
-      <li> <%= "Tipo: #{postulation.tipo}" %> </li>
+      <li><%=  "Empresa: #{postulation.internship.title}" %></li>
+      <li> <%= "Duración: #{postulation.internship.duration}" %> </li>
+      <li> <%= "Sueldo : #{postulation.internship.paid}" %> </li>
+      <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
+
+    <%= link_to "Eliminar postulación",
+            postulations_path(@postulation),
+            data: {turbo_method: :delete, turbo_confirm: "Estás seguro/a?"} %>
+
     <% end %>
 <%
-=end
+
 %>
 <% end %>

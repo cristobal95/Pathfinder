@@ -3,6 +3,6 @@ class Postulation < ApplicationRecord
   belongs_to :user
   belongs_to :internship
 
-validates :user_id, uniqueness: true
+
 
 end
