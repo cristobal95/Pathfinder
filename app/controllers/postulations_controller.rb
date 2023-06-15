@@ -11,14 +11,13 @@ class PostulationsController < ApplicationController
      .where(selected: true)
 =end
 
+
     end
   end
 
   def show
     @postulation = Postulation.find(params[:id])
   end
-
-
 
 
   def new
