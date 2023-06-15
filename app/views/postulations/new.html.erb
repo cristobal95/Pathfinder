@@ -9,7 +9,7 @@
   <%= simple_form_for [@internship, @postulation] do |f| %>
   <br>
     <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
-
+    <p>*máximo 150 caracteres</p>
     <%= f.submit "Confirmar", class:"btn btn-primary"%>
   <% end %>
 </div>
