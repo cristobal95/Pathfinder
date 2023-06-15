@@ -1,37 +1,15 @@
-<%
-=begin%>
- <div class="container">
-  <div class="d-flex justify-content-center">
-    <h2 class="mx-auto">Pasantias</h2>
-  </div>
-  <% @internships.each do |internship| %>
-    <%# Logo de la empresa (user_id) %>
-    <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship), class: "nav-link" %></h5>
-    <p>Empresa: <%= internship.user.name %></p>
-    <p><i class="fas fa-map-pin"></i><%= "#{internship.user.city}, #{internship.user.country}" %></p>
-    <p><i class="fas fa-house-laptop"></i><%= internship.tipo %></p>
-    <p><i class="fas fa-hourglass-start"></i><%= "Duracion: #{internship.duration}" %></p>
-  <% end %>
-</div>
-
-<%
-=end%>
-
-<h2>Mis pasantias</h2>
 <% if current_user.role == true  %>
-
+<h2>Mis pasantias</h2>
   <ul>
-  <%
-=begin%>
- Poner campos de internship que quiero mostrarle a la empresa
-<%
-=end%>
     <% @internships.each do |internship| %>
+
       <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
-      <li> <%= "Estado: #{internship.status}"%></li>
-      <li> <%= "Postulante seleccionado: #{internship.user.last_name}, #{internship.user.first_name} " if current_user.role == true %></li>
+      <li>Estado: <%= internship.status %></li>
+
+
       <p><i class="fas fa-map-pin"></i><%= "Ubicación: #{internship.user.city}, #{internship.user.country}" %></p>
       <li><i class="fas fa-house-laptop"></i> <%= "Tipo: #{internship.tipo}" %> </li>
+      <li>Cantidad de postulaciones: <%= internship.postulations.count  %></li>
     <% end %>
   </ul>
 
@@ -40,11 +18,18 @@
 <% else %>
 
     <% @internships.each do |internship| %>
-      <li> <%= "Titulo: #{internship.title}" %> </li>
-      <li> <%= "Estado: #{internship.status}" %> </li>
-      <li> <%= "Postulante seleccionado: #{internship.user.last_name}, #{internship.user.first_name} " if current_user.role == true %> </li>
+      <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
+      <li>Estado: <%= internship.status %></li>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
       <li> <%= "Empresa: #{internship.user.name}" %> </li>
-      <li> <%= "Ciudad: #{internship.user}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
       <li> <%= "Tipo: #{internship.tipo}" %> </li>
+      <% if internship.paid%>
+        <li>Remunerada: Sí</li>
+      <% else %>
+        <li>Remunerada: No</li>
+      <% end %>
+
+
     <% end %>
 <% end %>
