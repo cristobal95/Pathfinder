@@ -11,35 +11,56 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.role == true %>
           <li class="nav-item active">
-            <%= link_to "Pagina de inicio", "/", class: "nav-link" %>
+            <%= link_to "Inicio", "/", class: "nav-link" %>
           <li class="nav-item">
             <%= link_to "Publicar una pasantia ", "/internships/new", class: "nav-link" %>
           </li>
             <li class="nav-item">
             <%= link_to "Ofertas publicadas ", internships_path, class: "nav-link" %>
           </li>
-
-        <%
-=begin%>
-   <li class="nav-item active">
-            <%= link_to "Ver Postulaciónes", "/postulations", class: "nav-link" %>
-          </li>
-<%
-=end%>
-
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          <% if current_user.photo.present? %>
+            <% @user = User.new %>
+            <% @user.id = current_user.id %>
+            <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
+          <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mi perfil", "#", class: "dropdown-item" %>
-              <%= link_to "Postulaciones", "#", class: "dropdown-item" %>
               <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
+      <% elsif user_signed_in? && current_user.role == false %>
+      <li class="nav-item active">
+            <%= link_to "Inicio", "/", class: "nav-link" %>
+          <li class="nav-item">
+            <%= link_to "Pasantias ", internships_path, class: "nav-link" %>
+          </li>
+            <li class="nav-item">
+            <%= link_to "Mis Postulaciones", postulations_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user.photo.present? %>
+            <% @user = User.new %>
+            <% @user.id = current_user.id %>
+            <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
+          <% end %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Mi perfil", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+
         <% else %>
           <li class="nav-item">
             <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %>
@@ -47,8 +68,22 @@
           <li class="nav-item">
             <%= link_to "Registrarse", new_user_registration_path, class: "nav-link" %>
           </li>
+              <li class="nav-item">
+           <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
+          </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
+
+
+
+
+      <%
+=begin%>
+   <li class="nav-item active">
+            <%= link_to "Ver Postulaciónes", "/postulations", class: "nav-link" %>
+          </li>
+<%
+=end%>

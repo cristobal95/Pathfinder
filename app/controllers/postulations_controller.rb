@@ -11,7 +11,6 @@ class PostulationsController < ApplicationController
      .where(selected: true)
 =end
 
-
     end
   end
 
@@ -59,7 +58,7 @@ class PostulationsController < ApplicationController
   private
 
   def postulation_params
-    params.require(:postulation).permit(:content)
+    params.require(:postulation).permit(:content, :status)
   end
 
 end
