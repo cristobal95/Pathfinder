@@ -1,4 +1,5 @@
 class Internship < ApplicationRecord
+
   enum tipo: { remoto: "Remoto", presencial: "Presencial", híbrido: "Híbrido" }
   enum category: {
     administration: "Administración y gestión empresarial",
@@ -34,5 +35,13 @@ class Internship < ApplicationRecord
   def selected_students
     self.postulations.where(selected: true)
   end
+
+
+  include PgSearch::Model
+pg_search_scope :search_by_title,
+  against: [ :title, :city, :country],
+  using: {
+    tsearch: { prefix: true }
+  }
 
 end
