@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_183312) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_060336) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,13 +43,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_183312) do
   end
 
   create_table "internships", force: :cascade do |t|
-    t.string "category"
     t.string "title"
     t.text "description"
-    t.string "tipo"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.integer "duration"
-    t.string "paid"
     t.date "start_date"
     t.date "end_date"
     t.bigint "user_id", null: false
@@ -58,12 +55,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_183312) do
     t.string "city"
     t.string "state"
     t.string "country"
+    t.boolean "paid"
+    t.json "tipo"
+    t.json "category"
     t.index ["user_id"], name: "index_internships_on_user_id"
   end
 
   create_table "postulations", force: :cascade do |t|
     t.json "status", default: {}
-    t.boolean "selected"
+    t.boolean "selected", default: false
     t.bigint "user_id", null: false
     t.bigint "internship_id", null: false
     t.datetime "created_at", null: false
