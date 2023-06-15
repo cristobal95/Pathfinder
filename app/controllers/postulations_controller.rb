@@ -32,6 +32,7 @@ class PostulationsController < ApplicationController
     if @postulation.save
       redirect_to postulations_path
     else
+      flash[:error] = @postulation.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end

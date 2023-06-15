@@ -19,7 +19,7 @@
       <% if current_user.id == @usuario.id %>
         <h2>Hola <%= @usuario.first_name %>, este es tu perfil</h2>
       <% else %>
-        <h2>Hola <%= current_user.first_name %>, estás viendo el perfil de <%= @usuario.first_name %>< <%= current_user.last_name %>/h2>
+        <h2>Hola <%= current_user.first_name %>, estás viendo el perfil de <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
       <% end %>
     <% else %>
         <h2>Hola <%= current_user.name %>, este es el perfil del ususario: <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
