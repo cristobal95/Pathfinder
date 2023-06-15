@@ -1,8 +1,9 @@
-<h1>NEW DE POSTULATIONS</h1>
-
 <div class="container">
+<h2>Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
+
   <%= simple_form_for [@internship, @postulation] do |f| %>
-    <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa:    " %>
+  <br>
+    <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
 
     <%= f.submit "Confirmar", class:"btn btn-primary"%>
   <% end %>
