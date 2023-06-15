@@ -2,10 +2,10 @@
   <% if current_user.role == true %>
     <h2>Crea una pasantía! </h2>
     <%= simple_form_for(@internship) do |f| %>
-    <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, prompt: "Selecciona la categoría", required: true %>
+    <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, prompt: "Categoría", required: true %>
     <%= f.input :title, label: "Puesto", required: true %>
     <%= f.input :description, label: "Descripción", required: true %>
-    <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Selecciona la modalidad", required: true %>
+    <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Modalidad", required: true %>
     <%= f.input :city, label: "Ciudad", required: true %>
     <%= f.input :country, label: "País", required: true %>
     <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true %>

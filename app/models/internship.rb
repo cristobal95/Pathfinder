@@ -23,8 +23,9 @@ class Internship < ApplicationRecord
     gno: "Sector sin ánimo de lucro",
     other: "Otros"
   }
+
   enum paid: { No: false, Si: true }
-  enum status: { abierta: false, finalizada: true }
+  enum status: { Abierta: false, Finalizada: true }
 
   belongs_to :user
   has_many :postulations
