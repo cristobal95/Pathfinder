@@ -20,4 +20,7 @@
     <p>Idioma(s): <%= @usuario.languages %></p>
     <p>Conocimientos: <%= @usuario.knowledges %></p>
   <% end %>
+  <% if current_user.id == params[:id] %>
+    <% link_to "Editar", edit_user_registration_path %>
+  <% end %>
 </div>
