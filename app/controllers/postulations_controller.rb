@@ -7,11 +7,6 @@ class PostulationsController < ApplicationController
     else
       #company
       @postulations = Postulation.where(internship_id: Internship.where(user: current_user))
-=begin
-     .where(selected: true)
-=end
-
-
     end
   end
 

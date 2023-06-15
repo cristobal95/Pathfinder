@@ -10,7 +10,7 @@
     <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true %>
     <%= f.input :start_date, html5: true, label: "Fecha de inicio", required: true %>
     <%= f.input :end_date, html5: true,label: "Fecha de finalización", required: true %>
-    <%= f.input :status, collection: [["Abierta", "abierta"], ["Finalizada", "finalizada"]], prompt: "Editar estado" %>
+    <%= f.input :status, collection: Internship.statuses.keys.map(&:humanize), prompt: "Modalidad", required: true %>
     <%= f.submit class:"btn btn-primary" %>
     <% end %>
   <% else %>

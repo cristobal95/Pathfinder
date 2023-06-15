@@ -37,6 +37,7 @@ class InternshipsController < ApplicationController
     redirect_to internship_path(@internship)
   end
 
+
     private
 
   def internship_params
