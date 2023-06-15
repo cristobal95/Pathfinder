@@ -4,6 +4,9 @@ class InternshipsController < ApplicationController
     if current_user.role == false
       #student
       @internships = Internship.all
+      if params[:query].present?
+        @internships = @internships.search_by_title(params[:query])
+      end
     else
       #company
       @internships = Internship.where(user: current_user)
@@ -36,6 +39,7 @@ class InternshipsController < ApplicationController
     @internship.update(internship_params)
     redirect_to internship_path(@internship)
   end
+
 
     private
 
