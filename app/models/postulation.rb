@@ -3,6 +3,8 @@ class Postulation < ApplicationRecord
   belongs_to :user
   belongs_to :internship
 
+  validates :content, length: { maximum: 150 }
+
   validate :unique_postulation
 
   private
