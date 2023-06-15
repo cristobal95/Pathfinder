@@ -8,7 +8,7 @@ class Postulation < ApplicationRecord
   private
 
   def unique_postulation
-    if user.postulations.where(internship_id: internship_id).exists?
+    if Postulation.exists?(user_id: user_id, internship_id: internship_id)
       errors.add(:base, 'Ya te has postulado a esta pasantía.')
     end
   end
