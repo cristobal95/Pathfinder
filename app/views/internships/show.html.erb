@@ -1,17 +1,42 @@
 <div class="container">
 
-<h2><%= @internship.title %></h2>
-<p><%= @internship.description %></p>
-<p><%= @internship.category %></p>
-<p><%= @internship.tipo %></p>
-<p><%= @internship.status %></p>
-<p><%= @internship.duration %></p>
-<p><%= @internship.paid %></p>
-<p><%= @internship.start_date %></p>
-<p><%= @internship.end_date %></p>
+  <h2><%= @internship.title %></h2>
+  <p>Categoría: <%= @internship.category %></p>
 
-<%= link_to "Postulaciones", postulations_path %>
-<%= link_to "Editar Pasantía", edit_internship_path %>
-<%= link_to "Volver", internships_path %>
+  <p>Estado: <%= @internship.status %></p>
+  <p>Descripción: <%= @internship.description %></p>
+  <p>Tipo: <%= @internship.tipo %></p>
+  <p>Ubicación: <%= "#{@internship.city}, #{@internship.country}" %></p>
 
-<div>
+  <p>Duración: <%= @internship.duration %> meses</p>
+  <p>Remunerada: <%= @internship.paid %></p>
+  <p>Desde: <%= @internship.start_date.strftime("%d-%m-%Y") %></p>
+  <p>Hasta: <%= @internship.end_date.strftime("%d-%m-%Y") %></p>
+
+  <% if current_user.role == true && current_user.id == @internship.user_id %>
+    <p>Postulantes:</p>
+    <% @internship.postulations.each do |student| %>
+      <p><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)) %></p>
+    <% end %>
+
+    <% if @internship.selected_students.size == 1 %>
+      <p>Postulante seleccionado:<%= "#{internship.postulations.first.user.last_name}, #{internship.postulations.first.user.first_name}" %></p>
+    <% else %>
+      <p>Seleccionados hasta el momento:</p>
+      <% @internship.selected_students.each do |selected| %>
+        <p><%= link_to "#{selected.user.last_name}, #{selected.user.first_name}", user_path(User.find(selected.user.id)) %></p>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <% if current_user.role == false %>
+    <%= link_to "Volver", internships_path, class: "btn btn-primary" %>
+    <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "btn btn-primary" %>
+  <% elsif current_user.role == true && current_user.id == @internship.user_id %>
+    <%= link_to "Volver", internships_path, class: "btn btn-primary" %>
+    <%= link_to "Postulaciones", postulations_path, class: "btn btn-primary" %>
+    <%= link_to "Editar Pasantía", edit_internship_path, class: "btn btn-primary" %>
+  <% end %>
+
+</div>
