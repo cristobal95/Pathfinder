@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_183312) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_012136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_183312) do
 
   create_table "postulations", force: :cascade do |t|
     t.json "status", default: {}
-    t.boolean "selected"
+    t.boolean "selected", default: false
     t.bigint "user_id", null: false
     t.bigint "internship_id", null: false
     t.datetime "created_at", null: false
