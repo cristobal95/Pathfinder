@@ -77,6 +77,9 @@ group :test do
   gem "webdrivers"
 end
 
+gem "country_select-8.0.1"
+gem "countries-5.4.0"
+gem "unaccent-0.4.0"
 gem "cloudinary"
 
 gem 'country_select'
