@@ -1,27 +1,112 @@
 <div class="container" ms-5>
-  <h2>Editar <%= resource_name.to_s.humanize %></h2>
+  <% if current_user.role == true %>
+    <h2>Hola <%= @user.name %></h2><p>Aquí puedes editar tus datos</p>
+  <% else %>
+    <h2>Hola <%= @user.first_name %></h2><p>Aquí puedes editar tus datos</p>
+  <% end %>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :email, required: true, autofocus: true, disabled: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
+      <% if current_user.role == true %>
+        <%= f.input :name, label: "Nombre de la empresa",
+                    required: false,
+                    input_html: { autocomplete: "name" } %>
+        <%= f.input :website, label: "Sitio Web",
+                    required: false,
+                    input_html: { autocomplete: "web-site" } %>
+        <%= f.input :industry, label: "Industria",
+                    required: false,
+                    input_html: { autocomplete: "industry" } %>
+        <%= f.input :about, label: "Descripción",
+                    hint: "Descripción de la empresa",
+                    required: false,
+                    input_html: { autocomplete: "about" } %>
+        <%= f.input :city, label: "Ciudad",
+                    required: false,
+                    input_html: { autocomplete: "city" } %>
+        <%= f.input :country, label: "País",
+                    required: false,
+                    input_html: { autocomplete: "country" } %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.input :photo, label: "Logo",
+                        required: false,
+                        input_html: { autocomplete: "photo" } %>
+          </div>
+          <div class="col-md-4">
+            <%= image_tag @user.photo.url(crop: "fill", width: 150, height: 150) %>
+          </div>
+        </div>
 
-    <%= f.input :password, label: "Nueva contraseña",
-                hint: "dejar en blanco si no quieres cambiarla",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Confirmar nueva contraseña",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password, label: "Contraseña actual",
-                hint: "necesitamos tu contraseña actual para guardar los cambios",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+      <% else %>
+        <%= f.input :first_name, label: "Nombre",
+                    required: false,
+                    input_html: { autocomplete: "first-name" } %>
+        <%= f.input :last_name, label: "Apellido",
+                    required: false,
+                    input_html: { autocomplete: "last-name" } %>
+        <%= f.input :age, label: "Edad",
+                    required: false,
+                    input_html: { autocomplete: "age" } %>
+        <%= f.input :phone, label: "Teléfono",
+                    required: false,
+                    input_html: { autocomplete: "phone" } %>
+        <%= f.input :address, label: "Dirección",
+                    required: false,
+                    input_html: { autocomplete: "address" } %>
+        <%= f.input :city, label: "Ciudad",
+                    required: false,
+                    input_html: { autocomplete: "city" } %>
+        <%= f.input :state, label: "Estado",
+                    required: false,
+                    input_html: { autocomplete: "state" } %>
+        <%= f.input :country, label: "País", only: ['AR', 'BR', 'CL', 'CO', 'MX', 'PE', 'UY', 'EC', 'BO', 'PY', 'VE', 'TT', 'DO', 'PA', 'NI', 'HN', 'GT', 'SV', 'DM', 'CU', 'CR'],
+                    required: false,
+                    input_html: { autocomplete: "country" } %>
+        <%= f.input :studies, label: "Estudios",
+                    required: false,
+                    input_html: { autocomplete: "studies" } %>
+        <%= f.input :college, label: "Unidad Educativa",
+                    required: false,
+                    input_html: { autocomplete: "college" } %>
+        <%= f.input :experience, label: "Experiencia",
+                    required: false,
+                    input_html: { autocomplete: "experience" } %>
+        <%= f.input :languages, label: "Idiomas",
+                    required: false,
+                    input_html: { autocomplete: "languages" } %>
+        <%= f.input :knowledges, label: "Conocimientos",
+                    required: false,
+                    input_html: { autocomplete: "knowledges" } %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.input :photo, label: "Foto",
+                        required: false,
+                        input_html: { autocomplete: "photo" } %>
+          </div>
+          <div class="col-md-4">
+            <%= image_tag @user.photo.url(crop: "fill", width: 150, height: 150) %>
+          </div>
+        </div>
+      <% end %>
+      <%= f.input :password, label: "Nueva contraseña",
+                  hint: "dejar en blanco si no quieres cambiarla",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation, label: "Confirmar nueva contraseña",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :current_password, label: "Contraseña actual",
+                  hint: "necesitamos tu contraseña actual para guardar los cambios",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
   </div>
 
     <div class="form-actions">

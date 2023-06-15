@@ -1,6 +1,17 @@
 
   <h2>Pathfinder</h2>
   <p>Encuentra tu camino, a través de la experiencia</p>
+
+<%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control search-input",
+            placeholder: "Busca trabajo, ciudad o país"
+        %>
+      <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+    <% end %>
+
+
 <div class="banner vh-100 position-relative">
   <div class="image-mask">
     <%= image_tag("banner.jpg", style: "width: 100%;", alt: "Chica feliz con su primera pasatia", class: "imagen img-fluid") %>

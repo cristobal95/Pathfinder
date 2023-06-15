@@ -7,6 +7,7 @@ class PostulationsController < ApplicationController
     else
       #company
       @postulations = Postulation.where(internship_id: Internship.where(user: current_user))
+
     end
   end
 
@@ -54,7 +55,7 @@ class PostulationsController < ApplicationController
   private
 
   def postulation_params
-    params.require(:postulation).permit(:content)
+    params.require(:postulation).permit(:content, :status)
   end
 
 end

@@ -1,17 +1,20 @@
-<h1>SHOW DE POSTULATIONS</h1>
+<h2>Perfil del postulante</h2>
 
 <ul>
-  <li> <%= "Empresa: #{@postulation.internship.user.name}" %> </li>
-  # agregar logo de la empresa
-  <li> <%= "Ciudad: #{@postulation.internship.user.city}" %> </li>
-  <%# <li> <%= "Tipo: #{@postulation.tipo}" %> </li> %>
-  <li> <%= "Estado: #{@postulation.status}" %> </li>
-  <li> <%= "Titulo: #{@postulation.internship.title}" %> </li>
-  <li> <%= "Categoría: #{@postulation.internship.category}" %> </li>
-  <li> <%= "Descripción: #{@postulation.internship.description}" %> </li>
-  <li> <%= "Duración: #{@postulation.internship.duration}" %> </li>
-  <li> <%= "Paga: #{@postulation.internship.paid}" %> </li>
-  <li> <%= "Se reciben aplicaciones desde: #{@postulation.internship.start_date}" %> </li>
-  <li> <%= "Hasta: #{@postulation.internship.end_date}" %> </li>
-  <li> <%= "Postulante seleccionado: #{@postulation.user.last_name}, #{@postulation.user.first_name} " if current_user.role == true %> </li>
+    <p>Estado:
+        <%= form_for @postulation do |f| %>
+            <%= f.select :status, @postulation.class.statuses.keys.map { |s| [s.to_s.humanize, s] }, include_blank: true %>
+            <%= f.submit "Guardar" %>
+        <% end %>
+        <br>
+    <h5>Aplicante: <%= @postulation.user.first_name %> <%= @postulation.user.last_name %></h5>
+    <h5>Mensaje: <%= @postulation.content %></h5>
+    <li>Correo electrónico: <%= @postulation.user.email %></li>
+    <li>Teléfono: <%= @postulation.user.phone %></li>
+    <li>Estudios: <%= @postulation.user.studies %></li>
+    <li>Experiencia laboral: <%= @postulation.user.experience %></li>
+    <li>Ubicación: <%= @postulation.internship.city%>, <%=@postulation.internship.country %></li>
+    <li>Postulación recibida: <%= @postulation.user.created_at.to_s %></li>
 </ul>
+
+ <%= link_to "Volver a pasantias", internships_path %>
