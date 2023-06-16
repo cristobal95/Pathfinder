@@ -6,7 +6,6 @@
     <p>Descripción: <%= @internship.description %></p>
     <p>Tipo: <%= Internship.tipos[@internship.tipo] %></p>
     <p>Ubicación: <%= "#{@internship.city}, #{@internship.country}" %></p>
-
     <p>Duración: <%= @internship.duration %> meses</p>
     <p>Remunerada: <%= @internship.paid %></p>
     <p>Desde: <%= @internship.start_date.strftime("%d-%m-%Y") %></p>
@@ -14,18 +13,32 @@
   </div>
 
 
-
-    <% if current_user.role == true && current_user.id == @internship.user_id %>
+  <% if current_user.role == true && current_user.id == @internship.user_id %>
+      <div>
+        <h5 class="mt-2">Filtrar postulaciones:</h5>
+        <%= simple_form_for(@postulation) do |f| %>
+          <%= f.input :status, label: "Estado", collection: Postulation.statuses.keys, prompt: "Seleccionar estado" %>
+          <%= f.button :submit, "Filtrar" %>
+        <% end %>
+      </div>
       <% @internship.postulations.each do |student| %>
-        <div class="card-product mt-3">
-          <%= cl_image_tag student.user.photo.key, height: 200, width: 200, crop: :fill %>
-          <div class="card-product-infos">
-            <h2><p><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)) %></p></h2>
-            <p>Estado de la aplicación <strong><%= student.status %></strong></p>
+          <div class="card-product mt-3">
+            <%= cl_image_tag student.user.photo.key, height: 200, width: 200, crop: :fill %>
+            <div class="card-body d-flex d-wrap justify-content-between">
+              <div>
+                <h5 class="card-product-infos"><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)) %></h5>
+                <p class="card-product-infos"><%= student.content %></p>
+              </div>
+              <p class="card-product-infos"><%= student.status %></p>
+              <div class="card-product-infos bm-3">
+                <%= button_to "Aprobar", postulations_change_status_to_approved_path(student) , class:"btn btn-primary ms-2 mb-2 mt-3" %>
+                <%= button_to "Rechazar", postulations_change_status_to_rejected_path(student), class: "btn btn-primary ms-2 mb-2 mt-3" %>
+              </div>
+            </div>
           </div>
-        </div>
       <% end %>
-    <% end %>
+  <% end %>
+
   <div class="d-flex justify-content-evenly mt-3">
     <% if current_user.role == false %>
       <%= link_to "Volver", internships_path, class: "btn btn-primary" %>
