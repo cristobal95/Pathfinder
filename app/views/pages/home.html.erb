@@ -24,19 +24,21 @@
 </div>
 
 
-
+<h2>Empresas mejor evaluadas</h2>
 <div class="row">
   <% @internships.each do |internship| %>
     <% if internship.user.rating > 4.5 %>
       <div class="col-md-6">
         <div class="card-product mt-5">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
           <div class="card-product-infos">
-            <h2>Product name</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <h2><%= internship.title %></h2>
+            <p>Empresa:<%= internship.user.name %></p>
             <h5>Rating: <%= internship.user.rating %></h5>
+              <h5>Rating: <%= internship.title %></h5>
             <li><%= "Categoría: #{internship.category}" %></li>
-            <li><%= "Empresa: #{internship.user.name}" %></li>
+
             <li><%= "Ubicación: #{internship.city}, #{internship.country}" %></li>
           </div>
         </div>
