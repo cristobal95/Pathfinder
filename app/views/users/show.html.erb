@@ -36,7 +36,5 @@
       <p>Idioma(s): <%= @usuario.languages %></p>
       <p>Conocimientos: <%= @usuario.knowledges %></p>
   <% end %>
-  <% if current_user.id == @usuario.id %>
-    <% link_to "Editar", edit_user_registration_path, class: "nav-link" %>
-  <% end %>
+  <%= button_to "Editar perfil", edit_user_registration_path, class: "btn btn-primary" if current_user.id == @usuario.id %>
 </div>
