@@ -11,6 +11,7 @@
     <% end %>
       <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
       <p>Nombre de Empresa: <%= @usuario.name %></p>
+      <p>Califiación de usuarios: <strong><%= @usuario.rating %></strong><%= " (#{@usuario.reviews} opiniones)" %></p>
       <p>Sitio web: <a href="https://<%= @usuario.website %>"><%= @usuario.website %></a></p>
       <p>Industria: <%= @usuario.industry %></p>
       <p>Acerca de: <%= @usuario.about %></p>
