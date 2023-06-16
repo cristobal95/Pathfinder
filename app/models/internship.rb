@@ -32,8 +32,6 @@ class Internship < ApplicationRecord
   validates :title, :category, :start_date, :end_date, presence: true
   validates :tipo, :duration, :description, :paid, presence: true
   validates :duration, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
-  validates :start_date, :end_date, presence: true
-  validate :end_date_after_start_date
 
   def selected_students
     self.postulations.where(selected: true)
@@ -46,15 +44,5 @@ class Internship < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
-  private
-
-  def end_date_after_start_date
-    return if end_date.blank? || start_date.blank?
-
-    if end_date < start_date
-      errors.add(:end_date, "Debe ser posterior a la fecha de inicio")
-    end
-  end
 
 end
