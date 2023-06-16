@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_190153) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_191556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,6 +118,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_190153) do
     t.string "industry"
     t.text "about"
     t.string "pdf_url"
+    t.float "rating"
+    t.integer "reviews"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
