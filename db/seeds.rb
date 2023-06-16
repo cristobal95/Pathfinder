@@ -555,7 +555,7 @@ company_21 = User.new(
     email: "lewagon3@pathfinder.com",
     password: "123456"
   )
-  photo_26 = URI.open("https://static.vecteezy.com/system/resources/previews/000/587/678/non_2x/vector-initial-e-letter-logo-with-swoosh-colored-red-and-black.jpg")
+  photo_26 = URI.open("https://static.vecteezy.com/system/resources/previews/000/606/650/non_2x/vector-letter-a-logo-business-corporation-logo-design-concept-templat.jpg")
   company_26.photo.attach(io: photo_26, filename: "user_26.png", content_type: "image/png")
   company_26.save!
 

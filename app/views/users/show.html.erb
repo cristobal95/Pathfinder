@@ -1,23 +1,42 @@
 <div class="container">
   <% if @usuario.empresa? %>
-    <h2>Hola <%= current_user.name %></h2>
-    <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
-    <p>Nombre de Empresa: <%= @usuario.name %></p>
-    <p>Sitio web: <a href="https://<%= @usuario.website %>"><%= @usuario.website %></a></p>
-    <p>Industria: <%= @usuario.industry %></p>
-    <p>Acerca de: <%= @usuario.about %></p>
+    <% if current_user.role == true %>
+      <% if current_user.id == @usuario.id %>
+        <h2>Hola <%= @usuario.name %>, este es el perfil de tu empresa</h2>
+      <% else %>
+        <h2>Hola <%= current_user.name %>, estás viendo el perfil de <%= @usuario.name %></h2>
+      <% end %>
+    <% else %>
+        <h2>Hola <%= current_user.first_name %>, este es el perfil de la empresa: <%= @usuario.name %></h2>
+    <% end %>
+      <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
+      <p>Nombre de Empresa: <%= @usuario.name %></p>
+      <p>Sitio web: <a href="https://<%= @usuario.website %>"><%= @usuario.website %></a></p>
+      <p>Industria: <%= @usuario.industry %></p>
+      <p>Acerca de: <%= @usuario.about %></p>
   <% else %>
-    <h2>Hola <%= current_user.first_name %>, estás viendo el perfil de <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
-    <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
-    <p>Nombre: <%= @usuario.first_name %></p>
-    <p>Apellido: <%= @usuario.last_name %></p>
-    <p>Edad: <%= @usuario.age %></p>
-    <p>Ciudad: <%= @usuario.city %></p>
-    <p>País: <%= @usuario.country %></p>
-    <p>Estudios realizados: <%= @usuario.studies %></p>
-    <p>Unidad educativa: <%= @usuario.college %></p>
-    <p>Experiencia: <%= @usuario.experience %></p>
-    <p>Idioma(s): <%= @usuario.languages %></p>
-    <p>Conocimientos: <%= @usuario.knowledges %></p>
+    <% if current_user.role == false %>
+      <% if current_user.id == @usuario.id %>
+        <h2>Hola <%= @usuario.first_name %>, este es tu perfil</h2>
+      <% else %>
+        <h2>Hola <%= current_user.first_name %>, estás viendo el perfil de <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
+      <% end %>
+    <% else %>
+        <h2>Hola <%= current_user.name %>, este es el perfil del ususario: <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
+    <% end %>
+      <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
+      <p>Nombre: <%= @usuario.first_name %></p>
+      <p>Apellido: <%= @usuario.last_name %></p>
+      <p>Edad: <%= @usuario.age %></p>
+      <p>Ciudad: <%= @usuario.city %></p>
+      <p>País: <%= @usuario.country %></p>
+      <p>Estudios realizados: <%= @usuario.studies %></p>
+      <p>Unidad educativa: <%= @usuario.college %></p>
+      <p>Experiencia: <%= @usuario.experience %></p>
+      <p>Idioma(s): <%= @usuario.languages %></p>
+      <p>Conocimientos: <%= @usuario.knowledges %></p>
+  <% end %>
+  <% if current_user.id == @usuario.id %>
+    <% link_to "Editar", edit_user_registration_path, class: "nav-link" %>
   <% end %>
 </div>

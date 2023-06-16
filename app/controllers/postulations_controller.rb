@@ -11,10 +11,6 @@ class PostulationsController < ApplicationController
     end
   end
 
-  def show
-    @postulation = Postulation.find(params[:id])
-  end
-
 
   def new
     @postulation = Postulation.new
@@ -32,6 +28,7 @@ class PostulationsController < ApplicationController
     if @postulation.save
       redirect_to postulations_path
     else
+      flash[:error] = @postulation.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
@@ -50,6 +47,18 @@ class PostulationsController < ApplicationController
     @postulation = Postulation.find(params[:id])
     @postulation.destroy
     redirect_to postulations_path, status: :see_other
+  end
+
+  def change_status_to_approved
+    @postulation = Postulation.find(params[:format])
+    @postulation.status = 2
+    @postulation.save
+  end
+
+  def change_status_to_rejected
+    @postulation = Postulation.find(params[:format])
+    @postulation.status = 0
+    @postulation.save
   end
 
   private

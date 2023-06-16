@@ -1,18 +1,22 @@
-<div class="container w-50 shadow mt-3 content-center">
+<div class="container w-50 shadow mt-3 content-center p-3">
   <% if current_user.role == true %>
     <h2>Crea una pasantía! </h2>
     <%= simple_form_for(@internship) do |f| %>
-    <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, prompt: "Categoría", required: true %>
-    <%= f.input :title, label: "Puesto", required: true %>
-    <%= f.input :description, label: "Descripción", required: true %>
-    <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Modalidad", required: true %>
-    <%= f.input :city, label: "Ciudad", required: true %>
-    <%= f.input :country, label: "País", required: true %>
-    <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true %>
-    <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true %>
-    <%= f.input :start_date, html5: true, label: "Fecha de inicio", required: true %>
-    <%= f.input :end_date, html5: true,label: "Fecha de finalización", required: true %>
-    <%= f.submit class:"btn btn-primary" %>
+      <%= f.input :title, label: "Puesto", required: true, placeholder: "Ejemplo: Desarrollador Frontend"%>
+      <%= f.input :description, label: "Descripción", required: true, placeholder: "Incluir una breve descipción" %>
+      <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, label: "Categoría", prompt: "Categoría", required: true %>
+      <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Seleccionar modalidad", required: true %>
+      <%= f.input :city, label: "Ciudad", required: true, placeholder: "Escribir para que ciudad es la búsqueda" %>
+      <%= f.input :country, label: "País", only: ['AR', 'BR', 'CL', 'CO', 'MX', 'PE', 'UY', 'EC', 'BO', 'PY', 'VE', 'TT', 'DO', 'PA', 'NI', 'HN', 'GT', 'SV', 'DM', 'CU', 'CR', "US", "CA"],
+                      required: false,
+                      input_html: { autocomplete: "country" }, prompt: "Seleccionar país"%>
+      <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true, prompt: "Seleccionar cantidad de meses" %>
+      <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true, prompt: "Seleccionar opción" %>
+      <%= f.input :start_date, html5: true, label: "Fecha de inicio", required: true %>
+      <%= f.input :end_date, html5: true,label: "Fecha de finalización", required: true %>
+      <div class="text-center mt-2 mb-2">
+        <%= f.submit "Guardar",class:"btn btn-primary" %>
+      </div>
     <% end %>
   <% else %>
     <h2>Tu tipo de perfil no permite esta acción, si tienes una empresa y quieres
