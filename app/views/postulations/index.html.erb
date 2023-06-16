@@ -24,8 +24,10 @@
 <h2>Mis postulaciones</h2>
 
   <% @postulations.each do |postulation| %>
+     <h4><%= link_to "Empresa: #{postulation.internship.user.name}", user_path(postulation.internship.user)%></h4>
 
-      <li><%=  "Empresa: #{postulation.internship.title}" %></li>
+
+      <li><%=  "Cargo: #{postulation.internship.title}" %></li>
       <li> <%= "Duración: #{postulation.internship.duration}" %> </li>
       <li> <%= "Sueldo : #{postulation.internship.paid}" %> </li>
       <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
