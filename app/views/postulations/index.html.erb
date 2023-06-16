@@ -21,12 +21,11 @@
 
 
 <% else %>
-<h2>Mis postulaciones</h2>
+<h2 class="text-center">Mis postulaciones</h2>
 
   <% @postulations.each do |postulation| %>
      <h4><%= link_to "Empresa: #{postulation.internship.user.name}", user_path(postulation.internship.user)%></h4>
-
-
+     <h4> <%= "Estado: #{postulation.status}" %> </h4>
       <li><%=  "Cargo: #{postulation.internship.title}" %></li>
       <li> <%= "Duración: #{postulation.internship.duration}" %> </li>
       <li> <%= "Sueldo : #{postulation.internship.paid}" %> </li>
