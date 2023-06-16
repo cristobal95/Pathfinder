@@ -11,10 +11,6 @@ class PostulationsController < ApplicationController
     end
   end
 
-  def show
-    @postulation = Postulation.find(params[:id])
-  end
-
 
   def new
     @postulation = Postulation.new
