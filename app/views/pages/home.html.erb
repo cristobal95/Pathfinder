@@ -1,7 +1,7 @@
   <div class="content text-center">
   <h2>Pathfinder</h2>
   <p>Encuentra tu camino, a través de la experiencia</p>
-</div>
+
 
 
 <div class="banner position-relative">
@@ -24,23 +24,90 @@
 </div>
 </div>
 
-
-
-<%
-=begin%>
- <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p><p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p> <strong>relevant info</strong> only.</p>
   </div>
 </div>
 
-<%
-=end%>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p><p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p> <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+
+
+
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p><p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p> <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p><p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p> <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p><p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p> <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p><p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p> <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p>  <% @internships.each do |internship| %>
+      <h5><%= link_to internship.title, internship_path(internship) %></h5>
+      <li> <%= "Categoría: #{internship.category}" %> </li>
+      <li> <%= "Empresa: #{internship.user.name}" %> </li>
+      <li> <%= "Ubicación: #{internship.city}, #{internship.country}" %> </li>
+  <% end %> <strong>relevant info</strong> only.</p>
+  </div>
+</div>
