@@ -27,14 +27,13 @@
             <div class="card-body d-flex d-wrap justify-content-between">
               <div>
                 <h6 class="card-product-infos"><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)) %></h6>
-                
+                <p class="card-product-infos"><%= student.user.studies %></p>
                 <p class="card-product-infos"><%= student.content %></p>
               </div>
               <p class="card-product-infos"><%= student.status %></p>
               <div class="card-product-infos bm-3">
                 <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class:"button is-primary is-light is-small mb-2" %>
                 <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "button is-danger is-light is-small mt-2" %>
-
               </div>
             </div>
           </div>
