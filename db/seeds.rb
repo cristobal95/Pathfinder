@@ -6,6 +6,7 @@ require "open-uri"
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "Creando students"
   student_1 = User.new(
     role: false,
     first_name: "Cristóbal",
@@ -605,7 +606,7 @@ internships = [
     title: "Desarrollador FrontEnd",
     description: "Pasantía para desarrollar el frontend de aplicaciones web. Conocimientos en HTML, CSS y Javascript",
     tipo: "remoto",
-    status: true,
+    status: false,
     duration: 6,
     paid: true,
     start_date: "2023/06/08",
@@ -618,8 +619,8 @@ internships = [
     category: "manufacture",
     title: "Comercio Internacional",
     description: "Llevar adelante las relaciones de comercio con empresas proveedoras y distribuidoras de la marca",
-    tipo: "remoto",
-    status: true,
+    tipo: "presencial",
+    status: false,
     duration: 10,
     paid: true,
     start_date: "2023/06/20",
@@ -633,7 +634,7 @@ internships = [
     title: "Administrador Contable",
     description: "Organizar y controlar la contabilidad de la empresa",
     tipo: "remoto",
-    status: true,
+    status: false,
     duration: 6,
     paid: true,
     start_date: "2023/06/21",
@@ -647,9 +648,9 @@ internships = [
     title: "Consultor Financiero",
     description: "Analizar y fiscalizar las finanzas",
     tipo: "presencial",
-    status: true,
+    status: false,
     duration: 9,
-    paid: true,
+    paid: false,
     start_date: "2023/06/01",
     end_date: "2023/06/30",
     city: "Buenos Aires",
@@ -661,7 +662,7 @@ internships = [
     title: "Marketing Digital",
     description: "Llevar adelante el marketing digital de los nuevos productos",
     tipo: "remoto",
-    status: true,
+    status: false,
     duration: 10,
     paid: true,
     start_date: "2023/06/10",
@@ -674,8 +675,8 @@ internships = [
     category: "product",
     title: "Control de Calidad",
     description: "Programar y organizar el proceso de control de calidad",
-    tipo: "presencial",
-    status: true,
+    tipo: "remoto",
+    status: false,
     duration: 10,
     paid: true,
     start_date: "2023/06/15",
@@ -689,7 +690,7 @@ internships = [
     title: "Desarrollador Web",
     description: "Desarrollar nuestro sitio web como aplicación",
     tipo: "remoto",
-    status: true,
+    status: false,
     duration: 8,
     paid: true,
     start_date: "2023/06/01",
@@ -703,7 +704,7 @@ internships = [
     title: "Derecho Laboral",
     description: "Elaborar guía para elaboración del cumpliento de los derecho laborales",
     tipo: "remoto",
-    status: true,
+    status: false,
     duration: 6,
     paid: true,
     start_date: "2023/06/01",
@@ -711,6 +712,104 @@ internships = [
     city: "Santa Cruz",
     country:"Bolivia",
     user_id: 28
+  },
+  {
+    category: "it",
+    title: "Desarrollador BackEnd",
+    description: "Desarrollo Backend de nuestra aplicación web.",
+    tipo: "remoto",
+    status: true,
+    duration: 6,
+    paid: true,
+    start_date: "2023/05/08",
+    end_date: "2023/06/08",
+    city: "Ciudad de México",
+    country:"Mexico",
+    user_id: 21
+  },
+  {
+    category: "manufacture",
+    title: "Distribución Comercial",
+    description: "Generar el proceso y guía necesarios para la distribución comercial de nuestros productos",
+    tipo: "presencial",
+    status: true,
+    duration: 6,
+    paid: true,
+    start_date: "2023/04/20",
+    end_date: "2023/05/30",
+    city: "Santiago",
+    country:"Chile",
+    user_id: 22
+  },
+  {
+    category: "accounting",
+    title: "Contador General",
+    description: "Ayuda al proceso de contabilidad interna de la empresa",
+    tipo: "remoto",
+    status: true,
+    duration: 7,
+    paid: true,
+    start_date: "2023/01/21",
+    end_date: "2023/02/10",
+    city: "São Paulo",
+    country:"Brasil",
+    user_id: 23
+  },
+  {
+    category: "accounting",
+    title: "Consultor Financiero Junior",
+    description: "Elaboración de procesos de financiamiento de proyectos",
+    tipo: "presencial",
+    status: true,
+    duration: 10,
+    paid: true,
+    start_date: "2022/10/01",
+    end_date: "2022/10/30",
+    city: "Buenos Aires",
+    country:"Argentina",
+    user_id: 24
+  },
+  {
+    category: "sales",
+    title: "Marketing de Prodcuto",
+    description: "Colaborar con la elaboración de una guía de Marketing para nuevo producto",
+    tipo: "remoto",
+    status: true,
+    duration: 10,
+    paid: true,
+    start_date: "2022/06/10",
+    end_date: "2022/07/20",
+    city: "Bogotá",
+    country:"Colombia",
+    user_id: 25
+  },
+  {
+    category: "product",
+    title: "Rediseño de marca de producto",
+    description: "Colaborar con el rediseño de la marca de nuestro producto",
+    tipo: "remoto",
+    status: true,
+    duration: 10,
+    paid: true,
+    start_date: "2022/09/15",
+    end_date: "2022/10/01",
+    city: "San Salvador",
+    country:"El Salvador",
+    user_id: 26
+  },
+  {
+    category: "turism",
+    title: "Elaboración de paquetes promocionales",
+    description: "Trabajar en la elaboración de paquetes de promoción para fin de año",
+    tipo: "remoto",
+    status: true,
+    duration: 8,
+    paid: true,
+    start_date: "2022/04/01",
+    end_date: "2022/05/30",
+    city: "San José",
+    country:"Costa Rica",
+    user_id: 27
   }
 ]
 
@@ -719,3 +818,181 @@ internships.each do |i|
 end
 
 puts "Internships creadas"
+
+puts "Creando Postulations"
+
+postulations = [
+  {
+    selected: false,
+    user_id: 1,
+    internship_id: 1,
+    content: "Estoy interesado y preparado para ser elegido en esta pasantía, tengo la capacidad necesaria."
+  },
+  {
+    selected: false,
+    user_id: 5,
+    internship_id: 1,
+    content: "Cuento con experiencia en el área, con proyecto llevados adelante en la universidad."
+  },
+  {
+    selected: false,
+    user_id: 3,
+    internship_id: 2,
+    content: "He llevado adelante trabajos en la universidad que están relacionados con esta área de trabajo."
+  },
+  {
+    selected: false,
+    user_id: 6,
+    internship_id: 2,
+    content: "Me gusta su empresa, siempre quise ser parte de ella, y tengo lo necesario."
+  },
+  {
+    selected: false,
+    user_id: 2,
+    internship_id: 3,
+    content: "Tengo bastante interés en la empresa y el área de pasantía."
+  },
+  {
+    selected: false,
+    user_id: 4,
+    internship_id: 3,
+    content: "Estoy por culminar la universidad, y he adquirido conocimientos claves para tener este puesto."
+  },
+  {
+    selected: false,
+    user_id: 8,
+    internship_id: 4,
+    content: "Responsabilidad, aprendo rápido y cuento con conocimientos básicos en el área!"
+  },
+  {
+    selected: false,
+    user_id: 9,
+    internship_id: 4,
+    content: "Acabo de salir de la universidad, he realizado proyectos relevantes en torno al área de esta pasantía."
+  },
+  {
+    selected: false,
+    user_id: 7,
+    internship_id: 5,
+    content: "Puedo llevar adelante las responsabilidades que conlleva este puesto de pasantía."
+  },
+  {
+    selected: false,
+    user_id: 6,
+    internship_id: 5,
+    content: "Me siento lista para afrontar el reto de mi primera experiencia de trabajo!"
+  },
+  {
+    selected: false,
+    user_id: 10,
+    internship_id: 6,
+    content: "Estoy preparado y capacitado en el área, estoy listo para empezar y marcar una diferencia."
+  },
+  {
+    selected: false,
+    user_id: 13,
+    internship_id: 6,
+    content: "Hola!, soy Julio, estudié en la universidad de FAUR, y cuento con los conocimientos necesarios para ser elegido!"
+  },
+  {
+    selected: false,
+    user_id: 12,
+    internship_id: 7,
+    content: "Soy Raquel, y estoy buscando mi primera experiencia laboral. Me gustaría ser parte de su empresa en esta pasantía."
+  },
+  {
+    selected: false,
+    user_id: 15,
+    internship_id: 7,
+    content: "Terminé la universidad hace 3 meses y estoy actualmente en cursos de preparación técnica, por lo que estoy lista para tomar este puesto."
+  },
+  {
+    selected: false,
+    user_id: 19,
+    internship_id: 8,
+    content: "Hola! soy Rubén, además del mate, me gusta seguir aprendiendo constantemente. Estoy preparado para formar parte de la empresa y ganar mi primer experiencia de trabajo"
+  },
+  {
+    selected: false,
+    user_id: 17,
+    internship_id: 8,
+    content: "Mi nombre es Marcos. Estuve trabajando bastante en el área durante mi último año de universidad, por lo que este puesto es el indicado para mí!"
+  },
+  {
+    status: "Aprobada",
+    selected: true,
+    user_id: 11,
+    internship_id: 9,
+    content: "Conocimientos exaustivos en el área y listo para afrontar el reto"
+  },
+  {
+    status: "Aprobada",
+    selected: true,
+    user_id: 14,
+    internship_id: 10,
+    content: "Con todas las ganas de experimentar el área laboral en esta empresa."
+  },
+  {
+    status: "Aprobada",
+    selected: true,
+    user_id: 16,
+    internship_id: 11,
+    content: "Terminé la universidad hace 3 meses y estoy actualmente en cursos de preparación técnica, por lo que estoy lista para tomar este puesto."
+  },
+  {
+    status: "Aprobada",
+    selected: true,
+    user_id: 18,
+    internship_id: 12,
+    content: "Hola! soy Rubén, además del mate, me gusta seguir aprendiendo constantemente. Estoy preparado para formar parte de la empresa y ganar mi primer experiencia de trabajo"
+  },
+  {
+    status: "Aprobada",
+    selected: true,
+    user_id: 20,
+    internship_id: 13,
+    content: "Mi nombre es Marcos. Estuve trabajando bastante en el área durante mi último año de universidad, por lo que este puesto es el indicado para mí!"
+  }
+]
+
+postulations.each do |p|
+  Postulation.create(p)
+end
+
+puts "Postulations creadas!"
+
+puts "Creando reviews"
+
+reviews = [
+  {
+    comment: "Una grata experiencia en esta empresa y en este puesto. Lo mejor de todo es que pude conseguir la experiencia necesaria y ahora cuento con un trabajo a tiempo completo",
+    rating: 4.7,
+    internship_id: 9
+  },
+  {
+    comment: "El trabajo fue arduao, pero pude aprender mucho y experimentar una grata experiencia en mi área",
+    rating: 4.9,
+    internship_id: 10
+  },
+  {
+    comment: "Me sirvió como experiencia laboral, más hubiera preferido otro ambiente con mejor relacionamiento, pero contento con la experiencia en general.",
+    rating: 4.0,
+    internship_id: 11
+  },
+  {
+    comment: "Una gran empresa y un gran equipo de trabajo. Pude aprender aún más y por sobre todo obtener experiencia laboral",
+    rating: 4.8,
+    internship_id: 12
+  },
+  {
+    comment: "Puedo decir que cumplí con el propósito de conxeguir una experiencia laboral que me ayude a conseguir un trabajo, estoy felíz con los resultados en esta empresa.",
+    rating: 4.6,
+    internship_id: 13
+  }
+]
+
+reviews.each do |r|
+  Review.create(r)
+end
+
+puts "Reviews creadas"
