@@ -18,6 +18,8 @@ class InternshipsController < ApplicationController
       @postulation = Postulation.new
     end
 
+
+
   def new
     @internship = Internship.new
   end
