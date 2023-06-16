@@ -13,8 +13,14 @@
                       input_html: { autocomplete: "country" }, prompt: "Seleccionar país"%>
       <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true, prompt: "Seleccionar cantidad de meses" %>
       <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true, prompt: "Seleccionar opción" %>
-      <%= f.input :start_date, html5: true, label: "Fecha de inicio", required: true %>
-      <%= f.input :end_date, html5: true,label: "Fecha de finalización", required: true %>
+      <%= f.input :start_date, as: :string,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "form-label text-secondary fw-bold" },
+                input_html: { data: { controller: "flatpickr" } }, label: "Fecha de inicio", required: true %>
+      <%= f.input :end_date, as: :string,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "form-label text-secondary fw-bold" },
+                input_html: { data: { controller: "flatpickr" } }, label: "Fecha de finalización", required: true %>
       <%= f.input :status,label: "Estado", collection: Internship.statuses.keys.map(&:humanize), prompt: "Estado", required: true %>
       <div class="text-center mt-2 mb-2">
         <%= f.submit "Guardar",class:"btn btn-primary" %>

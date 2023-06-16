@@ -51,12 +51,12 @@ class PostulationsController < ApplicationController
 
   def change_status_to_approved
     @postulation = Postulation.find(params[:id])
-    @postulation.update(status: 2)
+    redirect_to postulation_path(@postulation) if @postulation.update(status: 2)
   end
 
   def change_status_to_rejected
     @postulation = Postulation.find(params[:id])
-    @postulation.update(status: 0)
+    redirect_to postulation_path(@postulation) if @postulation.update(status: 0)
   end
 
   private
