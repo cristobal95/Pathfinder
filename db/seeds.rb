@@ -453,148 +453,164 @@ puts "Students creados"
 puts "Creando Companies"
 
 company_21 = User.new(
-    role: true,
-    phone: 12512345678,
-    address: "Calle Principal 142",
-    city: "Ciudad de México",
-    state: "Ciudad de México",
-    country: "México",
-    name: "TechNode",
-    website: "https://www.technode.com",
-    industry: "Tecnología",
-    about: "TechNode es una empresa de tecnología líder en el desarrollo de soluciones innovadoras.",
-    email: "cris@pathfinder.com",
-    password: "123456"
-  )
-  photo_21 = URI.open("https://bloggytalky.com/wp-content/uploads/2017/07/create-a-free-logo-design-logo-designs-design-a-free-logo-design-a-free-logo-alltech-just-free-logo-design.png")
-  company_21.photo.attach(io: photo_21, filename: "user_21.png", content_type: "image/png")
-  company_21.save!
+  rating: 4.5,
+  reviews: 32,
+  role: true,
+  phone: 12512345678,
+  address: "Calle Principal 142",
+  city: "Ciudad de México",
+  state: "Ciudad de México",
+  country: "México",
+  name: "TechNode",
+  website: "https://www.technode.com",
+  industry: "Tecnología",
+  about: "TechNode es una empresa de tecnología líder en el desarrollo de soluciones innovadoras.",
+  email: "cris@pathfinder.com",
+  password: "123456"
+)
+photo_21 = URI.open("https://bloggytalky.com/wp-content/uploads/2017/07/create-a-free-logo-design-logo-designs-design-a-free-logo-design-a-free-logo-alltech-just-free-logo-design.png")
+company_21.photo.attach(io: photo_21, filename: "user_21.png", content_type: "image/png")
+company_21.save!
 
-  company_22 = User.new(
-    role: true,
-    phone: 2298765432,
-    address: "Avenida General Oviedo 456",
-    city: "Santiago",
-    state: "Región Metropolitana",
-    country: "Chile",
-    name: "IndusTreck",
-    website: "https://www.industreck.cl",
-    industry: "Manufactura",
-    about: "Industreck es una destacada empresa de fabricación que produce bienes de consumo de alta calidad.",
-    email: "juanma@pathfinder.com",
-    password: "123456"
-  )
-  photo_22 = URI.open("http://lofrev.net/wp-content/photos/2016/07/abstract_logo_vector-1007x919.png")
-  company_22.photo.attach(io: photo_22, filename: "user_22.png", content_type: "image/png")
-  company_22.save!
+company_22 = User.new(
+  rating: 4.8,
+  reviews: 40,
+  role: true,
+  phone: 2298765432,
+  address: "Avenida General Oviedo 456",
+  city: "Santiago",
+  state: "Región Metropolitana",
+  country: "Chile",
+  name: "IndusTreck",
+  website: "https://www.industreck.cl",
+  industry: "Manufactura",
+  about: "Industreck es una destacada empresa de fabricación que produce bienes de consumo de alta calidad.",
+  email: "juanma@pathfinder.com",
+  password: "123456"
+)
+photo_22 = URI.open("http://lofrev.net/wp-content/photos/2016/07/abstract_logo_vector-1007x919.png")
+company_22.photo.attach(io: photo_22, filename: "user_22.png", content_type: "image/png")
+company_22.save!
 
-  company_23 = User.new(
-    role: true,
-    phone: 35156755482,
-    address: "Rua Paulo 789",
-    city: "São Paulo",
-    state: "São Paulo",
-    country: "Brasil",
-    name: "Servi Create",
-    website: "https://www.servicreate.com.br",
-    industry: "Servicios",
-    about: "Servi Create es una empresa de servicios dedicada a brindar soluciones integrales para sus clientes.",
-    email: "hugo@pathfinder.com",
-    password: "123456"
-  )
-  photo_23 = URI.open("https://cdn.dribbble.com/users/160383/screenshots/5656135/scott_4x.png")
-  company_23.photo.attach(io: photo_23, filename: "user_23.png", content_type: "image/png")
-  company_23.save!
+company_23 = User.new(
+  role: true,
+  phone: 35156755482,
+  address: "Rua Paulo 789",
+  city: "São Paulo",
+  state: "São Paulo",
+  country: "Brasil",
+  name: "Servi Create",
+  website: "https://www.servicreate.com.br",
+  industry: "Servicios",
+  about: "Servi Create es una empresa de servicios dedicada a brindar soluciones integrales para sus clientes.",
+  email: "hugo@pathfinder.com",
+  password: "123456",
+  rating: 4.1,
+  reviews: 48
+)
+photo_23 = URI.open("https://cdn.dribbble.com/users/160383/screenshots/5656135/scott_4x.png")
+company_23.photo.attach(io: photo_23, filename: "user_23.png", content_type: "image/png")
+company_23.save!
 
-  company_24 = User.new(
-    role: true,
-    phone: 441197314722,
-    address: "Calle Cuadradi 789",
-    city: "Buenos Aires",
-    state: "Buenos Aires",
-    country: "Argentina",
-    name: "Consult Range",
-    website: "https://www.consultrange.com.ar",
-    industry: "Consultoría",
-    about: "Consul Range es una empresa de consultoría especializada en estrategias de negocios y desarrollo organizacional.",
-    email: "lewagon1@pathfinder.com",
-    password: "123456"
-  )
-  photo_24 = URI.open("https://static.vecteezy.com/system/resources/previews/000/606/820/original/c-circle-logo-template-design-vector.jpg")
-  company_24.photo.attach(io: photo_24, filename: "user_24.png", content_type: "image/png")
-  company_24.save!
+company_24 = User.new(
+  role: true,
+  phone: 441197314722,
+  address: "Calle Cuadradi 789",
+  city: "Buenos Aires",
+  state: "Buenos Aires",
+  country: "Argentina",
+  name: "Consult Range",
+  website: "https://www.consultrange.com.ar",
+  industry: "Consultoría",
+  about: "Consul Range es una empresa de consultoría especializada en estrategias de negocios y desarrollo organizacional.",
+  email: "lewagon1@pathfinder.com",
+  password: "123456",
+  rating: 4.2,
+  reviews: 38
+)
+photo_24 = URI.open("https://static.vecteezy.com/system/resources/previews/000/606/820/original/c-circle-logo-template-design-vector.jpg")
+company_24.photo.attach(io: photo_24, filename: "user_24.png", content_type: "image/png")
+company_24.save!
 
-  company_25 = User.new(
-    role: true,
-    phone: 5715215894,
-    address: "Carrera Costaner 43",
-    city: "Bogotá",
-    state: "Cundinamarca",
-    country: "Colombia",
-    name: "EcoModa",
-    website: "https://www.ecomoda.co",
-    industry: "Moda",
-    about: "EcoModa es una empresa líder en el sector de la moda, ofreciendo prendas de vestir de alta calidad y diseño vanguardista.",
-    email: "lewagon2@pathfinder.com",
-    password: "123456"
-  )
-  photo_25 = URI.open("https://static.vecteezy.com/system/resources/previews/000/587/678/non_2x/vector-initial-e-letter-logo-with-swoosh-colored-red-and-black.jpg")
-  company_25.photo.attach(io: photo_25, filename: "user_25.png", content_type: "image/png")
-  company_25.save!
+company_25 = User.new(
+  role: true,
+  phone: 5715215894,
+  address: "Carrera Costaner 43",
+  city: "Bogotá",
+  state: "Cundinamarca",
+  country: "Colombia",
+  name: "EcoModa",
+  website: "https://www.ecomoda.co",
+  industry: "Moda",
+  about: "EcoModa es una empresa líder en el sector de la moda, ofreciendo prendas de vestir de alta calidad y diseño vanguardista.",
+  email: "lewagon2@pathfinder.com",
+  password: "123456",
+  rating: 3.8,
+  reviews: 30
+)
+photo_25 = URI.open("https://static.vecteezy.com/system/resources/previews/000/587/678/non_2x/vector-initial-e-letter-logo-with-swoosh-colored-red-and-black.jpg")
+company_25.photo.attach(io: photo_25, filename: "user_25.png", content_type: "image/png")
+company_25.save!
 
-  company_26 = User.new(
-    role: true,
-    phone: 6036295283,
-    address: "Avenida Diametral 14",
-    city: "San Salvador",
-    state: "San Salvador",
-    country: "El Salvador",
-    name: "AliTron",
-    website: "https://www.alitron.com.sv",
-    industry: "Alimentación",
-    about: "Alitron es una empresa dedicada a la producción y distribución de alimentos frescos y saludables para el mercado local e internacional.",
-    email: "lewagon3@pathfinder.com",
-    password: "123456"
-  )
-  photo_26 = URI.open("https://static.vecteezy.com/system/resources/previews/000/606/650/non_2x/vector-letter-a-logo-business-corporation-logo-design-concept-templat.jpg")
-  company_26.photo.attach(io: photo_26, filename: "user_26.png", content_type: "image/png")
-  company_26.save!
+company_26 = User.new(
+  role: true,
+  phone: 6036295283,
+  address: "Avenida Diametral 14",
+  city: "San Salvador",
+  state: "San Salvador",
+  country: "El Salvador",
+  name: "AliTron",
+  website: "https://www.alitron.com.sv",
+  industry: "Alimentación",
+  about: "Alitron es una empresa dedicada a la producción y distribución de alimentos frescos y saludables para el mercado local e internacional.",
+  email: "lewagon3@pathfinder.com",
+  password: "123456",
+  rating: 4.6,
+  reviews: 40
+)
+photo_26 = URI.open("https://static.vecteezy.com/system/resources/previews/000/606/650/non_2x/vector-letter-a-logo-business-corporation-logo-design-concept-templat.jpg")
+company_26.photo.attach(io: photo_26, filename: "user_26.png", content_type: "image/png")
+company_26.save!
 
-  company_27 = User.new(
-    role: true,
-    phone: 70105428472,
-    address: "Calle Soleto 789",
-    city: "San José",
-    state: "San José",
-    country: "Costa Rica",
-    name: "EcoTuris",
-    website: "https://www.ecoturis.co.cr",
-    industry: "Turismo",
-    about: "EcoTuris es una agencia de viajes que ofrece experiencias turísticas inolvidables en los destinos más hermosos de Costa Rica.",
-    email: "lewagon4@pathfinder.com",
-    password: "123456"
-  )
-  photo_27 = URI.open("https://static.vecteezy.com/system/resources/previews/002/836/967/large_2x/et-logo-letter-initial-logo-designs-template-with-gold-and-black-background-vector.jpg")
-  company_27.photo.attach(io: photo_27, filename: "user_27.png", content_type: "image/png")
-  company_27.save!
+company_27 = User.new(
+  role: true,
+  phone: 70105428472,
+  address: "Calle Soleto 789",
+  city: "San José",
+  state: "San José",
+  country: "Costa Rica",
+  name: "EcoTuris",
+  website: "https://www.ecoturis.co.cr",
+  industry: "Turismo",
+  about: "EcoTuris es una agencia de viajes que ofrece experiencias turísticas inolvidables en los destinos más hermosos de Costa Rica.",
+  email: "lewagon4@pathfinder.com",
+  password: "123456",
+  rating: 4.7,
+  reviews: 50
+)
+photo_27 = URI.open("https://static.vecteezy.com/system/resources/previews/002/836/967/large_2x/et-logo-letter-initial-logo-designs-template-with-gold-and-black-background-vector.jpg")
+company_27.photo.attach(io: photo_27, filename: "user_27.png", content_type: "image/png")
+company_27.save!
 
-  company_28 = User.new(
-    role: true,
-    phone: 8911023457,
-    address: "Avenida Bartolome 84",
-    city: "Santa Cruz",
-    state: "Santa Cruz",
-    country: "Bolivia",
-    name: "EnergySun",
-    website: "https://www.energysun.bo",
-    industry: "Energía",
-    about: "EnergySun es una empresa especializada en el desarrollo y suministro de soluciones energéticas sostenibles para el sector industrial.",
-    email: "lewagon5@pathfinder.com",
-    password: "123456"
-  )
-  photo_28 = URI.open("https://www.intuswindows.com/wp-content/uploads/2016/04/Logo-energy-conservation-Round_v3.png")
-  company_28.photo.attach(io: photo_28, filename: "user_28.png", content_type: "image/png")
-  company_28.save!
+company_28 = User.new(
+  role: true,
+  phone: 8911023457,
+  address: "Avenida Bartolome 84",
+  city: "Santa Cruz",
+  state: "Santa Cruz",
+  country: "Bolivia",
+  name: "EnergySun",
+  website: "https://www.energysun.bo",
+  industry: "Energía",
+  about: "EnergySun es una empresa especializada en el desarrollo y suministro de soluciones energéticas sostenibles para el sector industrial.",
+  email: "lewagon5@pathfinder.com",
+  password: "123456",
+  rating: 4.4,
+  reviews: 36
+)
+photo_28 = URI.open("https://www.intuswindows.com/wp-content/uploads/2016/04/Logo-energy-conservation-Round_v3.png")
+company_28.photo.attach(io: photo_28, filename: "user_28.png", content_type: "image/png")
+company_28.save!
 
 
 puts "Companies creadas"
@@ -961,38 +977,38 @@ end
 
 puts "Postulations creadas!"
 
-puts "Creando reviews"
+# puts "Creando reviews"
 
-reviews = [
-  {
-    comment: "Una grata experiencia en esta empresa y en este puesto. Lo mejor de todo es que pude conseguir la experiencia necesaria y ahora cuento con un trabajo a tiempo completo",
-    rating: 4.7,
-    internship_id: 9
-  },
-  {
-    comment: "El trabajo fue arduao, pero pude aprender mucho y experimentar una grata experiencia en mi área",
-    rating: 4.9,
-    internship_id: 10
-  },
-  {
-    comment: "Me sirvió como experiencia laboral, más hubiera preferido otro ambiente con mejor relacionamiento, pero contento con la experiencia en general.",
-    rating: 4.0,
-    internship_id: 11
-  },
-  {
-    comment: "Una gran empresa y un gran equipo de trabajo. Pude aprender aún más y por sobre todo obtener experiencia laboral",
-    rating: 4.8,
-    internship_id: 12
-  },
-  {
-    comment: "Puedo decir que cumplí con el propósito de conxeguir una experiencia laboral que me ayude a conseguir un trabajo, estoy felíz con los resultados en esta empresa.",
-    rating: 4.6,
-    internship_id: 13
-  }
-]
+# reviews = [
+#   {
+#     comment: "Una grata experiencia en esta empresa y en este puesto. Lo mejor de todo es que pude conseguir la experiencia necesaria y ahora cuento con un trabajo a tiempo completo",
+#     rating: 4.7,
+#     internship_id: 9
+#   },
+#   {
+#     comment: "El trabajo fue arduao, pero pude aprender mucho y experimentar una grata experiencia en mi área",
+#     rating: 4.9,
+#     internship_id: 10
+#   },
+#   {
+#     comment: "Me sirvió como experiencia laboral, más hubiera preferido otro ambiente con mejor relacionamiento, pero contento con la experiencia en general.",
+#     rating: 4.0,
+#     internship_id: 11
+#   },
+#   {
+#     comment: "Una gran empresa y un gran equipo de trabajo. Pude aprender aún más y por sobre todo obtener experiencia laboral",
+#     rating: 4.8,
+#     internship_id: 12
+#   },
+#   {
+#     comment: "Puedo decir que cumplí con el propósito de conxeguir una experiencia laboral que me ayude a conseguir un trabajo, estoy felíz con los resultados en esta empresa.",
+#     rating: 4.6,
+#     internship_id: 13
+#   }
+# ]
 
-reviews.each do |r|
-  Review.create(r)
-end
+# reviews.each do |r|
+#   Review.create(r)
+# end
 
-puts "Reviews creadas"
+# puts "Reviews creadas"
