@@ -21,7 +21,6 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
   "repository": "git+https://github.com/nex23/pathfinder.git",
   "keywords": [],
   "author": "Juanma Binda <juanmanuelbinda@gmail.com>",

@@ -29,6 +29,8 @@ class Internship < ApplicationRecord
 
   belongs_to :user
   has_many :postulations
+  has_many :reviews
+
   validates :title, :category, :start_date, :end_date, presence: true
   validates :tipo, :duration, :description, :paid, presence: true
   validates :duration, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
