@@ -8,6 +8,7 @@
       <li>Estado: <%= internship.status %></li>
       <li>Cantidad de postulaciones: <%= internship.postulations.count  %></li>
       <p><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
+      <p><%= link_to 'Editar', edit_internship_path(internship) %></p>
 
     <% end %>
 
