@@ -3,13 +3,12 @@
 
     <% @internships.each do |internship| %>
 
-      <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
-      <p>Estado: <%= internship.status %></p>
 
+      <h5>Puesto: <%= internship.title %></h5>
+      <li>Estado: <%= internship.status %></li>
+      <li>Cantidad de postulaciones: <%= internship.postulations.count  %></li>
+      <p><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
 
-      <p><i class="fas fa-map-pin"></i><%= "Ubicación: #{internship.user.city}, #{internship.user.country}" %></p>
-      <p><i class="fas fa-house-laptop"></i> <%= "Tipo: #{internship.tipo}" %> </p>
-      <p>Cantidad de postulaciones: <%= internship.postulations.count  %></p>
     <% end %>
 
 
