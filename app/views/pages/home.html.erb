@@ -30,7 +30,7 @@
     <% if internship.user.rating > 4.5 %>
       <div class="col-md-6">
         <div class="card-product mt-5">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+           <img src="<%= url_for(internship.user.photo) %>" />
 
           <div class="card-product-infos">
             <h2><%= internship.title %></h2>
