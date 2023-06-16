@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
   end
 
-  resources :postulations, only: %i[index show edit update destroy]
+  resources :postulations, only: %i[index edit update destroy]
 
   resources :reviews, only: %i[edit update destroy]
 
