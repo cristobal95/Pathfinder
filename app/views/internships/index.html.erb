@@ -1,17 +1,17 @@
-<% if current_user.role == true  %>
+<% if current_user.role == true %>
 <h2>Mis pasantias</h2>
-  <ul>
+
     <% @internships.each do |internship| %>
 
       <h5><i class="fas fa-briefcase"></i><%= link_to internship.title, internship_path(internship) %></h5>
-      <li>Estado: <%= internship.status %></li>
+      <p>Estado: <%= internship.status %></p>
 
 
       <p><i class="fas fa-map-pin"></i><%= "Ubicación: #{internship.user.city}, #{internship.user.country}" %></p>
-      <li><i class="fas fa-house-laptop"></i> <%= "Tipo: #{internship.tipo}" %> </li>
-      <li>Cantidad de postulaciones: <%= internship.postulations.count  %></li>
+      <p><i class="fas fa-house-laptop"></i> <%= "Tipo: #{internship.tipo}" %> </p>
+      <p>Cantidad de postulaciones: <%= internship.postulations.count  %></p>
     <% end %>
-  </ul>
+
 
 
 

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  post '/postulations/change_status_to_approved', to: 'postulations#change_status_to_approved'
+
+  post '/postulations/change_status_to_rejected', to: 'postulations#change_status_to_rejected'
+
   resources :internships, except: :destroy do
     resources :postulations, only: %i[new create]
     resources :reviews, only: %i[new create]

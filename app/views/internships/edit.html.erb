@@ -1,21 +1,29 @@
-<div class="container">
+<div class="container w-50 shadow mt-3 content-center">
   <% if current_user.role == true %>
-    <h2>Crea una pasantía! </h2>
+
+    <h2>Editar pasantía! </h2>
     <%= simple_form_for(@internship) do |f| %>
-    <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, prompt: "Selecciona la categoría", required: true %>
     <%= f.input :title, label: "Puesto", required: true %>
     <%= f.input :description, label: "Descripción", required: true %>
-    <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Selecciona la modalidad", required: true %>
+    <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, prompt: "Categoría", required: true %>
+    <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Modalidad", required: true %>
+    <%= f.input :city, label: "Ciudad", required: true %>
+    <%= f.input :country, label: "País", only: ['AR', 'BR', 'CL', 'CO', 'MX', 'PE', 'UY', 'EC', 'BO', 'PY', 'VE', 'TT', 'DO', 'PA', 'NI', 'HN', 'GT', 'SV', 'DM', 'CU', 'CR', "US", "CA"],
+                    required: false,
+                    input_html: { autocomplete: "country" } %>
     <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true %>
     <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true %>
     <%= f.input :start_date, html5: true, label: "Fecha de inicio", required: true %>
-    <%= f.input :end_date, html5: true,label: "Fecha de finalización", required: true %>
-    <%= f.input :status, collection: Internship.statuses.keys.map(&:humanize), prompt: "Modalidad", required: true %>
+    <%= f.input :end_date, html5: true,label: "Fecha de finalización", required: true %>>
+    <%= f.input :status, collection: Internship.statuses.keys.map(&:humanize), prompt: "Estado", required: true %>
     <%= f.submit class:"btn btn-primary" %>
     <% end %>
+
   <% else %>
+
     <h2>Tu tipo de perfil no permite esta acción, si tienes una empresa y quieres
     publicar oportunidades de pasantías por favor registrate con otro email y selecciona "Empresa"
     al momento de crear la cuenta.</h2>
+
   <% end %>
 </div>

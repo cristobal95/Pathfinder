@@ -14,7 +14,7 @@ class InternshipsController < ApplicationController
   end
 
     def show
-
+      @postulation = Postulation.new
     end
 
   def new

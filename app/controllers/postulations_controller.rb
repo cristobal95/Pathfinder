@@ -52,6 +52,18 @@ class PostulationsController < ApplicationController
     redirect_to postulations_path, status: :see_other
   end
 
+  def change_status_to_approved
+    @postulation = Postulation.find(params[:format])
+    @postulation.status = 2
+    @postulation.save
+  end
+
+  def change_status_to_rejected
+    @postulation = Postulation.find(params[:format])
+    @postulation.status = 0
+    @postulation.save
+  end
+
   private
 
   def postulation_params
