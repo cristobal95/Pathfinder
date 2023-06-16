@@ -82,3 +82,5 @@ end
 gem "cloudinary"
 
 gem 'country_select'
+
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
