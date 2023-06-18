@@ -1,0 +1,42 @@
+
+.card {
+
+  width: fit-content; /* Adjust the card width as needed */
+  height: fit-content; /* Adjust the card height as needed */
+  background-color: #253078 ; /* Adjust the background color as needed */
+  border-radius: 10px; /* Adjust the border radius as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.row a {
+  color: #253078;
+  text-decoration: none;
+}
+
+.row .card a {
+  text-decoration: none;
+
+  color: #253078
+}
+
+.row .card .btn {
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.card-title {
+  font-size: 18px; /* Adjust the font size as needed */
+  margin: 0;
+  padding: 10px;
+  background-color: #f2f2f2; /* Adjust the background color as needed */
+  border-top-left-radius: 10px; /* Adjust the border radius as needed */
+  border-top-right-radius: 10px; /* Adjust the border radius as needed */
+}
