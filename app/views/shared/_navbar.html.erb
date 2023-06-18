@@ -25,7 +25,7 @@
           <% if current_user.photo.present? %>
             <% @user = User.new %>
             <% @user.id = current_user.id %>
-            <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, style: "border-radius: 50%;" %>
+            <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-bordered" %>
           <% else %>
             <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
           <% end %>
