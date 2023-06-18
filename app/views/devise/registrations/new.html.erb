@@ -1,9 +1,9 @@
-<div class="fondo-white">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-5 p-5 pb-0">
         <div class="my-card-su">
-            <h2>Te damos la bienvenida a tu nueva experiencia laboral.</h2>
+            <img class="my-logo" src="/assets/logologin.png">
+            <h2>Estás a punto de experimentar algo nuevo.</h2>
 
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
               <%= f.error_notification %>
@@ -23,14 +23,14 @@
                   <p>Tipo de usuario:</p>
                 <div class="radios">
                   <div class="field my-radio-field">
-                    <%= f.radio_button :role, false %>
+                    <%= f.radio_button :role, false, required: true %>
                     <%= label_tag :postulante do %>
                       Postulante
                     <% end %>
                   </div>
 
                   <div class="field my-radio-field">
-                    <%= f.radio_button :role, true %>
+                    <%= f.radio_button :role, true, required: true %>
                     <%= label_tag :empresa do %>
                       Empresa
                     <% end %>
@@ -51,4 +51,3 @@
       </div>
     </div>
   </div>
-</div>

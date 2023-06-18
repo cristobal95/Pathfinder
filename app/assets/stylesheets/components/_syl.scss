@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-.fondo-white {
-  background-color: white;
-}
-
 .my-card-su {
   overflow: hidden;
   position: relative;
@@ -32,6 +28,16 @@
   height: 1000px;
   border-radius: 50%;
   background: #216ce7;
+}
+
+.my-card-su .my-logo {
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  translate: -50% 0;
+  width: 64px;
+  height: 64px;
 }
 
 .form-inputs input {
