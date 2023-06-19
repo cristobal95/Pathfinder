@@ -1,8 +1,7 @@
-
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
     <%= link_to(root_path, class: "navbar-brand") do %>
-      <%= image_tag "logo.jpg" %>
+      <%= image_tag "logo.jpg", height: 50, width: 50, crop: :fill %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,47 +11,47 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? && current_user.role == true %>
-          <li class="nav-item active">
-            <%= link_to "Inicio", "/", class: "nav-link" %>
-          <li class="nav-item">
-            <%= link_to "Publicar una pasantia ", "/internships/new", class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center active">
+            <%= link_to "Inicio", "/", class: "nav-link text-white" %>
+          <li class="nav-item d-flex align-items-center">
+            <%= link_to "Publicar una pasantia ", "/internships/new", class: "nav-link text-white" %>
           </li>
-            <li class="nav-item">
-            <%= link_to "Ofertas publicadas ", internships_path, class: "nav-link" %>
+            <li class="nav-item d-flex align-items-center">
+            <%= link_to "Ofertas publicadas ", internships_path, class: "nav-link text-white" %>
           </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user.photo.present? %>
-            <% @user = User.new %>
-            <% @user.id = current_user.id %>
-            <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, style: "border-radius: 50%;" %>
-          <% else %>
-            <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
-          <% end %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mi perfil", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
-              <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item d-flex align-items-center dropdown">
+            <a href="#" class="avatar rounded-circle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.photo.present? %>
+                <% @user = User.new %>
+                <% @user.id = current_user.id %>
+                <img src="<%= cl_image_path(@user.photo.key, height: 50, width: 50, crop: :fill) %>" class="avatar rounded-circle" alt="Profile Image">
+              <% else %>
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png" class="avatar rounded-circle" alt="Default Image">
+              <% end %>
+            </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Mi perfil", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
+                <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
           </li>
       <% elsif user_signed_in? && current_user.role == false %>
-      <li class="nav-item active">
-            <%= link_to "Inicio", "/", class: "nav-link" %>
-          <li class="nav-item">
-            <%= link_to "Pasantias ", internships_path, class: "nav-link" %>
+      <li class="nav-item d-flex align-items-center active">
+            <%= link_to "Inicio", "/", class: "nav-link text-white" %>
+          <li class="nav-item d-flex align-items-center">
+            <%= link_to "Pasantias ", internships_path, class: "nav-link text-white" %>
           </li>
-            <li class="nav-item">
-            <%= link_to "Mis Postulaciones", postulations_path, class: "nav-link" %>
+            <li class="nav-item d-flex align-items-center">
+            <%= link_to "Mis Postulaciones", postulations_path, class: "nav-link text-white" %>
           </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li class="nav-item d-flex align-items-center dropdown">
+          <a href="#" class="avatar rounded-circle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.present? %>
             <% @user = User.new %>
             <% @user.id = current_user.id %>
-            <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+            <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar rounded-circle" %>
           <% else %>
-            <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
+            <%= image_tag("avatar2", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -62,28 +61,17 @@
           </li>
 
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center">
+            <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link text-white" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Registrarse", new_user_registration_path, class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center">
+            <%= link_to "Registrarse", new_user_registration_path, class: "nav-link text-white" %>
           </li>
-              <li class="nav-item">
-           <%= image_tag "https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png", class: "avatar", alt: "dropdown menu" %>
+            <li class="nav-item d-flex align-items-center">
+            <%= image_tag("avatar2", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
-
-
-
-
-      <%
-=begin%>
-   <li class="nav-item active">
-            <%= link_to "Ver Postulaciónes", "/postulations", class: "nav-link" %>
-          </li>
-<%
-=end%>

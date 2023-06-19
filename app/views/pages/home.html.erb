@@ -1,51 +1,325 @@
-  <div class="content text-center">
-  <h2>Pathfinder</h2>
-  <p>Encuentra tu camino, a través de la experiencia</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
 
-
-
-<div class="banner position-relative">
-  <div class="image-home">
-    <%= image_tag("Banner", alt: "Chica feliz con su primera pasatia") %>
-
-    <div class="search-container">
-      <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
-        <div class="search-wrapper">
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control search-input",
-                placeholder: "Busca trabajo, ciudad o país"
+    <div class="banner position-relative">
+      <div class="image-home">
+        <%= image_tag("Banner", alt: "Chica feliz con su primera pasatia") %>
+      </div>
+      <div class="content text-center">
+        <h1 class="titulo-principal">PathFinder</h1>
+        <h5 class="subtitulo-principal">Encuentra tu camino, a través de la experiencia</h5>
+      </div>
+      <div class="search-container search-form">
+          <div class="search-input">
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control search-input",
+                  placeholder: "Ingresa puesto o ubicación"
             %>
-          <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
-        </div>
-      <% end %>
+          </div>
+          <div class="search-button-wrapper">
+            <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+          </div>
+      </div>
     </div>
-  </div>
-</div>
 
 
-<h2>Empresas mejor evaluadas</h2>
-<div class="row">
-  <% @internships.each do |internship| %>
-    <% if internship.user.rating > 4.5 %>
-      <div class="col-md-6">
-        <div class="card-product mt-5">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-
-          <div class="card-product-infos">
-            <h2><%= internship.title %></h2>
-            <p>Empresa:<%= internship.user.name %></p>
-            <h5>Rating: <%= internship.user.rating %></h5>
-              <h5>Rating: <%= internship.title %></h5>
-            <li><%= "Categoría: #{internship.category}" %></li>
-
-            <li><%= "Ubicación: #{internship.city}, #{internship.country}" %></li>
+      <section id="seccion1" class="py-4 mb-0">
+        <div class="container">
+          <h2 class="text-center m-5 text-dark">Categorías Populares</h2>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("curve.png", alt: "logo arte", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Arte y Diseño</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("blogger.png", alt: "logo administracion", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Administración y Gestión Empresarial</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("planting.png", alt: "logo agricultura", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Agricultura y Medio Ambiente</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("coding.png", alt: "logo arte", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Desarrollo de Software</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("teach.png", alt: "logo arte", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Educación y Formación</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("budget.png", alt: "logo arte", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Finanzas y Contabilidad</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("auction.png", alt: "logo arte", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Legal</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                  <div class="card-body card-body-seccion1 text'center">
+                    <div class="text-center mt-3 mb-3">
+                      <%= image_tag("resort.png", alt: "logo arte", width: "80", height: "80") %>
+                    </div>
+                    <div class="text-center mt-4">
+                      <h5 class="card-text card-text-seccion1">Turismo y Hotelería</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="text-center m-4">
+          <h4><%= link_to "Ver más", internships_path, class:"btn btn-primary btn-pill"%></h4>
+        </div>
+      </section>
+
+      <section id="seccion2" class="py-4 mb-0 pe-0 ps-0">
+        <div class="container mt-5 w-100">
+          <div class="row d-flex justify-content-evenly">
+            <div class="col text-center me-2">
+              <h3 class="mb-5 mt-3">Pasantías Destacadas</h3>
+              <div class="card-rectangular-seccion2" style="max-width: 540px;">
+                <% dias = [30, 19, 4, 27, 55, 3] %>
+                <% index = 0 %>
+                <% @internships.each_slice(2) do |internships_slice| %>
+                  <div class="row g-0">
+                    <% internships_slice.each do |internship| %>
+                      <% if internship.user.rating > 4.5 %>
+                        <div class="col">
+                          <div class="card mb-3 shadow p-2">
+                            <div class="row g-0">
+                              <div class="col d-flex">
+                                <div class="col-auto">
+                                  <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
+                                </div>
+                                <div class="col text-left">
+                                  <h6 class="card-text titulo-card-seccion2"><%= internship.title %></h6>
+                                  <p class="card-title"><%= internship.user.name %></p>
+                                </div>
+                                <div class="col-auto ml-auto">
+                                  <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                                  <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
+                                  <% index += 1 %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="col text-center me-2">
+              <h3 class="mb-5 mt-3">Últimas Pasantías</h3>
+              <div class="card-rectangular-seccion2" style="max-width: 540px;">
+                <div class="row g-0">
+                  <% dias = [2, 3, 8, 10, 17, 21] %>
+                  <% index = 0 %>
+                  <% @internships.take(6).each do |internship| %>
+                    <div class="col">
+                      <div class="card mb-3 shadow p-2">
+                        <div class="row g-0">
+                          <div class="col d-flex">
+                            <div class="col-auto">
+                              <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
+                            </div>
+                            <div class="col text-left">
+                              <h6 class="card-text titulo-card-seccion2"><%= internship.title %></h6>
+                              <p class="card-title"><%= internship.user.name %></p>
+                            </div>
+                            <div class="col-auto ml-auto">
+                              <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                              <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
+                              <% index += 1 %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <div class="banner position-relative">
+        <div class="image-app">
+          <%= image_tag("banner_app", alt: "Estudiantes usando la app") %>
+          <div class="image-overlay"></div>
+        </div>
+        <div class="contenido">
+          <%= image_tag("iphone", alt: "Iphone", class: "iphone-image") %>
+        </div>
+        <div>
+          <h4 class="texto-banner2">Encuentra oportunidades más rápido con nuestra app</h4>
+        </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
 
 
-</div>
+      <section id="seccion3" class="py-4 mb-0">
+        <div class="m-5 text-dark text-center">
+          <h2>Candidatos Destacados</h2>
+          <p class="mt-3 mb-4">Talentos con competencias y responsabilidades que pueden impulsar su empresa a un nivel superior</p>
+        </div class="container m-4">
+          <div class="row justify-content-evenly">
+            <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12">
+              <%= image_tag("juanma", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
+              <h6 class="titulo-card-seccion2 mt-3 p-2">Juan Manuel Binda</h6>
+              <p class="card-text text-muted">Desarrollador Full Stack</p>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 text-dark-emphasis">Diseño de la experiencia del usuario, así como la programación y mantenimiento de la arquitectura interna del sitio web</p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 border-bottom "></p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="me-2"><i class="fa-brands fa-instagram"></i></p>
+                <p class="me-2"><i class="fa-brands fa-github"></i></p>
+                <p class="me-2"><i class="fa-brands fa-twitter"></i></p>
+              </div>
+            </div>
+            <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
+              <%= image_tag("cris", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
+              <h6 class="titulo-card-seccion2 mt-3 p-2">Cristobal Selame</h6>
+              <p class="card-text text-muted">Desarrollador RoR</p>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 text-dark-emphasis">Experto en lenguajes de programación back-end. Sólidos conocimientos de Ruby on Rails y JavaScript</p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 border-bottom "></p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="me-2"><i class="fa-brands fa-facebook"></i></p>
+                <p class="me-2"><i class="fa-brands fa-github"></i></p>
+                <p class="me-2"><i class="fa-brands fa-twitter"></i></p>
+              </div>
+            </div>
+            <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
+              <%= image_tag("hugo", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
+              <h6 class="titulo-card-seccion2 mt-3 p-2">Hugo Acosta</h6>
+              <p class="card-text text-muted">Ingeniero Informático</p>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 text-dark-emphasis">Experto en desarrollo de software de gestión. Amplia experiencia en redes y servidores</p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 border-bottom "></p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="me-2"><i class="fa-brands fa-github"></i></p>
+                <p class="me-2"><i class="fa-brands fa-twitter"></i></p>
+              </div>
+            </div>
+            <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
+              <%= image_tag("keiber", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
+              <h6 class="titulo-card-seccion2 mt-3 p-2">Keiber Zorrilla</h6>
+              <p class="card-text text-muted">Hacker ético</p>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 text-dark-emphasis">Experto en seguridad informática. Cuenta con experiencia en encontrar vulnerabilidades y corregirlas antes de que sean explotadas por ciberdelincuentes</p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="w-50 border-bottom "></p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <p class="me-2"><i class="fa-brands fa-instagram"></i></p>
+                <p class="me-2"><i class="fa-brands fa-github"></i></p>
+                <p class="me-2"><i class="fa-brands fa-tiktok"></i></p>
+              </div>
+            </div>
+          </div>
+    </section>
+
+
+    <section id="seccion4" class="py-4 mb-0">
+      <div class="m-4 text-dark text-center">
+        <h2>Empresas Que Confían En PathFinder</h2>
+      </div>
+      <div class="container mt-4">
+        <div class="row d-flex justify-content-evenly">
+          <% @internships.take(6).each do |internship|  %>
+            <div class="text-center col-auto mt-3">
+              <%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
+
+
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

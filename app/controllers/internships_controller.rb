@@ -1,5 +1,6 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: %i[show edit update]
+
   def index
     if current_user.role == false
       #student

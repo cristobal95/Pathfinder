@@ -815,8 +815,8 @@ internships = [
   },
   {
     category: "turism",
-    title: "Elaboración de paquetes promocionales",
-    description: "Trabajar en la elaboración de paquetes de promoción para fin de año",
+    title: "Product Owner",
+    description: "Participar en el diseño y características de nuestro producto líder",
     tipo: "remoto",
     status: true,
     duration: 8,
