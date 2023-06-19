@@ -146,7 +146,7 @@
         <div class="container mt-5 w-100">
           <div class="row d-flex justify-content-evenly">
             <div class="col text-center me-2">
-              <h3 class="mb-5 mt-3">Pasantías Destacadas</h3>
+              <h3 class="mb-5 mt-3" id="title-section2">Pasantías Destacadas</h3>
               <div class="card-rectangular-seccion2" style="max-width: 540px;">
                 <% dias = [30, 19, 4, 27, 55, 3] %>
                 <% index = 0 %>
@@ -155,14 +155,14 @@
                     <% internships_slice.each do |internship| %>
                       <% if internship.user.rating > 4.5 %>
                         <div class="col">
-                          <div class="card mb-3 shadow p-2">
+                          <div class="cardd mb-3 shadow p-2">
                             <div class="row g-0">
                               <div class="col d-flex">
                                 <div class="col-auto">
                                   <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
                                 </div>
                                 <div class="col text-left">
-                                  <h6 class="card-text titulo-card-seccion2"><%= internship.title %></h6>
+                                  <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
                                   <p class="card-title"><%= internship.user.name %></p>
                                 </div>
                                 <div class="col-auto ml-auto">
@@ -181,22 +181,22 @@
               </div>
             </div>
             <div class="col text-center me-2">
-              <h3 class="mb-5 mt-3">Últimas Pasantías</h3>
+              <h3 class="mb-5 mt-3" id="title-section2">Últimas Pasantías</h3>
               <div class="card-rectangular-seccion2" style="max-width: 540px;">
                 <div class="row g-0">
                   <% dias = [2, 3, 8, 10, 17, 21] %>
                   <% index = 0 %>
                   <% @internships.take(6).each do |internship| %>
                     <div class="col">
-                      <div class="card mb-3 shadow p-2">
+                      <div class="cardd mb-3 shadow p-2">
                         <div class="row g-0">
                           <div class="col d-flex">
                             <div class="col-auto">
                               <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
                             </div>
                             <div class="col text-left">
-                              <h6 class="card-text titulo-card-seccion2"><%= internship.title %></h6>
-                              <p class="card-titlee"><%= internship.user.name %></p>
+                              <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
+                              <p class="card-title"><%= internship.user.name %></p>
                             </div>
                             <div class="col-auto ml-auto">
                               <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
@@ -234,13 +234,13 @@
 
       <section id="seccion3" class="py-4 mb-0">
         <div class="m-5 text-dark text-center">
-          <h2>Candidatos Destacados</h2>
+          <h2 id="title-section3-4">Candidatos Destacados</h2>
           <p class="mt-3 mb-4">Talentos con competencias y responsabilidades que pueden impulsar su empresa a un nivel superior</p>
         </div class="container m-4">
           <div class="row justify-content-evenly">
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12">
               <%= image_tag("juanma", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
-              <h6 class="titulo-card-seccion2 mt-3 p-2">Juan Manuel Binda</h6>
+              <h6 class="titulo-card-seccion2 mt-3 p-2" id="title-section3-4">Juan Manuel Binda</h6>
               <p class="card-text text-muted">Desarrollador Full Stack</p>
               <div class="d-flex justify-content-center">
                 <p class="w-50 text-dark-emphasis">Diseño de la experiencia del usuario, así como la programación y mantenimiento de la arquitectura interna del sitio web</p>
@@ -256,7 +256,7 @@
             </div>
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
               <%= image_tag("cris", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
-              <h6 class="titulo-card-seccion2 mt-3 p-2">Cristobal Selame</h6>
+              <h6 class="titulo-card-seccion2 mt-3 p-2" id="title-section3-4">Cristobal Selame</h6>
               <p class="card-text text-muted">Desarrollador RoR</p>
               <div class="d-flex justify-content-center">
                 <p class="w-50 text-dark-emphasis">Experto en lenguajes de programación back-end. Sólidos conocimientos de Ruby on Rails y JavaScript</p>
@@ -272,7 +272,7 @@
             </div>
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
               <%= image_tag("hugo", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
-              <h6 class="titulo-card-seccion2 mt-3 p-2">Hugo Acosta</h6>
+              <h6 class="titulo-card-seccion2 mt-3 p-2" id="title-section3-4">Hugo Acosta</h6>
               <p class="card-text text-muted">Ingeniero Informático</p>
               <div class="d-flex justify-content-center">
                 <p class="w-50 text-dark-emphasis">Experto en desarrollo de software de gestión. Amplia experiencia en redes y servidores</p>
@@ -287,7 +287,7 @@
             </div>
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
               <%= image_tag("keiber", alt: "Iphone", width: "200", height: "200", class: "rounded-circle") %>
-              <h6 class="titulo-card-seccion2 mt-3 p-2">Keiber Zorrilla</h6>
+              <h6 class="titulo-card-seccion2 mt-3 p-2" id="title-section3-4">Keiber Zorrilla</h6>
               <p class="card-text text-muted">Hacker ético</p>
               <div class="d-flex justify-content-center">
                 <p class="w-50 text-dark-emphasis">Experto en seguridad informática. Cuenta con experiencia en encontrar vulnerabilidades y corregirlas antes de que sean explotadas por ciberdelincuentes</p>
@@ -308,7 +308,7 @@
 
     <section id="seccion4" class="py-4 mb-0">
       <div class="m-4 text-dark text-center">
-        <h2>Empresas Que Confían En PathFinder</h2>
+        <h2 id="title-section3-4">Empresas Que Confían En PathFinder</h2>
       </div>
       <div class="container mt-4">
         <div class="row d-flex justify-content-evenly">
