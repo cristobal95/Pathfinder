@@ -1,0 +1,1 @@
+<%= image_tag("avatar2", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>

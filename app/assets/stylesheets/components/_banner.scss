@@ -1,3 +1,57 @@
-.bg-beige {
-  background-color: #9B755D;
+.banner {
+  max-height: 550px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.titulo-principal {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.subtitulo-principal {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.content {
+  color: white;
+  position: absolute;
+  top: 74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-home {
+  height: 80%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-home img {
+  width: 100%;
+  filter: brightness(30%);
+}
+
+.search-container {
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-input {
+  width: 300px;
+  background-color: #ffffff;
+}
+
+.search-button {
+  margin-left: 10px;
 }
