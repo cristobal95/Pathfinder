@@ -3,5 +3,10 @@ class PagesController < ApplicationController
 
   def home
     @internships = Internship.all
+    if params[:query].present?
+      @internships = @internships.search_by_title(params[:query])
+    end
   end
+
+
 end
