@@ -1,4 +1,15 @@
-<body>
+
+  <% if user_signed_in? == false || current_user.role == false %>
+    <div class="container">
+      <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-input",
+          placeholder: "Busca trabajo, ciudad o país"
+        %>
+        <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+      <% end %>
+
   <% if current_user.role == true %>
 
     <div class="ml-6">
@@ -48,6 +59,7 @@
       <% @internships.each do |internship| %>
         <div class="col-md-3 mb-3">
 
+
         <div class="card-index shadow">
         <div class="header">
           <div><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100), class:"rounded-circle" %></div>
@@ -77,9 +89,22 @@
         </div>
       <% end %>
     </div>
+
+  <% else %>
+    <h2>Mis pasantias</h2>
+    <div class="container">
+      <% @internships.each do |internship| %>
+        <h5>Puesto: <%= internship.title %></h5>
+        <li>Estado: <%= internship.status %></li>
+        <li>Cantidad de postulaciones: <%= internship.postulations.count %></li>
+        <p><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
+        <p><%= link_to 'Editar', edit_internship_path(internship) %></p>
+      <% end %>
+    </div>
+
   </div>
 
 
 
+
   <% end %>
-</body>

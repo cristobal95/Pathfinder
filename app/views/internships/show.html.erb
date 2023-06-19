@@ -1,56 +1,62 @@
 <div class="container-fluid w-75">
-  <div class="shadow text-center p-4 m-2 mt-3 bg-white">
-    <h2><%= @internship.title %></h2>
-    <p>Categoría: <%= Internship.categories[@internship.category] %></p>
-    <p>Estado: <%= @internship.status %></p>
-    <p>Descripción: <%= @internship.description %></p>
-    <p>Tipo: <%= Internship.tipos[@internship.tipo] %></p>
-    <p>Ubicación: <%= "#{@internship.city}, #{@internship.country}" %></p>
-    <p>Duración: <%= @internship.duration %> meses</p>
-    <p>Remunerada: <%= @internship.paid %></p>
-    <p>Desde: <%= @internship.start_date.strftime("%d-%m-%Y") %></p>
-    <p>Hasta: <%= @internship.end_date.strftime("%d-%m-%Y") %></p>
-  </div>
+  <% if user_signed_in? == false || user_signed_in? == true %>
+    <div class="shadow text-center p-4 m-2 mt-3 bg-white">
+      <h2><%= @internship.title %></h2>
+      <p>Categoría: <%= Internship.categories[@internship.category] %></p>
+      <p>Estado: <%= @internship.status %></p>
+      <p>Descripción: <%= @internship.description %></p>
+      <p>Tipo: <%= Internship.tipos[@internship.tipo] %></p>
+      <p>Ubicación: <%= "#{@internship.city}, #{@internship.country}" %></p>
+      <p>Duración: <%= @internship.duration %> meses</p>
+      <p>Remunerada: <%= @internship.paid %></p>
+      <p>Desde: <%= @internship.start_date.strftime("%d-%m-%Y") %></p>
+      <p>Hasta: <%= @internship.end_date.strftime("%d-%m-%Y") %></p>
+    </div>
+    <div class="mb-4">
+          <%= link_to "Volver", internships_path, class: "button is-primary" %>
+          <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
+        </div>
+  <% else %>
 
-
-  <% if current_user.role == true && current_user.id == @internship.user_id %>
-      <%# <div class="container mb-5">
-        <h5 class="mt-2">Filtrar postulaciones:</h5>
-        <%= simple_form_for(@postulation) do |f| %>
-          <%# <%= f.input :status, label: "Estado", collection: Postulation.statuses.keys, prompt: "Seleccionar estado" %>
-          <%# <%= f.button :submit, "Filtrar" %>
-        <%# <% end %>
-      <%# </div> %>
-      <% @internship.postulations.each do |student| %>
-          <div class="card-product mt-3">
-            <%= cl_image_tag student.user.photo.key, height: 200, width: 200, crop: :fill %>
-            <div class="card-body d-flex d-wrap justify-content-between">
-              <div>
-                <h6 class="card-product-infos"><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)), target: "_blank" %></h6>
-                <p class="card-product-infos"><%= student.user.studies %></p>
-                <p class="card-product-infos"><%= student.content %></p>
-              </div>
-              <p class="card-product-infos"><%= student.status %></p>
-              <div class="card-product-infos bm-3">
-                <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class:"button is-primary is-light is-small mb-2" %>
-                <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "button is-danger is-light is-small mt-2" %>
+    <% if current_user.role == true && current_user.id == @internship.user_id %>
+        <%# <div class="container mb-5">
+          <h5 class="mt-2">Filtrar postulaciones:</h5>
+          <%= simple_form_for(@postulation) do |f| %>
+            <%# <%= f.input :status, label: "Estado", collection: Postulation.statuses.keys, prompt: "Seleccionar estado" %>
+            <%# <%= f.button :submit, "Filtrar" %>
+          <%# <% end %>
+        <%# </div> %>
+        <% @internship.postulations.each do |student| %>
+            <div class="card-product mt-3">
+              <%= cl_image_tag student.user.photo.key, height: 200, width: 200, crop: :fill %>
+              <div class="card-body d-flex d-wrap justify-content-between">
+                <div>
+                  <h6 class="card-product-infos"><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)), target: "_blank" %></h6>
+                  <p class="card-product-infos"><%= student.user.studies %></p>
+                  <p class="card-product-infos"><%= student.content %></p>
+                </div>
+                <p class="card-product-infos"><%= student.status %></p>
+                <div class="card-product-infos bm-3">
+                  <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class:"button is-primary is-light is-small mb-2" %>
+                  <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "button is-danger is-light is-small mt-2" %>
+                </div>
               </div>
             </div>
-          </div>
-      <% end %>
-  <% end %>
-
-  <div class="d-flex justify-content-evenly mt-3">
-    <% if current_user.role == false %>
-      <div class="mb-4">
-        <%= link_to "Volver", internships_path, class: "button is-primary" %>
-        <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
-      </div>
-    <% elsif current_user.role == true && current_user.id == @internship.user_id %>
-      <div class="mb-4">
-        <%= link_to "Volver", internships_path, class: "button is-primary" %>
-        <%= link_to "Editar Pasantía", edit_internship_path, class: "button is-primary" %>
-      </div>
+        <% end %>
     <% end %>
-  </div>
+
+    <div class="d-flex justify-content-evenly mt-3">
+      <% if current_user.role == false %>
+        <div class="mb-4">
+          <%= link_to "Volver", internships_path, class: "button is-primary" %>
+          <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
+        </div>
+      <% elsif current_user.role == true && current_user.id == @internship.user_id %>
+        <div class="mb-4">
+          <%= link_to "Volver", internships_path, class: "button is-primary" %>
+          <%= link_to "Editar Pasantía", edit_internship_path, class: "button is-primary" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

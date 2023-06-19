@@ -3,8 +3,8 @@ class InternshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if current_user.role == false
-      #student
+    if user_signed_in? == false || current_user.role == false
+      #student or logout
       @internships = Internship.all
       if params[:query].present?
         @internships = @internships.search_by_title(params[:query])
