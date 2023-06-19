@@ -46,5 +46,4 @@ class Internship < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
 end

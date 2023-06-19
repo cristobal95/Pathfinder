@@ -1,66 +1,67 @@
-<% if current_user.role == true  %>
-<h2>Postulantes</h2>
-
-<div class="row">
-  <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Eliminar</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-   <% @postulations.each do |postulation| %>
-      <h4> <%= postulation.user.first_name %> <%= postulation.user.last_name %> </h4>
-      <li> <%= "Correo electronico: #{postulation.user.email}" %> </li>
-       <li> <%= "Apellido: #{postulation.content}" %> </li>
-       <li> <%= "Telefono: #{postulation.user.phone}" %> </li>
-       <li> <%= "Estudios: #{postulation.user.studies}" %> </li>
-      <li> <%= "Experiencia: #{postulation.user.experience}" %> </li>
-      <li> <%= "Nombre: #{postulation.user.first_name}" %> </li>
-       <li> <%= "Estado: #{postulation.status}" %> </li>
-
- <%= link_to "volver", internships_path %>
-    <% end %>
-
-  </ul>
-
-
-
-<% else %>
-  <h2 class="text-center">Mis postulaciones</h2>
+<% if current_user.role == true %>
+  <h2>Postulantes</h2>
 
   <div class="row">
-    <% @postulations.each do |postulation| %>
-     <div class="col-md-4 mb-3">
-        <div class="card">
-             <button type="button" class="btn btn-light"> <%= link_to "Empresa: #{postulation.internship.user.name}", user_path(postulation.internship.user) %></button>
-
-          <div class="card-body">
-            <h4><%= "Estado: #{postulation.status}" %></h4>
-            <ul class="list-unstyled">
-              <li><%= "Cargo: #{postulation.internship.title}" %></li>
-              <li><%= "Duración: #{postulation.internship.duration}" %></li>
-              <li><%= "Remunerada: #{postulation.internship.paid}" %></li>
-              <li><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></li>
-            </ul>
-          </div>
-            <%= link_to "Eliminar postulación", postulation_path(postulation), data: {turbo_method: :delete, turbo_confirm: "Estás seguro/a?"}, class: "btn btn-primary" %>
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Eliminar</a>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% @postulations.each do |postulation| %>
+    <h4><%= postulation.user.first_name %> <%= postulation.user.last_name %></h4>
+    <ul>
+      <li><%= "Correo electrónico: #{postulation.user.email}" %></li>
+      <li><%= "Apellido: #{postulation.content}" %></li>
+      <li><%= "Teléfono: #{postulation.user.phone}" %></li>
+      <li><%= "Estudios: #{postulation.user.studies}" %></li>
+      <li><%= "Experiencia: #{postulation.user.experience}" %></li>
+      <li><%= "Nombre: #{postulation.user.first_name}" %></li>
+      <li><%= "Estado: #{postulation.status}" %></li>
+    </ul>
+  <% end %>
+
+  <%= link_to "Volver", internships_path %>
+
+<% else %>
+
+  <div class="ml-6">
+    <h2 class="text-center">Mis postulaciones</h2>
+    <div class="row">
+      <% @postulations.each do |postulation| %>
+        <div class="col-md-3 mb-3">
+          <div class="card-index shadow">
+            <div class="header">
+              <div>
+                <p class="name btn btn-secondary"><%= link_to "Empresa: #{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
+              </div>
+            </div>
+            <p class="message">
+              <h4><%= "Estado: #{postulation.status}" %></h4>
+                <p><%= "Cargo: #{postulation.internship.title}" %></p>
+                <p><%= "Duración: #{postulation.internship.duration}" %></p>
+                <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
+                <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
+            </p>
+            <p class="name btn btn-secondary"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 <% end %>
