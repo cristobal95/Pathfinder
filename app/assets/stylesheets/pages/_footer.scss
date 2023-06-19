@@ -74,6 +74,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   background: transparent;
   border: 1px solid #e2e2eb;
   font-size: 24px;
+
 }
 .f_social_icon a {
   width: 46px;
@@ -88,6 +89,8 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
+
+
 }
 .ti-facebook:before {
   content: "\e741";
@@ -135,10 +138,12 @@ color:white;
   font-size: 18px;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #4b505e;
+  color: #216ce7;
+  margin-bottom: 50px;
 }
 .new_footer_top .f_widget.about-widget .f_list li a {
   color: white;
+  text-decoration: none;
 }
 
 
