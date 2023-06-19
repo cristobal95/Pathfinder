@@ -9,11 +9,11 @@
 
     <div class="banner position-relative">
       <div class="image-home">
-        <%= image_tag("Banner", alt: "Chica feliz con su primera pasatia") %>
+        <%= image_tag("banner", alt: "Chica feliz con su primera pasatia") %>
       </div>
       <div class="content text-center">
-        <h1 class="titulo-principal">PathFinder</h1>
-        <h5 class="subtitulo-principal">Encuentra tu camino, a través de la experiencia</h5>
+        <h1 id="titulo-principal">PathFinder</h1>
+        <h5 id="subtitulo-principal">Encuentra tu camino, a través de la experiencia</h5>
       </div>
       <div class="search-container search-form">
           <div class="search-input">
@@ -38,19 +38,19 @@
             <div class="row">
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("curve.png", alt: "logo arte", width: "80", height: "80") %>
                     </div>
                     <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Arte y Diseño</h5>
+                      <h5 class="card-text card-text-seccion1">Arte y Diseño</h5><br>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("blogger.png", alt: "logo administracion", width: "80", height: "80") %>
                     </div>
@@ -62,7 +62,7 @@
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("planting.png", alt: "logo agricultura", width: "80", height: "80") %>
                     </div>
@@ -74,7 +74,7 @@
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("coding.png", alt: "logo arte", width: "80", height: "80") %>
                     </div>
@@ -88,7 +88,7 @@
             <div class="row">
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("teach.png", alt: "logo arte", width: "80", height: "80") %>
                     </div>
@@ -100,7 +100,7 @@
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("budget.png", alt: "logo arte", width: "80", height: "80") %>
                     </div>
@@ -112,7 +112,7 @@
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("auction.png", alt: "logo arte", width: "80", height: "80") %>
                     </div>
@@ -124,7 +124,7 @@
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text'center">
+                  <div class="card-body card-body-seccion1 text-center">
                     <div class="text-center mt-3 mb-3">
                       <%= image_tag("resort.png", alt: "logo arte", width: "80", height: "80") %>
                     </div>
@@ -196,7 +196,7 @@
                             </div>
                             <div class="col text-left">
                               <h6 class="card-text titulo-card-seccion2"><%= internship.title %></h6>
-                              <p class="card-title"><%= internship.user.name %></p>
+                              <p class="card-titlee"><%= internship.user.name %></p>
                             </div>
                             <div class="col-auto ml-auto">
                               <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
