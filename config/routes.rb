@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  get '/categories/:category', to: 'internships#categories', as: 'category'
+
   post '/postulations/change_status_to_approved', to: 'postulations#change_status_to_approved'
 
   post '/postulations/change_status_to_rejected', to: 'postulations#change_status_to_rejected'

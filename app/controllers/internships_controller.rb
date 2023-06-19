@@ -42,6 +42,12 @@ class InternshipsController < ApplicationController
     redirect_to internship_path(@internship)
   end
 
+  def categories
+    @category = params[:category]
+    @internships = Internship.search_by_category(@category)
+
+  end
+
 
     private
 
