@@ -1,5 +1,4 @@
-
-  <% if user_signed_in? == false || current_user.role == false %>
+ <% if user_signed_in? == false || current_user.role == false %>
     <div class="container">
       <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
         <%= text_field_tag :query,

@@ -15,11 +15,9 @@ class InternshipsController < ApplicationController
     end
   end
 
-    def show
-      @postulation = Postulation.new
-    end
-
-
+  def show
+    @postulation = Postulation.new
+  end
 
   def new
     @internship = Internship.new
@@ -42,6 +40,12 @@ class InternshipsController < ApplicationController
   def update
     @internship.update(internship_params)
     redirect_to internship_path(@internship)
+  end
+
+  def categories
+    @category = params[:category]
+    @internships = Internship.search_by_category(@category)
+
   end
 
 

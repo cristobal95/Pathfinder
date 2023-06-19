@@ -17,7 +17,7 @@ class Internship < ApplicationRecord
     construction: "Construcción y mantenimiento",
     cience: "Ciencia e investigación",
     logistic: "Logística y transporte",
-    turism: "Turismo y hostelería",
+    turism: "Turismo y hotelería",
     agriculture: "Agricultura y medio ambiente",
     manufacture: "Manufactura y producción",
     gno: "Sector sin ánimo de lucro",
@@ -39,11 +39,14 @@ class Internship < ApplicationRecord
     self.postulations.where(selected: true)
   end
 
-
   include PgSearch::Model
   pg_search_scope :search_by_title,
     against: [ :title, :city, :country],
     using: {
       tsearch: { prefix: true }
     }
+
+
+  pg_search_scope :search_by_category, against: :category
+
 end

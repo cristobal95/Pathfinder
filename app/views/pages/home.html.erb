@@ -43,102 +43,118 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("curve.png", alt: "logo arte", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Arte y Diseño</h5><br>
+                <%= link_to category_path(category: "Diseño y arte"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("curve.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Diseño y Arte</h5><br>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("blogger.png", alt: "logo administracion", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Administración y Gestión Empresarial</h5>
+                <%= link_to category_path(category: "Administración y gestión empresarial"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("blogger.png", alt: "logo administracion", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Administración y Gestión Empresarial</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("planting.png", alt: "logo agricultura", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Agricultura y Medio Ambiente</h5>
+                <%= link_to category_path(category: "Agricultura y medio ambiente"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("planting.png", alt: "logo agricultura", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Agricultura y Medio Ambiente</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("coding.png", alt: "logo arte", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Desarrollo de Software</h5>
+                <%= link_to category_path(category: "IT"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("coding.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">IT</h5><br>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("teach.png", alt: "logo arte", width: "80", height: "80") %>
+                <%= link_to category_path(category: "Educación y formación"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("teach.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Educación y Formación</h5>
+                      </div>
                     </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Educación y Formación</h5>
-                    </div>
-                  </div>
+                <% end %>
                 </div>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("budget.png", alt: "logo arte", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Finanzas y Contabilidad</h5>
+                <%= link_to category_path(category: "Finanzas y contabilidad"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("budget.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Finanzas y Contabilidad</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("auction.png", alt: "logo arte", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Legal</h5>
+                <%= link_to category_path(category: "Legal"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("auction.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Legal</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                  <div class="card-body card-body-seccion1 text-center">
-                    <div class="text-center mt-3 mb-3">
-                      <%= image_tag("resort.png", alt: "logo arte", width: "80", height: "80") %>
-                    </div>
-                    <div class="text-center mt-4">
-                      <h5 class="card-text card-text-seccion1">Turismo y Hotelería</h5>
+                <%= link_to category_path(category: "Turismo y hotelería"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("resort.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">Turismo y Hotelería</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -161,24 +177,26 @@
                     <% internships_slice.each do |internship| %>
                       <% if internship.user.rating > 4.5 %>
                         <div class="col">
-                          <div class="cardd mb-3 shadow p-2">
-                            <div class="row g-0">
-                              <div class="col d-flex">
-                                <div class="col-auto">
-                                  <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
-                                </div>
-                                <div class="col text-left">
-                                  <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
-                                  <p class="card-title"><%= internship.user.name %></p>
-                                </div>
-                                <div class="col-auto ml-auto">
-                                  <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
-                                  <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
-                                  <% index += 1 %>
+                          <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
+                            <div class="cardd mb-3 shadow p-2">
+                              <div class="row g-0">
+                                <div class="col d-flex">
+                                  <div class="col-auto">
+                                    <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
+                                  </div>
+                                  <div class="col text-left">
+                                    <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
+                                    <p class="card-title card-title-section2"><%= internship.user.name %></p>
+                                  </div>
+                                  <div class="col-auto ml-auto">
+                                    <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                                    <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
+                                    <% index += 1 %>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          <% end %>
                         </div>
                       <% end %>
                     <% end %>
@@ -194,24 +212,26 @@
                   <% index = 0 %>
                   <% @internships.take(6).each do |internship| %>
                     <div class="col">
-                      <div class="cardd mb-3 shadow p-2">
-                        <div class="row g-0">
-                          <div class="col d-flex">
-                            <div class="col-auto">
-                              <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
-                            </div>
-                            <div class="col text-left">
-                              <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
-                              <p class="card-title"><%= internship.user.name %></p>
-                            </div>
-                            <div class="col-auto ml-auto">
-                              <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
-                              <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
-                              <% index += 1 %>
+                      <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
+                        <div class="cardd mb-3 shadow p-2">
+                          <div class="row g-0">
+                            <div class="col d-flex">
+                              <div class="col-auto">
+                                <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
+                              </div>
+                              <div class="col text-left">
+                                <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
+                                <p class="card-title card-title-section2"><%= internship.user.name %></p>
+                              </div>
+                              <div class="col-auto ml-auto">
+                                <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                                <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
+                                <% index += 1 %>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      <% end %>
                     </div>
                   <% end %>
                 </div>

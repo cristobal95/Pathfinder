@@ -45,18 +45,23 @@
         <% end %>
     <% end %>
 
-    <div class="d-flex justify-content-evenly mt-3">
-      <% if current_user.role == false %>
-        <div class="mb-4">
-          <%= link_to "Volver", internships_path, class: "button is-primary" %>
-          <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
-        </div>
-      <% elsif current_user.role == true && current_user.id == @internship.user_id %>
-        <div class="mb-4">
-          <%= link_to "Volver", internships_path, class: "button is-primary" %>
-          <%= link_to "Editar Pasantía", edit_internship_path, class: "button is-primary" %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+
+
+
+  <div class="d-flex justify-content-evenly mt-3">
+    <% if current_user.role == false %>
+      <div class="mb-4">
+        <%= link_to "Volver", internships_path, class: "button is-primary" %>
+        <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
+      </div>
+    <% elsif current_user.role == true && current_user.id == @internship.user_id %>
+      <div class="mb-4">
+        <%= link_to "Volver", internships_path, class: "button is-primary" %>
+        <%= link_to "Editar Pasantía", edit_internship_path, class: "button is-primary" %>
+        <p>estado</p>
+        <input type="checkbox" id="toggle" />
+        <label for="toggle" class="toggle-switch"></label>
+      </div>
+    <% end %>
+  </div>
 </div>
