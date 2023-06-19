@@ -19,6 +19,7 @@
             <li class="nav-item d-flex align-items-center">
             <%= link_to "Ofertas publicadas ", internships_path, class: "nav-link text-white" %>
           </li>
+
           <li class="nav-item d-flex align-items-center dropdown">
             <a href="#" class="avatar rounded-circle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.present? %>
@@ -34,6 +35,7 @@
                 <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
+
           </li>
       <% elsif user_signed_in? && current_user.role == false %>
       <li class="nav-item d-flex align-items-center active">
