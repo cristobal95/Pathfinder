@@ -15,11 +15,9 @@ class InternshipsController < ApplicationController
     end
   end
 
-    def show
-      @postulation = Postulation.new
-    end
-
-
+  def show
+    @postulation = Postulation.new
+  end
 
   def new
     @internship = Internship.new

@@ -39,10 +39,9 @@ class Internship < ApplicationRecord
     self.postulations.where(selected: true)
   end
 
-
   include PgSearch::Model
   pg_search_scope :search_by_title,
-    against: [ :title, :city, :country],
+    against: [ :title, :city, :country, :category],
     using: {
       tsearch: { prefix: true }
     }
