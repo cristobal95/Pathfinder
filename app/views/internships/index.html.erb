@@ -1,55 +1,109 @@
-<% if current_user.role == true %>
-  <h2>Mis pasantias</h2>
+ <% if user_signed_in? == false || current_user.role == false %>
+    <div class="container">
+      <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-input",
+          placeholder: "Busca trabajo, ciudad o país"
+        %>
+        <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+      <% end %>
 
-  <div class="container">
-    <% @internships.each do |internship| %>
-      <h5>Puesto: <%= internship.title %></h5>
-      <li>Estado: <%= internship.status %></li>
-      <li>Cantidad de postulaciones: <%= internship.postulations.count %></li>
-      <p><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
-      <p><%= link_to 'Editar', edit_internship_path(internship) %></p>
-    <% end %>
-  </div>
+  <% if current_user.role == true %>
 
-<% else %>
-
-  <div class="container">
-    <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control search-input",
-        placeholder: "Busca trabajo, ciudad o país"
-      %>
-      <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
-    <% end %>
-
-    <h2 class="text-center">Pasantías</h2>
-
-    <div class="row">
+    <div class="ml-6">
+    <h2>Mis pasantias</h2>
+<div class="row">
       <% @internships.each do |internship| %>
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <ul>
-                <button type="button" class="btn btn-light mb-2"><%= link_to internship.user.name, user_path(internship.user) %></button>
-                <button type="button" class="btn btn-light mb-4"> <%= link_to internship.title, internship_path(internship) %></button>
+        <div class="col-md-3 mb-3">
 
-                <li>Estado: <%= internship.status %></li>
-                <li><%= "Categoría: #{internship.category}" %></li>
-                <li><%= "Empresa: #{internship.user.name}" %></li>
-                <li><%= "Ubicación: #{internship.city}, #{internship.country}" %></li>
-                <li><%= "Tipo: #{internship.tipo}" %></li>
-                <% if internship.paid %>
-                  <li>Remunerada: Sí</li>
-                <% else %>
-                  <li>Remunerada: No</li>
-                <% end %>
-              </ul>
-            </div>
+        <div class="card-index shadow">
+        <div class="header">
+          <div>
+              <p class="name">Puesto: <%= internship.title %></p>
           </div>
+        </div>
+
+        <p class="message">
+
+        <p>Estado: <%= internship.status %></p>
+        <p>Cantidad de postulaciones: <%= internship.postulations.count %></p>
+        </p>
+        <p class="name btn btn-secondary"><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
+        <p class="name btn btn-secondary"><%= link_to 'Editar', edit_internship_path(internship) %></p>
+</div>
         </div>
       <% end %>
     </div>
   </div>
 
-<% end %>
+
+
+
+
+  <% else %>
+  <div class="ml-6">
+    <%= form_with url: internships_path, method: :get, class: "d-flex search-form" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-input",
+        placeholder: "Busca trabajo, ciudad o país"
+      %>
+      <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+    <% end %>
+
+    <h2 class="text-center">Ofertas de Pasantías</h2>
+
+    <div class="row">
+      <% @internships.each do |internship| %>
+        <div class="col-md-3 mb-3">
+
+
+        <div class="card-index shadow">
+        <div class="header">
+          <div><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100), class:"rounded-circle" %></div>
+          <div>
+
+            <p class="name"><%= link_to internship.user.name, user_path(internship.user) %></p>
+              <p class="name btn btn-secondary"> <%= link_to internship.title, internship_path(internship) %></p>
+          </div>
+        </div>
+
+        <p class="message">
+          <ul>
+
+            <li>Estado: <%= internship.status %></li>
+            <li><%= "Categoría: #{internship.category}" %></li>
+            <li><%= "Empresa: #{internship.user.name}" %></li>
+            <li><%= "Ubicación: #{internship.city}, #{internship.country}" %></li>
+            <li><%= "Tipo: #{internship.tipo}" %></li>
+            <% if internship.paid %>
+              <li>Remunerada: Sí</li>
+            <% else %>
+              <li>Remunerada: No</li>
+            <% end %>
+          </ul>
+        </p>
+</div>
+        </div>
+      <% end %>
+    </div>
+
+  <% else %>
+    <h2>Mis pasantias</h2>
+    <div class="container">
+      <% @internships.each do |internship| %>
+        <h5>Puesto: <%= internship.title %></h5>
+        <li>Estado: <%= internship.status %></li>
+        <li>Cantidad de postulaciones: <%= internship.postulations.count %></li>
+        <p><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
+        <p><%= link_to 'Editar', edit_internship_path(internship) %></p>
+      <% end %>
+    </div>
+
+  </div>
+
+
+
+
+  <% end %>

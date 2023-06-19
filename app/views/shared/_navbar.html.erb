@@ -54,7 +54,9 @@
             <% @user.id = current_user.id %>
             <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar rounded-circle" %>
           <% else %>
+
             <%= image_tag("avatar2", alt: "avatar", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
+
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
