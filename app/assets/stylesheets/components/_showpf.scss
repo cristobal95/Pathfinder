@@ -43,18 +43,6 @@
   margin-bottom: 3px;
 }
 
-.container-one::before {
-  content: "";
-  position: absolute;
-  top: -900px;
-  left: 50%;
-  translate: -50% 0;
-  width: 1000px;
-  height: 1000px;
-  border-radius: 50%;
-  background: #216ce7;
-}
-
 .container-main-two {
   border: 1px solid #e6e5e5;
   border-radius: 7px;
@@ -184,7 +172,7 @@
   margin-bottom: 3px;
 }
 
-.my-apply {
+.my-apply-int {
   background-color: #216CE7;
   margin-left: 13px;
   margin-right: 13px;
@@ -215,9 +203,7 @@
   }
 }
 
-
-
-.my-apply:hover {
+.my-apply-int:hover {
   transform: scale(1.1);
     cursor: pointer;
 }
@@ -243,4 +229,13 @@
 .container-twoo-ab h5 {
   text-align: center;
   padding-top: 17px;
+}
+
+.my-cont-empr {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.my-cont-empr i {
+  margin-right: 7px;
 }
