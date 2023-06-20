@@ -192,10 +192,12 @@
               <div class="card-rectangular-seccion2" style="max-width: 540px;">
                 <% dias = [30, 19, 4, 27, 55, 3] %>
                 <% index = 0 %>
+                <% count = 0 %>
                 <% @internships.each_slice(2) do |internships_slice| %>
                   <div class="row g-0">
                     <% internships_slice.each do |internship| %>
                       <% if internship.user.rating > 4.5 %>
+                        <% count += 1 %>
                         <div class="col">
                           <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
                             <div class="cardd mb-3 shadow p-2">
@@ -218,9 +220,11 @@
                             </div>
                           <% end %>
                         </div>
+                        <% break if count == 6 %>
                       <% end %>
                     <% end %>
                   </div>
+                  <% break if count == 6 %>
                 <% end %>
               </div>
             </div>
