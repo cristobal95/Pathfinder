@@ -40,6 +40,9 @@
 <% else %>
 
   <div>
+  <div class=" active banner position-relative image-home">
+      <%= image_tag("index_postulations.jpg", alt: "Tres jovenes trabajando") %>
+    </div>
     <h2 class="text-center">Mis postulaciones</h2>
     <div class="row mx-4 ">
       <% @postulations.each do |postulation| %>
