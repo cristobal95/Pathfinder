@@ -21,6 +21,11 @@
   text-decoration: none;
 }
 
+.user-index-postulation a {
+  color: #000000;
+  text-decoration: none;
+}
+
 .row .card a {
   text-decoration: none;
 
@@ -54,5 +59,11 @@
 .cardd:hover{
   transform: scale(1.05);
   box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.cards-postulations:hover {
+  transform: scale(1.05);
+
   text-decoration: none;
 }
