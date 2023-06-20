@@ -53,8 +53,9 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
 
 
 .new_footer_top .f_widget.about-widget .f_list li a:hover {
-  font-weight: bold;
-  font-size: 18px;
+  box-shadow: 0 0 5px rgb(255, 255, 255);
+  transform: scale(1.1);
+  transition: background-color 0.3s ease;
 }
 .new_footer_top .f_widget.about-widget .f_list li {
   margin-bottom: 11px;
@@ -86,7 +87,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   color: #faf2fe;
   display: inline-block;
   background: #ebeef5;
-  //text-align: center;
+  text-align: center;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
