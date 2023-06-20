@@ -1,0 +1,41 @@
+<h1>Pasantías de la categoría: <%= @category.capitalize %></h1>
+
+  <div class="container">
+    <% @internships.each do |internship| %>
+      <h5>Puesto: <%= internship.title %></h5>
+      <li>Estado: <%= internship.status %></li>
+      <li>Cantidad de postulaciones: <%= internship.postulations.count %></li>
+      <p><%= link_to 'Ver Postulantes', internship_path(internship) %></p>
+      <p><%= link_to 'Editar', edit_internship_path(internship) %></p>
+    <% end %>
+  </div>
+
+
+    <h2 class="text-center">Pasantías</h2>
+
+    <div class="row">
+      <% @internships.each do |internship| %>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <ul>
+                <button type="button" class="btn btn-light mb-2"><%= link_to internship.user.name, user_path(internship.user) %></button>
+                <button type="button" class="btn btn-light mb-4"> <%= link_to internship.title, internship_path(internship) %></button>
+
+                <li>Estado: <%= internship.status %></li>
+                <li><%= "Categoría: #{internship.category}" %></li>
+                <li><%= "Empresa: #{internship.user.name}" %></li>
+                <li><%= "Ubicación: #{internship.city}, #{internship.country}" %></li>
+                <li><%= "Tipo: #{internship.tipo}" %></li>
+                <% if internship.paid %>
+                  <li>Remunerada: Sí</li>
+                <% else %>
+                  <li>Remunerada: No</li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

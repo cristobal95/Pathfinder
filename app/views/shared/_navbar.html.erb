@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid">
-    <%= link_to(root_path, class: "navbar-brand") do %>
-      <%= image_tag "logo.jpg", height: 50, width: 50, crop: :fill %>
+  <div class="container-fluid ms-5 me-5">
+    <%= link_to(root_path, class: "navbar-brand d-flex align-items-center") do %>
+      <%= image_tag "logo.jpg", height: 40, width: 40, crop: :fill %>
+      <h6 class="text-white ms-2 mt-1">PathFinder</h6>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +28,7 @@
                 <% @user.id = current_user.id %>
                 <img src="<%= cl_image_path(@user.photo.key, height: 50, width: 50, crop: :fill) %>" class="avatar rounded-circle" alt="Profile Image">
               <% else %>
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png" class="avatar rounded-circle" alt="Default Image">
+                <%= image_tag("avatar2", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
               <% end %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -37,8 +38,8 @@
               </div>
 
           </li>
-      <% elsif user_signed_in? && current_user.role == false %>
-      <li class="nav-item d-flex align-items-center active">
+        <% elsif user_signed_in? && current_user.role == false %>
+          <li class="nav-item d-flex align-items-center active">
             <%= link_to "Inicio", "/", class: "nav-link text-white" %>
           <li class="nav-item d-flex align-items-center">
             <%= link_to "Pasantias ", internships_path, class: "nav-link text-white" %>
@@ -53,7 +54,9 @@
             <% @user.id = current_user.id %>
             <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar rounded-circle" %>
           <% else %>
-            <%= image_tag("avatar2.png", alt: "avatar", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
+
+            <%= image_tag("avatar2", alt: "avatar", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
+
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -68,9 +71,6 @@
           </li>
           <li class="nav-item d-flex align-items-center">
             <%= link_to "Registrarse", new_user_registration_path, class: "nav-link text-white" %>
-          </li>
-            <li class="nav-item d-flex align-items-center">
-            <%= image_tag("avatar2.png", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
           </li>
         <% end %>
       </ul>

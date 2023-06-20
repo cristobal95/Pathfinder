@@ -53,7 +53,8 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
 
 
 .new_footer_top .f_widget.about-widget .f_list li a:hover {
-  color: #5e2ced;
+  font-weight: bold;
+  font-size: 18px;
 }
 .new_footer_top .f_widget.about-widget .f_list li {
   margin-bottom: 11px;
@@ -85,7 +86,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   color: #faf2fe;
   display: inline-block;
   background: #ebeef5;
-  text-align: center;
+  //text-align: center;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -143,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .new_footer_top .f_widget.about-widget .f_list li a {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 

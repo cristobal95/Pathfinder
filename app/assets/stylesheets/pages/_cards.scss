@@ -1,4 +1,3 @@
-
 .card {
 
   width: fit-content; /* Adjust the card width as needed */
@@ -14,6 +13,7 @@
   margin-right: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
+
 }
 
 .row a {
@@ -24,7 +24,7 @@
 .row .card a {
   text-decoration: none;
 
-  color: #253078
+  color: #253078;
 }
 
 .row .card .btn {
@@ -49,4 +49,10 @@
 .cardd {
   width: 525px;
   height: 80px;
+}
+
+.cardd:hover{
+  transform: scale(1.05);
+  box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+  text-decoration: none;
 }

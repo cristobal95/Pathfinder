@@ -11,8 +11,6 @@
 @import "components/index";
 @import "pages/index";
 
-// Import Bulma
-@import 'bulma/css/bulma.css';
 
 // Import Flatpickr
 @import "flatpickr/dist/flatpickr";
@@ -26,5 +24,5 @@
 @import 'components/showpf';
 
 body {
-  background-color: #faf2fe;
+  background-color: white;
 }
