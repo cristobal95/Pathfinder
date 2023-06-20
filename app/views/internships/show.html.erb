@@ -4,168 +4,285 @@
     Pasantías
   </div>
 </div>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="container-one">
-        <div class="container-main-one">
-          <div class="my-empresa">
-            <div class="my-titulo">
-              <h4><%= @internship.title %></h4>
-              <h5>Estado: <%= @internship.status %></h5>
-            </div>
-            <div class="my-emp">
-              <div class="my-img">
-                <%= image_tag @internship.user.photo.url(crop: "fill", width: 70, height: 70), class:"my-rounded" %> <br>
+<% if current_user.role == false %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="container-one">
+          <div class="container-main-one">
+            <div class="my-empresa">
+              <div class="my-titulo">
+                <h4><%= @internship.title %></h4>
+                <h5>Estado: <%= @internship.status %></h5>
               </div>
-              <div class="my-contenido">
-                <div class="name-container">
-                  <p>Pasantía ofertada por: <%= @internship.user.name %></p><br>
+              <div class="my-emp">
+                <div class="my-img">
+                  <%= image_tag @internship.user.photo.url(crop: "fill", width: 70, height: 70), class:"my-rounded" %> <br>
                 </div>
-                <div class="empresa-abajo">
-                  <div class="votos">
-                    <i class="fa fa-star fa-2x text-votos"></i>
-                    <i class="fa fa-star fa-2x text-votos"></i>
-                    <i class="fa fa-star fa-2x text-votos"></i>
-                    <% if @internship.user.id == 25 %>
-                      <i class="fa fa-star-half fa-2x text-votos"></i>
-                      <i class="fa fa-star-none fa-2x text-nulo"></i>
-                    <% else %>
+                <div class="my-contenido">
+                  <div class="name-container">
+                    <p>Pasantía ofertada por: <%= @internship.user.name %></p><br>
+                  </div>
+                  <div class="empresa-abajo">
+                    <div class="votos">
                       <i class="fa fa-star fa-2x text-votos"></i>
-                      <i class="fa fa-star-half fa-2x text-votos"></i>
-                    <% end %>
-                    <span class="fa fa-2x"><h5 class="votos-text">(<%= @internship.user.rating %>) <%= @internship.user.reviews %> Votos</h5></span>
+                      <i class="fa fa-star fa-2x text-votos"></i>
+                      <i class="fa fa-star fa-2x text-votos"></i>
+                      <% if @internship.user.id == 25 %>
+                        <i class="fa fa-star-half fa-2x text-votos"></i>
+                        <i class="fa fa-star-none fa-2x text-nulo"></i>
+                      <% else %>
+                        <i class="fa fa-star fa-2x text-votos"></i>
+                        <i class="fa fa-star-half fa-2x text-votos"></i>
+                      <% end %>
+                      <span class="fa fa-2x"><h5 class="votos-text">(<%= @internship.user.rating %>) <%= @internship.user.reviews %> Votos</h5></span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="container-main-two">
-        <h5>Información:</h5>
-        <div class="my-inf-cont">
-          <div class="colum-one">
-            <div class="my-salto">
-              <i class="fa-solid fa-briefcase"></i>
-              <div class="my-text-info">
-                <b>Tipo:</b>
-                <p><%= @internship.tipo %></p>
+        <div class="container-main-two">
+          <h5>Información:</h5>
+          <div class="my-inf-cont">
+            <div class="colum-one">
+              <div class="my-salto">
+                <i class="fa-solid fa-briefcase"></i>
+                <div class="my-text-info">
+                  <b>Tipo:</b>
+                  <p><%= @internship.tipo %></p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-solid fa-clock"></i>
+                <div class="my-text-info">
+                  <b>Duración:</b>
+                  <p><%= @internship.duration %> meses</p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div class="my-text-info">
+                  <b>Publicada el:</b>
+                  <p><%= @internship.start_date %></p>
+                </div>
               </div>
             </div>
-            <div class="my-salto">
-              <i class="fa-solid fa-clock"></i>
-              <div class="my-text-info">
-                <b>Duración:</b>
-                <p><%= @internship.duration %> meses</p>
+            <div class="colum-twoo">
+              <div class="my-salto">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="my-text-info">
+                  <b>Ubicación:</b>
+                  <p><%= @internship.city %>, <%= @internship.country %></p>
+                </div>
               </div>
-            </div>
-            <div class="my-salto">
-              <i class="fa-regular fa-calendar-days"></i>
-              <div class="my-text-info">
-                <b>Publicada el:</b>
-                <p><%= @internship.start_date %></p>
+              <div class="my-salto">
+                <i class="fa-solid fa-money-bill-1"></i>
+                <div class="my-text-info">
+                  <b>Pagado:</b>
+                  <p><%= @internship.paid %></p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div class="my-text-info">
+                  <b>Finaliza el:</b>
+                  <p><%= @internship.end_date %></p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="colum-twoo">
-            <div class="my-salto">
-              <i class="fa-solid fa-location-dot"></i>
-              <div class="my-text-info">
-                <b>Ubicación:</b>
-                <p><%= @internship.city %>, <%= @internship.country %></p>
-              </div>
-            </div>
-            <div class="my-salto">
-              <i class="fa-solid fa-money-bill-1"></i>
-              <div class="my-text-info">
-                <b>Pagado:</b>
-                <p><%= @internship.paid %></p>
-              </div>
-            </div>
-            <div class="my-salto">
-              <i class="fa-regular fa-calendar-days"></i>
-              <div class="my-text-info">
-                <b>Finaliza el:</b>
-                <p><%= @internship.end_date %></p>
-              </div>
-            </div>
+        </div>
+        <div class="container-main-tree">
+          <h5>Descripción:</h5>
+          <div class="my-desc">
+            <p><%= @internship.description %></p>
+          </div>
+          <div class="my-btn-vol">
+            <%= link_to "Volver", internships_path %>
           </div>
         </div>
       </div>
-      <div class="container-main-tree">
-        <h5>Descripción:</h5>
-        <div class="my-desc">
-          <p><%= @internship.description %></p>
+      <div class="col-3">
+        <div class="container-one-ab">
+          <div class="cont-one">
+            <h5>Interesado en esta pasantía?</h5>
+            <% dias_restantes = (@internship.end_date - Date.today).to_i %>
+            <% if dias_restantes > 0 %>
+              <p>Tienes <%= dias_restantes %> días para postularte</p>
+            <% else %>
+              <p>La postulación ha finalizado</p>
+            <% end %>
+            <% if current_user.role == false %>
+              <% if @internship.status == false || dias_restantes > 0 %>
+                <div class="my-apply-int">
+                  <%= link_to "Aplica ahora!", new_internship_postulation_path(@internship)%>
+                </div>
+              <% else %>
+                <div class="btn-no">
+                  <h4>FINALIZADA</h4>
+                </div>
+              <% end %>
+            <% else %>
+              <h6>Las empresas no pueden aplicar</h6>
+            <% end %>
+          </div>
         </div>
-        <div class="my-btn-vol">
-          <%= link_to "Volver", internships_path %>
+        <div class="container-twoo-ab">
+          <h5><%= image_tag @internship.user.photo.url(crop: "fill", width: 70, height: 70), class:"my-rounded" %> <br><%= @internship.user.name %></h5>
+          <div class="my-cont-empr">
+            <p><i class="fa-solid fa-industry"></i>Industria: <%= @internship.user.industry %></p>
+            <p><i class="fa-solid fa-house"></i>Sitio web: <a href="<%= @internship.user.website %> target: _blank">Visitar</a></p>
+            <p><i class="fa-solid fa-address-card"></i>Acerca de: </p> <p><%= @internship.user.about %></p>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="container-one-ab">
-        <div class="cont-one">
-          <h5>Interesado en esta pasantía?</h5>
-          <% dias_restantes = (@internship.end_date - Date.today).to_i %>
-          <% if dias_restantes > 0 %>
-            <p>Tienes <%= dias_restantes %> días para postularte</p>
-          <% else %>
-            <p>La postulación ha finalizado</p>
-          <% end %>
-          <% if @internship.status == false || dias_restantes > 0 %>
-            <div class="my-apply">
-              <%= link_to "Aplica ahora!", new_internship_postulation_path(@internship)%>
-            </div>
-          <% else %>
-            <div class="btn-no">
-              <h4>FINALIZADA</h4>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="container-twoo-ab">
-        <h5>Categoría: <%= @internship.category %></h5>
       </div>
     </div>
   </div>
-</div>
-
+<% else %>
 <div class="container">
-                    <% if current_user.role == true && current_user.id == @internship.user_id %>
-                        <% @internship.postulations.each do |student| %>
-                            <div class="card-product mt-3">
-                              <%= cl_image_tag student.user.photo.key, height: 200, width: 200, crop: :fill %>
-                              <div class="card-body d-flex d-wrap justify-content-between">
-                                <div>
-                                  <h6 class="card-product-infos"><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)), target: "_blank" %></h6>
-                                  <p class="card-product-infos"><%= student.user.studies %></p>
-                                  <p class="card-product-infos"><%= student.content %></p>
-                                </div>
-                                <p class="card-product-infos"><%= student.status %></p>
-                                <div class="card-product-infos bm-3">
-                                  <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class:"button is-primary is-light is-small mb-2" %>
-                                  <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "button is-danger is-light is-small mt-2" %>
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <div class="container-one">
+          <div class="container-main-one">
+            <div class="my-empresa">
+              <div class="my-titulo">
+                <h4><%= @internship.title %></h4>
+                <h5>Estado: <%= @internship.status %></h5>
+              </div>
+              <div class="my-emp">
+                <div class="my-img">
+                  <%= image_tag @internship.user.photo.url(crop: "fill", width: 70, height: 70), class:"my-rounded" %> <br>
+                </div>
+                <div class="my-contenido">
+                  <div class="name-container">
+                    <p>Pasantía ofertada por: <%= @internship.user.name %></p><br>
+                  </div>
+                  <div class="empresa-abajo">
+                    <div class="votos">
+                      <i class="fa fa-star fa-2x text-votos"></i>
+                      <i class="fa fa-star fa-2x text-votos"></i>
+                      <i class="fa fa-star fa-2x text-votos"></i>
+                      <% if @internship.user.id == 25 %>
+                        <i class="fa fa-star-half fa-2x text-votos"></i>
+                        <i class="fa fa-star-none fa-2x text-nulo"></i>
+                      <% else %>
+                        <i class="fa fa-star fa-2x text-votos"></i>
+                        <i class="fa fa-star-half fa-2x text-votos"></i>
+                      <% end %>
+                      <span class="fa fa-2x"><h5 class="votos-text">(<%= @internship.user.rating %>) <%= @internship.user.reviews %> Votos</h5></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-main-two">
+          <h5>Información:</h5>
+          <div class="my-inf-cont">
+            <div class="colum-one">
+              <div class="my-salto">
+                <i class="fa-solid fa-briefcase"></i>
+                <div class="my-text-info">
+                  <b>Tipo:</b>
+                  <p><%= @internship.tipo %></p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-solid fa-clock"></i>
+                <div class="my-text-info">
+                  <b>Duración:</b>
+                  <p><%= @internship.duration %> meses</p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div class="my-text-info">
+                  <b>Publicada el:</b>
+                  <p><%= @internship.start_date %></p>
+                </div>
+              </div>
+            </div>
+            <div class="colum-twoo">
+              <div class="my-salto">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="my-text-info">
+                  <b>Ubicación:</b>
+                  <p><%= @internship.city %>, <%= @internship.country %></p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-solid fa-money-bill-1"></i>
+                <div class="my-text-info">
+                  <b>Pagado:</b>
+                  <p><%= @internship.paid %></p>
+                </div>
+              </div>
+              <div class="my-salto">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div class="my-text-info">
+                  <b>Finaliza el:</b>
+                  <p><%= @internship.end_date %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-main-tree">
+          <h5>Descripción:</h5>
+          <div class="my-desc">
+            <p><%= @internship.description %></p>
+          </div>
+          <div class="my-btn-vol">
+            <%= link_to "Volver", internships_path %>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-evenly mt-3">
+                        <% if current_user.role == false %>
+                          <div class="mb-4">
+                            <%= link_to "Volver", internships_path, class: "button is-primary" %>
+                            <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
+                          </div>
+                        <% elsif current_user.role == true && current_user.id == @internship.user_id %>
+                          <div class="mb-4">
+                            <%= link_to "Volver", internships_path, class: "button is-primary" %>
+                            <%= link_to "Editar Pasantía", edit_internship_path, class: "button is-primary" %>
+                            <p>estado</p>
+                            <input type="checkbox" id="toggle" />
+                            <label for="toggle" class="toggle-switch"></label>
+                          </div>
+                        <% end %>
+                      </div>
+      </div>
+    </div>
+  </div>
+  <% if current_user.role == true && current_user.id == @internship.user.id %>
+    <div class="container">
+                      <% if current_user.role == true && current_user.id == @internship.user_id %>
+                          <% @internship.postulations.each do |student| %>
+                              <div class="card-product mt-3">
+                                <%= cl_image_tag student.user.photo.key, height: 200, width: 200, crop: :fill %>
+                                <div class="card-body d-flex d-wrap justify-content-between">
+                                  <div>
+                                    <h6 class="card-product-infos"><%= link_to "#{student.user.last_name}, #{student.user.first_name}", user_path(User.find(student.user.id)), target: "_blank" %></h6>
+                                    <p class="card-product-infos"><%= student.user.studies %></p>
+                                    <p class="card-product-infos"><%= student.content %></p>
+                                  </div>
+                                  <p class="card-product-infos"><%= student.status %></p>
+                                  <div class="card-product-infos bm-3">
+                                    <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class:"button is-primary is-light is-small mb-2" %>
+                                    <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "button is-danger is-light is-small mt-2" %>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                        <% end %>
-                    <% end %>
-
-                    <div class="d-flex justify-content-evenly mt-3">
-                      <% if current_user.role == false %>
-                        <div class="mb-4">
-                          <%= link_to "Volver", internships_path, class: "button is-primary" %>
-                          <%= link_to "Aplicar", new_internship_postulation_path(@internship), class: "button is-primary" %>
-                        </div>
-                      <% elsif current_user.role == true && current_user.id == @internship.user_id %>
-                        <div class="mb-4">
-                          <%= link_to "Volver", internships_path, class: "button is-primary" %>
-                          <%= link_to "Editar Pasantía", edit_internship_path, class: "button is-primary" %>
-                          <p>estado</p>
-                          <input type="checkbox" id="toggle" />
-                          <label for="toggle" class="toggle-switch"></label>
-                        </div>
+                          <% end %>
                       <% end %>
-                    </div>
-</div>
+    </div>
+  <% else %>
+    <h5>Nada que mostrar</h5>
+  <% end %>
+<% end %>
