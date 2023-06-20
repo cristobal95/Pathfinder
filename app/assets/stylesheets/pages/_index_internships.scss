@@ -37,13 +37,17 @@
 }
 
 .search-input-index {
-  width: 1000px;
-  background-color: #F7F7F7;
+  width: 100%;
+  background-color: #FFF;
   text-align: center !important;
 }
 
 .search-button-index {
-  margin-left: 10px;
-  width: 1000px;
+  width: 100%;
   text-align: center !important;
+}
+
+.card-rectangular-index {
+  width: 80%;
+
 }
