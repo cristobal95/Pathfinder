@@ -31,9 +31,18 @@ class Internship < ApplicationRecord
   has_many :postulations
   has_many :reviews
 
-  validates :title, :category, :start_date, :end_date, presence: true
-  validates :tipo, :duration, :description, :paid, presence: true
+  validate :custom_presence_validations
+
+  def custom_presence_validations
+    attributes = [:title, :category, :start_date, :end_date, :tipo, :duration, :description, :paid]
+
+    attributes.each do |attribute|
+      errors.add(attribute, "No puede estar vacío") if self[attribute].blank?
+    end
+  end
+
   validates :duration, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 12 }
+
 
   def selected_students
     self.postulations.where(selected: true)
