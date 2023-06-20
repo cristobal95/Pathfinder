@@ -1,51 +1,50 @@
-<div>
+<div class="container">
   <div class="row">
     <div class="col-6 p-5 pb-0 mb-5">
       <div class="my-card-su shadow radios">
         <img class="my-logo" src="/assets/logologin.png">
         <% if current_user.role == true %>
-        <h2>Crea una pasantía! </h2>
+        <h2>Crea una pasantía!</h2>
         <%= simple_form_for(@internship) do |f| %>
         <div class="form-inputs">
-                <%= f.input :title, label: "Puesto", required: true, placeholder: "Ejemplo: Desarrollador Frontend"%>
-                <%= f.input :description, label: "Descripción", required: true, placeholder: "Incluir una breve descipción" %>
-                <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, label: "Categoría", prompt: "Categoría", required: true %>
-                <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Seleccionar modalidad", required: true %>
-                <%= f.input :city, label: "Ciudad", required: true, placeholder: "Escribir para que ciudad es la búsqueda" %>
-                <%= f.input :country, label: "País", only: ['AR', 'BR', 'CL', 'CO', 'MX', 'PE', 'UY', 'EC', 'BO', 'PY', 'VE', 'TT', 'DO', 'PA', 'NI', 'HN', 'GT', 'SV', 'DM', 'CU', 'CR', "US", "CA"],
-                                required: false,
-                                input_html: { autocomplete: "country" }, prompt: "Seleccionar país"%>
-                <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true, prompt: "Seleccionar cantidad de meses" %>
-                <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true, prompt: "Seleccionar opción" %>
-                <div class="d-flex justify-content-center">
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <%= f.input :start_date, as: :string,
-                              wrapper_html: { class: "mb-4" },
-                              label_html: { class: "form-label text-secondary fw-bold" },
-                              input_html: { data: { controller: "flatpickr" } }, label: "Fecha de inicio", required: true %>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <%= f.input :end_date, as: :string,
-                                wrapper_html: { class: "mb-4" },
-                                label_html: { class: "form-label text-secondary fw-bold" },
-                                input_html: { data: { controller: "flatpickr" } }, label: "Fecha de finalización", required: true %>
-                    </div>
-                  </div>
-                </div>
+          <%= f.input :title, label: "Puesto", required: true, placeholder: "Ejemplo: Desarrollador Frontend"%>
+          <%= f.input :description, label: "Descripción", required: true, placeholder: "Incluir una breve descripción" %>
+          <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, label: "Categoría", prompt: "Categoría", required: true %>
+          <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Seleccionar modalidad", required: true %>
+          <%= f.input :city, label: "Ciudad", required: true, placeholder: "Escribir para qué ciudad es la búsqueda" %>
+          <%= f.input :country, label: "País", only: ['AR', 'BR', 'CL', 'CO', 'MX', 'PE', 'UY', 'EC', 'BO', 'PY', 'VE', 'TT', 'DO', 'PA', 'NI', 'HN', 'GT', 'SV', 'DM', 'CU', 'CR', "US", "CA"],
+                          required: false,
+                          input_html: { autocomplete: "country" }, prompt: "Seleccionar país"%>
+          <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true, prompt: "Seleccionar cantidad de meses" %>
+          <%= f.input :paid, label: "¿Pasantía remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true, prompt: "Seleccionar opción" %>
+          <div class="d-flex justify-content-center">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <%= f.input :start_date, as: :string,
+                        wrapper_html: { class: "mb-4" },
+                        label_html: { class: "form-label text-secondary fw-bold" },
+                        input_html: { data: { controller: "flatpickr" } }, label: "Fecha de inicio", required: true %>
               </div>
-
-        <div class="text-center mt-2 mb-2">
-          <%= f.submit "Guardar", class:"btn btn-primary" %>
+              <div class="col-6 col-md-6 col-lg-6">
+                <%= f.input :end_date, as: :string,
+                          wrapper_html: { class: "mb-4" },
+                          label_html: { class: "form-label text-secondary fw-bold" },
+                          input_html: { data: { controller: "flatpickr" } }, label: "Fecha de finalización", required: true %>
+              </div>
+            </div>
+          </div>
         </div>
-        <% end %>
-        <% else %>
-        <h2>Tu tipo de perfil no permite esta acción, si tienes una empresa y quieres publicar oportunidades de pasantías por favor registrate con otro email y selecciona "Empresa" al momento de crear la cuenta.</h2>
+        <div class="text-center mt-2 mb-2">
+          <%= f.submit "Guardar", class:"btn btn-secondary" %>
+        </div>
         <% end %>
       </div>
     </div>
-    <div class="col-6 col-with-bg border-0">
-      <img src="/assets/fotolapiz.jpeg" alt="Descripción de la imagen" width="900px">
+    <div class="col-6 col-with-bg mt-5">
+      <img src="/assets/fotolapiz.jpeg" alt="Descripción de la imagen" width="700px">
+        <% else %>
+        <h2>Tu tipo de perfil no permite esta acción, si tienes una empresa y quieres publicar oportunidades de pasantías por favor registrate con otro email y selecciona "Empresa" al momento de crear la cuenta.</h2>
+        <% end %>
     </div>
   </div>
 </div>
