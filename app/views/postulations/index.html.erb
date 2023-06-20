@@ -45,19 +45,19 @@
       <% @postulations.each do |postulation| %>
         <div class="col-md-3 mb-3">
           <div class="card-index shadow">
-            <div class="header">
+            <div class="text-center">
               <div>
-                <p class="name btn btn-secondary"><%= link_to "Empresa: #{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
+                <p class= "fs-3 fw-semibold"><%= link_to postulation.internship.user.name, user_path(postulation.internship.user) %></p>
+                <p class= "fs-4 fw-medium"><%= postulation.internship.title %></p>
+              <p class= "fs-5 border border-secondary"><%= "Estado: #{postulation.status}" %></p>
               </div>
             </div>
             <p class="message">
-              <h4><%= "Estado: #{postulation.status}" %></h4>
-                <p><%= "Cargo: #{postulation.internship.title}" %></p>
                 <p><%= "Duración: #{postulation.internship.duration}" %></p>
                 <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
                 <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
             </p>
-            <p class="name btn btn-secondary"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %></p>
+            <p class="btn btn-secondary rounded"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %></p>
           </div>
         </div>
       <% end %>
