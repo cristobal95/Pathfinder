@@ -1,3 +1,4 @@
+
 <% if current_user.role == true %>
   <h2>Postulantes</h2>
 
@@ -40,17 +41,20 @@
 <% else %>
 
   <div>
-  <div class=" active banner position-relative image-home">
-      <%= image_tag("index_postulations.jpg", alt: "Tres jovenes trabajando") %>
-    </div>
-    <h2 class="text-center">Mis postulaciones</h2>
+<div class="banner position-relative image-index mb-5">
+  <%= image_tag("index_postulations.jpg", alt: "Tres jovenes trabajando", class: "hide-top") %>
+  <div class="content-index text-center">
+    <h1 class="text-center image-text">Mis postulaciones</h1>
+  </div>
+</div>
+
     <div class="row mx-4 ">
       <% @postulations.each do |postulation| %>
         <div class="col-md-3 mb-5 ">
           <div class="card-index shadow cards-postulations ">
             <div>
               <div>
-                <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
+                <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 60, height: 60), class:"rounded-circle ms-1 mt-2" %>
 
                 <p class="fs-3 user-index-postulation"><%= link_to "#{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
                 <p class="fs-5"><%= postulation.internship.title %></p>
