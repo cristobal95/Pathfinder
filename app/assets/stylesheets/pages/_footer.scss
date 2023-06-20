@@ -53,9 +53,8 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
 
 
 .new_footer_top .f_widget.about-widget .f_list li a:hover {
-  box-shadow: 0 0 5px rgb(255, 255, 255);
-  transform: scale(1.1);
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  font-size: 18px;
 }
 .new_footer_top .f_widget.about-widget .f_list li {
   margin-bottom: 11px;

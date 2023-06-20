@@ -8,7 +8,7 @@
         <%= simple_form_for(@internship) do |f| %>
         <div class="form-inputs">
           <%= f.input :title, label: "Puesto", required: true, placeholder: "Ejemplo: Desarrollador Frontend"%>
-          <%= f.input :description, label: "Descripción", required: true, placeholder: "Incluir una breve descripción" %>
+          <%= f.input :description, label: "Descripción", required: true, placeholder: "Escribe en que consiste tu pasantía" %>
           <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, label: "Categoría", prompt: "Categoría", required: true %>
 
 
@@ -17,33 +17,24 @@
               <div class="col-12 col-md-6 col-lg-6">
               <%= f.input :country, label: "País", only: ['AR', 'BR', 'CL', 'CO', 'MX', 'PE', 'UY', 'EC', 'BO', 'PY', 'VE', 'TT', 'DO', 'PA', 'NI', 'HN', 'GT', 'SV', 'DM', 'CU', 'CR', "US", "CA"],
                           required: false,
-                          input_html: { autocomplete: "country" }, prompt: "Seleccionar país"%>
+                          input_html: { autocomplete: "country"}%>
           </div>
 
               <div class="col-6 col-md-6 col-lg-6">
-               <%= f.input :city, label: "Ciudad", required: true, placeholder: "Escribir para qué ciudad es la búsqueda" %>
+                <%= f.input :city, label: "Ciudad", required: true %>
               </div>
             </div>
           </div>
 
 
-
-
-
-
-
-
-
-
-
           <div>
             <div class="row">
               <div class="col-12 col-md-6 col-lg-6">
-               <%= f.input :paid, label: "¿Remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true, prompt: "Seleccionar opción" %>
+                <%= f.input :paid, label: "¿Remunerada?", collection: Internship.paids.keys.map(&:humanize), required: true%>
               </div>
 
               <div class="col-6 col-md-6 col-lg-6">
-               <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Modalidad", required: true %>
+                <%= f.input :tipo, collection: Internship.tipos.keys.map(&:humanize), prompt: "Modalidad", required: true %>
               </div>
             </div>
           </div>
