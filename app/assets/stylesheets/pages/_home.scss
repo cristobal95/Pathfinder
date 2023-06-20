@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  text-align: center;
+  //text-align: center;
 }
 
 section {
@@ -37,12 +37,12 @@ section {
 
 .card-text-seccion1 {
   color: black;
-  font-size: 18px;
   text-decoration: none !important;
   p {
     color: black;
   }
 }
+
 
 #seccion2 {
   background-color: #FFFFFF;
@@ -65,7 +65,7 @@ section {
 }
 
 .card-title-section2 {
-  font-size: 15px !important;
+  font-size: 14px !important;
 }
 
 .card-title-section2:hover {
@@ -82,4 +82,5 @@ section {
 
 #seccion4 {
   background-color: #FFFFFF;
+  min-height: 400px !important;
 }
