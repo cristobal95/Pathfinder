@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mi Landing Page</title>
-   <%
-=begin%>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-<%
-=end%>
+    <title>PathFinder</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
 
-    <div class="banner position-relative">
-      <div class="image-home">
-        <%= image_tag("banner.png", alt: "Chica feliz con su primera pasatia") %>
-      </div>
-      <div class="content text-center">
+
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active banner position-relative image-home">
+      <%= image_tag("banner.png", alt: "Chicos usando PathFinder") %>
+    </div>
+    <div class="carousel-item banner position-relative image-home">
+      <%= image_tag("banner2.jpg", alt: "Chicos trabajando juntos") %>
+    </div>
+    <div class="carousel-item banner position-relative image-home">
+      <%= image_tag("banner3.jpg", alt: "Chica llegando a su trabajo") %>
+    </div>
+  </div>
+  <div class="content text-center">
         <h1 id="titulo-principal">PathFinder</h1>
         <h5 id="subtitulo-principal">Encuentra tu camino, a través de la experiencia</h5>
       </div>
@@ -33,7 +44,15 @@
             <% end %>
           </div>
       </div>
-    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 
 
@@ -42,20 +61,6 @@
           <h2 class="text-center m-5 text-dark">Categorías Populares</h2>
           <div class="container">
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <%= link_to category_path(category: "Diseño y arte"), class: "card-text card-text-seccion1" do %>
-                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
-                    <div class="card-body card-body-seccion1 text-center">
-                      <div class="text-center mt-3 mb-3">
-                        <%= image_tag("curve.png", alt: "logo arte", width: "80", height: "80") %>
-                      </div>
-                      <div class="text-center mt-4">
-                        <h5 class="card-text card-text-seccion1">Diseño y Arte</h5><br>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <%= link_to category_path(category: "Administración y gestión empresarial"), class: "card-text card-text-seccion1" do %>
                   <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
@@ -85,21 +90,19 @@
                 <% end %>
               </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                <%= link_to category_path(category: "IT"), class: "card-text card-text-seccion1" do %>
+                <%= link_to category_path(category: "Diseño y arte"), class: "card-text card-text-seccion1" do %>
                   <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
                     <div class="card-body card-body-seccion1 text-center">
                       <div class="text-center mt-3 mb-3">
-                        <%= image_tag("coding.png", alt: "logo arte", width: "80", height: "80") %>
+                        <%= image_tag("curve.png", alt: "logo arte", width: "80", height: "80") %>
                       </div>
                       <div class="text-center mt-4">
-                        <h5 class="card-text card-text-seccion1">IT</h5><br>
+                        <h5 class="card-text card-text-seccion1">Diseño y Arte</h5><br>
                       </div>
                     </div>
                   </div>
                 <% end %>
               </div>
-            </div>
-            <div class="row">
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <%= link_to category_path(category: "Educación y formación"), class: "card-text card-text-seccion1" do %>
                   <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
@@ -114,6 +117,8 @@
                 <% end %>
                 </div>
               </div>
+            <div class="row">
+            </div>
               <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                 <%= link_to category_path(category: "Finanzas y contabilidad"), class: "card-text card-text-seccion1" do %>
                   <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
@@ -156,6 +161,20 @@
                   </div>
                 <% end %>
               </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <%= link_to category_path(category: "IT"), class: "card-text card-text-seccion1" do %>
+                  <div class="card border-light m-3 card-cuadrada shadow" style="max-width: 18rem;">
+                    <div class="card-body card-body-seccion1 text-center">
+                      <div class="text-center mt-3 mb-3">
+                        <%= image_tag("coding.png", alt: "logo arte", width: "80", height: "80") %>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5 class="card-text card-text-seccion1">IT</h5><br>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -167,8 +186,8 @@
       <section id="seccion2" class="py-4 mb-0 pe-0 ps-0">
         <div class="container mt-5 w-100">
           <div class="row d-flex justify-content-evenly">
-            <div class="col text-center me-2">
-              <h3 class="mb-5 mt-3" id="title-section2">Pasantías Destacadas</h3>
+            <div class="col me-2">
+              <h3 class="mb-5 mt-3 text-center" id="title-section2">Pasantías Destacadas</h3>
               <div class="card-rectangular-seccion2" style="max-width: 540px;">
                 <% dias = [30, 19, 4, 27, 55, 3] %>
                 <% index = 0 %>
@@ -182,13 +201,13 @@
                               <div class="row g-0">
                                 <div class="col d-flex">
                                   <div class="col-auto">
-                                    <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
+                                    <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
                                   </div>
-                                  <div class="col text-left">
+                                  <div class="col text-left ms-3">
                                     <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
                                     <p class="card-title card-title-section2"><%= internship.user.name %></p>
                                   </div>
-                                  <div class="col-auto ml-auto">
+                                  <div class="col-auto ml-auto text-right">
                                     <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
                                     <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
                                     <% index += 1 %>
@@ -204,8 +223,8 @@
                 <% end %>
               </div>
             </div>
-            <div class="col text-center me-2">
-              <h3 class="mb-5 mt-3" id="title-section2">Últimas Pasantías</h3>
+            <div class="col me-2">
+              <h3 class="mb-5 mt-3 text-center" id="title-section2">Últimas Pasantías</h3>
               <div class="card-rectangular-seccion2" style="max-width: 540px;">
                 <div class="row g-0">
                   <% dias = [2, 3, 8, 10, 17, 21] %>
@@ -217,13 +236,13 @@
                           <div class="row g-0">
                             <div class="col d-flex">
                               <div class="col-auto">
-                                <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle" %>
+                                <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
                               </div>
-                              <div class="col text-left">
+                              <div class="col text-left ms-3">
                                 <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
                                 <p class="card-title card-title-section2"><%= internship.user.name %></p>
                               </div>
-                              <div class="col-auto ml-auto">
+                              <div class="col-auto ml-auto text-right">
                                 <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
                                 <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
                                 <% index += 1 %>
@@ -258,6 +277,7 @@
       </div>
 
 
+
       <section id="seccion3" class="py-4 mb-0">
         <div class="m-5 text-dark text-center">
           <h2 id="title-section3-4">Candidatos Destacados</h2>
@@ -275,9 +295,9 @@
                 <p class="w-50 border-bottom "></p>
               </div>
               <div class="d-flex justify-content-center">
-                <p class="me-2"><i class="fa-brands fa-instagram"></i></p>
-                <p class="me-2"><i class="fa-brands fa-github"></i></p>
-                <p class="me-2"><i class="fa-brands fa-twitter"></i></p>
+                <a href=""><p class="me-2"><i class="fa-brands fa-instagram"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-github"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-twitter"></i></p></a>
               </div>
             </div>
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
@@ -291,9 +311,9 @@
                 <p class="w-50 border-bottom "></p>
               </div>
               <div class="d-flex justify-content-center">
-                <p class="me-2"><i class="fa-brands fa-facebook"></i></p>
-                <p class="me-2"><i class="fa-brands fa-github"></i></p>
-                <p class="me-2"><i class="fa-brands fa-twitter"></i></p>
+                <a href=""><p class="me-2"><i class="fa-brands fa-facebook"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-github"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-twitter"></i></p></a>
               </div>
             </div>
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
@@ -307,8 +327,8 @@
                 <p class="w-50 border-bottom "></p>
               </div>
               <div class="d-flex justify-content-center">
-                <p class="me-2"><i class="fa-brands fa-github"></i></p>
-                <p class="me-2"><i class="fa-brands fa-twitter"></i></p>
+                <a href=""><p class="me-2"><i class="fa-brands fa-github"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-twitter"></i></p></a>
               </div>
             </div>
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12 ">
@@ -322,9 +342,9 @@
                 <p class="w-50 border-bottom "></p>
               </div>
               <div class="d-flex justify-content-center">
-                <p class="me-2"><i class="fa-brands fa-instagram"></i></p>
-                <p class="me-2"><i class="fa-brands fa-github"></i></p>
-                <p class="me-2"><i class="fa-brands fa-tiktok"></i></p>
+                <a href=""><p class="me-2"><i class="fa-brands fa-instagram"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-github"></i></p></a>
+                <a href=""><p class="me-2"><i class="fa-brands fa-tiktok"></i></p></a>
               </div>
             </div>
 
@@ -333,14 +353,14 @@
 
 
     <section id="seccion4" class="py-4 mb-0">
-      <div class="m-4 text-dark text-center">
+      <div class="m-4 text-dark text-center mb-3">
         <h2 id="title-section3-4">Empresas Que Confían En PathFinder</h2>
       </div>
-      <div class="container mt-4">
+      <div class="container mt-5">
         <div class="row d-flex justify-content-evenly">
           <% @internships.take(6).each do |internship|  %>
             <div class="text-center col-auto mt-3">
-              <%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %>
+              <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
             </div>
           <% end %>
         </div>

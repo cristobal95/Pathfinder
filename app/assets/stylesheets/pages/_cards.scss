@@ -1,4 +1,3 @@
-
 .card {
 
   width: fit-content; /* Adjust the card width as needed */
@@ -50,4 +49,10 @@
 .cardd {
   width: 525px;
   height: 80px;
+}
+
+.cardd:hover{
+  transform: scale(1.05);
+  box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+  text-decoration: none;
 }
