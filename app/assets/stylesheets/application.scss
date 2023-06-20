@@ -11,17 +11,9 @@
 @import "components/index";
 @import "pages/index";
 
-
 // Import Flatpickr
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
-
-
-//Sign-up y login
-@import 'components/syl';
-
-//views (show)
-@import 'components/showpf';
 
 body {
   background-color: white;

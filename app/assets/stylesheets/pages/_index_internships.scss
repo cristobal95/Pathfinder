@@ -1,0 +1,49 @@
+#titulo-principal-index {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.content-index {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.image-index {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-index img {
+  width: 100%;
+  filter: brightness(30%);
+}
+
+.cardd-index {
+  width: 80%;
+  height: 120px;
+  background-color: #F7F7F7;
+}
+
+.container-index {
+  background-color: #F7F7F7;
+}
+
+.search-form-index {
+  display: flex;
+}
+
+.search-input-index {
+  width: 1000px;
+  background-color: #F7F7F7;
+  text-align: center !important;
+}
+
+.search-button-index {
+  margin-left: 10px;
+  width: 1000px;
+  text-align: center !important;
+}
