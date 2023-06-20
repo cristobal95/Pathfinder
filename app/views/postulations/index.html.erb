@@ -39,25 +39,30 @@
 
 <% else %>
 
-  <div class="ml-6">
+  <div>
     <h2 class="text-center">Mis postulaciones</h2>
-    <div class="row">
+    <div class="row mx-4 ">
       <% @postulations.each do |postulation| %>
-        <div class="col-md-3 mb-3">
-          <div class="card-index shadow">
-            <div class="header">
+        <div class="col-md-3 mb-5 ">
+          <div class="card-index shadow cards-postulations ">
+            <div>
               <div>
-                <p class="name btn btn-secondary"><%= link_to "Empresa: #{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
-              </div>
+                <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
+
+                <p class="fs-3 user-index-postulation"><%= link_to "#{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
+                <p class="fs-5"><%= postulation.internship.title %></p>
             </div>
+              </div>
             <p class="message">
-              <h4><%= "Estado: #{postulation.status}" %></h4>
-                <p><%= "Cargo: #{postulation.internship.title}" %></p>
+              <p class="fs-6 border"><%= "Estado: #{postulation.status}" %></p>
                 <p><%= "Duración: #{postulation.internship.duration}" %></p>
                 <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
                 <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
             </p>
-            <p class="name btn btn-secondary"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %></p>
+        <button class="btn btn-secondary mt-3 border-white custom-button rounded-4" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %>
+        </button>
+
+
           </div>
         </div>
       <% end %>
