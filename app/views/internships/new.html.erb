@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-6 p-5 pb-0 mb-5">
       <div class="my-card-su shadow radios">
-        <img class="my-logo" src="/assets/logologin.png">
+       <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
         <% if current_user.role == true %>
         <h2>Crea una pasantía!</h2>
         <%= simple_form_for(@internship) do |f| %>
@@ -64,7 +64,8 @@
       </div>
     </div>
     <div class="col-6 col-with-bg mt-5">
-      <img src="/assets/fotolapiz.png" alt="Descripción de la imagen" width="700px">
+    <%= image_tag("fotolapiz.png", alt: "Chicos usando PathFinder", width:600) %>
+
         <% else %>
 
         <h2>Tu tipo de perfil no permite esta acción, si tienes una empresa y quieres publicar oportunidades de pasantías por favor registrate con otro email y selecciona "Empresa" al momento de crear la cuenta.</h2>
