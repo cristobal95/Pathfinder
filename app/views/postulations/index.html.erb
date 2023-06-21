@@ -67,7 +67,7 @@
                 <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
                 <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
             </p>
-        <button class="btn btn-secondary mt-3 border-white custom-button rounded-4" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %>
+        <button class="btn btn-secondary mt-3 border-white custom-button" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %>
         </button>
 
 

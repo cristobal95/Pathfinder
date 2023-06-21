@@ -3,19 +3,51 @@
     <%= flash[:error] %>
   </div>
 <% end %>
-<div class="w-75 container">
-  <div class="my-card-su shadow radios mt-5 mb-5">
-   <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
-    <% if @internship.status == "Abierta" %>
-    <h2 class="text-center">Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
-      <%= simple_form_for [@internship, @postulation] do |f| %>
-      <br>
-      <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
-      <p>*máximo 150 caracteres</p>
-      <%= f.submit "Confirmar", class:"btn btn-secondary"%>
-    <% end %>
+
+<div>
+  <div class="banner position-relative image-index mb-5">
+   <% if @internship.category ==  "administration" %>
+    <%= image_tag("banner-categories-administration.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "agriculture" %>
+    <%= image_tag("banner-categories-agriculture.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "design" %>
+    <%= image_tag("banner-categories-design.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "education" %>
+    <%= image_tag("banner-categories-education.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "accounting" %>
+    <%= image_tag("banner-categories-finance.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "legal" %>
+    <%= image_tag("banner-categories-legal.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "turism" %>
+    <%= image_tag("banner-categories-tourism.png", alt: "Chicos usando PathFinder") %>
+  <% elsif @internship.category == "it" %>
+    <%= image_tag("banner-categories-it.png", alt: "Chicos usando PathFinder") %>
+  <% else %>
+   <%= image_tag("banner-index.png", alt: "Chicos usando PathFinder") %>
+
+
+  <% end %>
+    <div class="content-index text-center">
+      <h1 id="titulo-principal-index"> Postulación </h1>
+    </div>
+  </div>
+
+
+  <div class="w-75 container">
+    <div class="my-card-su shadow radios mt-5 mb-5">
+      <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
+      <% if @internship.status == "Abierta" %>
+      <h2 class="text-center">Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
+        <%= simple_form_for [@internship, @postulation] do |f| %>
+        <br>
+        <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
+        <p>*máximo 150 caracteres</p>
+        <%= f.submit "Confirmar", class:"btn btn-secondary"%>
+      <% end %>
+    </div>
   </div>
 </div>
+
 <% else %>
   <h2>Lo sentimos, esta oferta de pasantía ha concluido.</h2>
   <p>Puedes buscar otras: <%= link_to "Pasantias ", internships_path %></p>
