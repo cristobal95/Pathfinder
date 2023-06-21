@@ -98,7 +98,7 @@
   font-size: 20px;
 }
 
-.votos i {
+.votos i{
   font-size: 15px;
   color: #216ce7;
 }
@@ -188,10 +188,19 @@
   }
 }
 
-.my-btn-vol {
+.my-bot-all {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.my-izq {
+  padding-right: 20px;
+}
+
+.my-btn-all {
   background-color: #216CE7;
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-top: 30px;
   border-radius: 25px;
   padding: 15px;
   margin-bottom: 3px;
@@ -247,4 +256,55 @@
   margin-bottom: 3px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.my-card-product {
+  margin-left: 10px;
+}
+
+.my-card-body {
+  display: flex;
+}
+
+.my-card-status {
+  background-color: #FAF2FE;
+  border-radius: 5px;
+  display: inline-flex;
+  padding: 7px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.stat-espace {
+  display: inline-flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.my-botones {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.my-botones h5 {
+  margin-bottom: 5px;
+}
+
+.card-body h6 {
+  margin-bottom: 6px;
+  margin-top: -5px;
+}
+
+.my-stat {
+  text-align: center;
+  margin-top: 15px;
+}
+.my-stat p {
+  font-size: 20px;
+}
+
+.mb-4 h4 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
