@@ -1,6 +1,6 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: %i[show edit update]
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show categories]
 
   def index
     if user_signed_in? == false || current_user.role == false

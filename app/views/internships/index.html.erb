@@ -31,33 +31,7 @@
   <div class="container">
 
 
-    <% if current_user.role == true %>
-      <div class="container">
-        <% @internships.each do |internship| %>
-          <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
-            <div class="cardd-index mb-3 shadow p-2">
-              <div class="row g-0">
-                <div class="col d-flex">
-                  <div class="col-auto">
-                    <%= image_tag internship.user.photo.url(crop: "fill", width: 50, height: 50), class:"rounded-circle ms-1 mt-2" %>
-                  </div>
-                  <div class="col text-left ms-3">
-                    <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
-                    <p class="card-title card-title-section2"><%= internship.user.name %></p>
-                  </div>
-                  <div class="col-auto ml-auto text-right">
-                    <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-    <% else %>
-
-
+    <% if user_signed_in? == false || current_user.role == false %>
       <div class="container w-50  d-flex justify-content-center flex-column container-index-center mt-5">
         <% @internships.each do |internship| %>
           <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
@@ -89,6 +63,32 @@
           <% end %>
         <% end %>
       </div>
+
+    <% else %>
+
+      <div class="container">
+        <% @internships.each do |internship| %>
+          <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
+            <div class="cardd-index mb-3 shadow p-2">
+              <div class="row g-0">
+                <div class="col d-flex">
+                  <div class="col-auto">
+                    <%= image_tag internship.user.photo.url(crop: "fill", width: 50, height: 50), class:"rounded-circle ms-1 mt-2" %>
+                  </div>
+                  <div class="col text-left ms-3">
+                    <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
+                    <p class="card-title card-title-section2"><%= internship.user.name %></p>
+                  </div>
+                  <div class="col-auto ml-auto text-right">
+                    <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
 
     <% end %>
 
