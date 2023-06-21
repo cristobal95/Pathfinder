@@ -48,6 +48,16 @@ class InternshipsController < ApplicationController
 
   end
 
+  def change_status_to_finished
+    @internship = Internship.find(params[:id])
+    @internship.status = true
+    if @internship.save
+      redirect_to internship_path(@internship)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
 
     private
 

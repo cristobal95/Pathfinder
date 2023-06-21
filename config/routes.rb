@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   post '/postulations/change_status_to_rejected', to: 'postulations#change_status_to_rejected'
 
+  post '/internships/change_status_to_finished', to: 'internships#change_status_to_finished'
+
+
   resources :internships, except: :destroy do
     resources :postulations, only: %i[new create]
     resources :reviews, only: %i[new create]
