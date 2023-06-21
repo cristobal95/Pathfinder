@@ -1,5 +1,4 @@
 
-
 <div class="banner position-relative image-index">
   <%= image_tag("banner-index.png", alt: "Chicos usando PathFinder") %>
   <div class="content-index text-center">
@@ -30,13 +29,12 @@
 
 
     <% if user_signed_in? == false || current_user.role == false %>
-    <script>
-  AOS.init();
-</script>
 
-  <div data-aos="fade-up">
+
     <div class="container w-75 d-flex justify-content-center flex-column container-index-center mt-5">
       <% @internships.each do |internship| %>
+      <div data-aos="fade-up">
+
         <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
           <div class="cardd-index mb-3 shadow p-2">
             <div class="row g-0">
@@ -64,9 +62,10 @@
             </div>
           </div>
         <% end %>
+      </div>
       <% end %>
     </div>
-  </div>
+
 <% else %>
 
       <div class="container w-75 mt-5">
@@ -107,3 +106,8 @@
 
   </div>
 </section>
+
+
+<script>
+  AOS.init();
+</script>
