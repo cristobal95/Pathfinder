@@ -209,20 +209,17 @@
           <div class="cont-one">
             <h5>Interesado en esta pasantía?</h5>
             <% dias_restantes = (@internship.end_date - Date.today).to_i %>
-            <% if dias_restantes > 0 %>
-              <p>Tienes <%= dias_restantes %> días para postularte</p>
-            <% else %>
+            <% if @internship.status == "Finalizada" || dias_restantes <= 0  %>
               <p>La postulación ha finalizado</p>
+              <div class="btn-no">
+                <h4>FINALIZADA</h4>
+              </div>
+            <% else %>
+              <p>Tienes <%= dias_restantes %> días para postularte</p>
+              <div class="my-apply-int">
+                <%= link_to "Aplica ahora!", new_internship_postulation_path(@internship), class: "text-white"%>
+              </div>
             <% end %>
-              <% if @internship.status == true && dias_restantes > 0 %>
-                <div class="my-apply-int">
-                  <%= link_to "Aplica ahora!", new_internship_postulation_path(@internship), class: "text-white"%>
-                </div>
-              <% else %>
-                <div class="btn-no">
-                  <h4>FINALIZADA</h4>
-                </div>
-              <% end %>
           </div>
         </div>
         <div class="container-twoo-ab">
