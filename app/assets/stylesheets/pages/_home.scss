@@ -21,9 +21,10 @@ section {
 }
 
 .card-cuadrada:hover{
-  transform: scale(1.1);
+  transform: scale(1.02);
   box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
   text-decoration: none;
+  transition: 0.1s;
 }
 
 
