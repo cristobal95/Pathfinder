@@ -1,9 +1,9 @@
 <div class="conmtainer">
   <div class="row justify-content-center">
     <div class="col-3 col-with-bg">
-      <div class="my-card-su">
-        <img class="my-logo" src="/assets/logologin.png">
-        <h2>Bienvenido!</h2>
+      <div class="my-card-su shadow mt-5 mb-5">
+        <%= image_tag("logologin.png", alt: "Foto azul de lapiz", class:"my-logo") %>
+        <h2 class= "text-center">Bienvenido!</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
@@ -17,14 +17,14 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Iniciar sesión" %>
+            <%= f.button :submit, "Iniciar sesión", class: "mb-2" %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>
       </div>
     </div>
     <div class="col-4 p-5 pb-0">
-      <img src="/assets/login.png" alt="Descripción de la imagen" width="500" height="562">
+    <%= image_tag("login.png", alt: "Chicos usando PathFinder", width:500) %>
     </div>
   </div>
 </div>
