@@ -5,18 +5,24 @@
 <% end %>
 <div class="container">
   <div class="my-card-su shadow radios mt-5 mb-5 w-75">
-   <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
+    <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
     <% if @internship.status == "Abierta" %>
-    <h2>Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
+      <h2>Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
       <%= simple_form_for [@internship, @postulation] do |f| %>
-      <br>
-      <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa"%>
-      <p>*máximo 150 caracteres</p>
-      <%= f.submit "Confirmar", class:"btn btn-secondary"%>
+        <br>
+        <div data-controller="character-counter">
+          <%= f.input :content, required: true, label: "Destaca tu postulación enviandole un mensaje a la empresa (máximo 150 caracteres)",
+                      wrapper_html: { class: "mb-1" },
+                    input_html: { data: { character_counter_target: "input" } },
+                    label_html: { class: "form-label text-secondary fw-bold" } %>
+          <p>Actualmente tienes <strong data-character-counter-target="counter"></strong> caracteres.</p>
+          <%= f.submit "Confirmar", class:"btn btn-secondary"%>
+        </div>
+      <% end %>
+    <% else %>
+      <h2>Lo sentimos, esta oferta de pasantía ha concluido.</h2>
+      <p>Puedes buscar otras: <%= link_to "Pasantias ", internships_path %></p>
     <% end %>
   </div>
 </div>
-<% else %>
-  <h2>Lo sentimos, esta oferta de pasantía ha concluido.</h2>
-  <p>Puedes buscar otras: <%= link_to "Pasantias ", internships_path %></p>
-<% end %>
+
