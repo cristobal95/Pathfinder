@@ -251,8 +251,6 @@
 }
 
 .container-owner {
-  border: 1px solid #e6e5e5;
-  border-radius: 7px;
   margin-bottom: 3px;
   margin-left: 20px;
   margin-right: 20px;
@@ -300,11 +298,23 @@
   margin-top: 15px;
 }
 .my-stat p {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .mb-4 h4 {
   text-align: center;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.fa-solid {
+  color: #9b9b9b;
+}
+
+.fa-regular {
+  color: #9b9b9b;
+}
+
+.card-blue-pf {
+  background-color: #fff !important;
 }
