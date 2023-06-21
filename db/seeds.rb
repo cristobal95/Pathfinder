@@ -814,7 +814,7 @@ internships = [
     user_id: 26
   },
   {
-    category: "turism",
+    category: "product",
     title: "Product Owner",
     description: "Participar en el diseño y características de nuestro producto líder",
     tipo: "remoto",
