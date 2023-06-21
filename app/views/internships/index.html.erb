@@ -1,13 +1,11 @@
+
+
 <div class="banner position-relative image-index">
   <%= image_tag("banner-index.png", alt: "Chicos usando PathFinder") %>
   <div class="content-index text-center">
     <h1 id="titulo-principal-index">Pasantías</h1>
   </div>
 </div>
-
-
-
-
 
 
 <section id="seccion-index-internships" class="py-4 mb-0 pe-0 ps-0">
@@ -23,7 +21,7 @@
         %>
     </div>
     <div class="search-button-wrapper">
-      <%= submit_tag "Buscar", name: "", class: "btn btn-primary search-button" %>
+      <%= submit_tag "Buscar", name: "", class: "btn btn-secondary search-button" %>
       <% end %>
     </div>
   </div>
@@ -32,7 +30,46 @@
 
 
     <% if user_signed_in? == false || current_user.role == false %>
-      <div class="container w-50  d-flex justify-content-center flex-column container-index-center mt-5">
+    <script>
+  AOS.init();
+</script>
+
+  <div data-aos="fade-up">
+    <div class="container w-75 d-flex justify-content-center flex-column container-index-center mt-5">
+      <% @internships.each do |internship| %>
+        <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
+          <div class="cardd-index mb-3 shadow p-2">
+            <div class="row g-0">
+              <div class="col d-flex">
+                <div class="col-auto">
+                  <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
+                </div>
+                <div class="col text-left ms-3">
+                  <h6 class="card-text titulo-card-seccion2 mb-1" id="title-card-section2"><%= internship.title %></h6>
+                  <p class="card-title card-title-section2 mb-3"><%= internship.user.name %></p>
+                  <% if internship.paid %>
+                    <p><strong>Remunerada: Sí</strong></p>
+                  <% else %>
+                    <p><strong>Remunerada: No</strong></p>
+                  <% end %>
+                </div>
+                <div class="text-left col-5 align-self-md-center p-4">
+                  <p><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                </div>
+                <div class="align-self-md-center me-2">
+                  <%= "Tipo: #{internship.tipo}" %></li>
+                  <p>Estado: <%= internship.status %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+
+      <div class="container w-75 mt-5">
         <% @internships.each do |internship| %>
           <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
             <div class="cardd-index mb-3 shadow p-2">
@@ -57,31 +94,6 @@
                     <%= "Tipo: #{internship.tipo}" %></li>
                     <p>Estado: <%= internship.status %></p>
                     <%=  %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-    <% else %>
-
-      <div class="container">
-        <% @internships.each do |internship| %>
-          <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
-            <div class="cardd-index mb-3 shadow p-2">
-              <div class="row g-0">
-                <div class="col d-flex">
-                  <div class="col-auto">
-                    <%= image_tag internship.user.photo.url(crop: "fill", width: 50, height: 50), class:"rounded-circle ms-1 mt-2" %>
-                  </div>
-                  <div class="col text-left ms-3">
-                    <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
-                    <p class="card-title card-title-section2"><%= internship.user.name %></p>
-                  </div>
-                  <div class="col-auto ml-auto text-right">
-                    <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
                   </div>
                 </div>
               </div>

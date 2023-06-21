@@ -1,45 +1,4 @@
 
-<% if current_user.role == true %>
-  <h2>Postulantes</h2>
-
-  <div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Eliminar</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <% @postulations.each do |postulation| %>
-    <h4><%= postulation.user.first_name %> <%= postulation.user.last_name %></h4>
-    <ul>
-      <li><%= "Correo electrónico: #{postulation.user.email}" %></li>
-      <li><%= "Apellido: #{postulation.content}" %></li>
-      <li><%= "Teléfono: #{postulation.user.phone}" %></li>
-      <li><%= "Estudios: #{postulation.user.studies}" %></li>
-      <li><%= "Experiencia: #{postulation.user.experience}" %></li>
-      <li><%= "Nombre: #{postulation.user.first_name}" %></li>
-      <li><%= "Estado: #{postulation.status}" %></li>
-    </ul>
-  <% end %>
-
-  <%= link_to "Volver", internships_path %>
-
-<% else %>
-
   <div>
 <div class="banner position-relative image-index mb-5">
   <%= image_tag("index_postulations.png", alt: "Tres jovenes trabajando", class: "hide-top") %>
@@ -47,11 +6,11 @@
     <h1 id="titulo-principal-index">Mis Postulaciones</h1>
   </div>
 </div>
-<div class="mx-5">
+<div class="">
 
-    <div class="row">
+    <div class="d-flex justify-content-around mb-5">
       <% @postulations.each do |postulation| %>
-        <div class="col-md-4 mb-5 ">
+        <div>
           <div class="card-index-postulations shadow cards-postulations text-center ">
             <div>
               <div>
@@ -67,7 +26,7 @@
                 <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
                 <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
             </p>
-        <button class="btn btn-secondary mt-3 border-white custom-button rounded-4" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %>
+        <button class="btn btn-secondary mt-3 border-white custom-button" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %>
         </button>
 
 
@@ -77,5 +36,3 @@
     </div>
   </div>
 </div>
-
-<% end %>
