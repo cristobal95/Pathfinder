@@ -16,15 +16,17 @@
           <div class="card-index-postulations shadow cards-postulations text-center">
             <div>
               <div>
-                <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 60, height: 60), class:"rounded-circle ms-1 mt-2" %>
+                <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 60, height: 60), class:"rounded-circle ms-1 mt-2 mb-4" %>
                 <p class="fs-3 user-index-postulation"><%= link_to "#{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
                 <p class="fs-5"><%= postulation.internship.title %></p>
               </div>
             </div>
             <p class="message">
-              <p class="fs-6 border"><%= "Estado: #{postulation.status}" %></p>
+              <p class="fs-6 border p-2"><%= "Estado: #{postulation.status}" %></p>
                 <% if postulation.status == "Aprobada" %>
-                  <p><strong>Felicitaciones! Has sido preseleccionado, la empresa pronto se contactará contigo.</strong></p>
+                  <p class="congrats"><strong>Felicitaciones! Has sido preseleccionado, la empresa pronto se contactará contigo.</strong></p>
+                <% else %>
+                  <p class="text-white"><strong>.                                                                                .</strong></p><br>
                 <% end %>
                 <p><%= "Duración: #{postulation.internship.duration}" %></p>
                 <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
