@@ -11,3 +11,16 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-item.d-flex.align-items-center{
+margin-left: 4px;
+border-radius: 20px;
+}
+
+
+.nav-item.d-flex.align-items-center:hover {
+  transition: 0.3s;
+  border: 1px solid #253078;
+  background-color: #253078;
+
+}
