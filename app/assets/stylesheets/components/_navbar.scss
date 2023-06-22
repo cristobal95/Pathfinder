@@ -11,3 +11,31 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-item.d-flex.align-items-center{
+margin-left: 8px;
+border-radius: 10px;
+color: white;
+opacity: 65%;
+}
+
+
+.nav-item.d-flex.align-items-center:hover {
+
+  transform: scale(1.03);
+ opacity: 100%;
+
+}
+
+
+.navbar {
+  background-color: #216ce7 /* Set the background color for the navbar */
+}
+
+.container-fluid {
+  padding-right: 0; /* Remove right padding to cover the complete width */
+  padding-left: 0; /* Remove left padding to cover the complete width */
+  margin-right: auto; /* Center the container horizontally */
+  margin-left: auto; /* Center the container horizontally */
+  max-width: 100%; /* Ensure the container occupies the full width */
+}
