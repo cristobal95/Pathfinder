@@ -1,41 +1,44 @@
-<div class="container">
-  <% if @usuario.empresa? %>
-    <% if current_user.role == true %>
-      <% if current_user.id == @usuario.id %>
-        <h2>Hola <%= @usuario.name %>, este es el perfil de tu empresa</h2>
-      <% else %>
-        <h2>Hola <%= current_user.name %>, estás viendo el perfil de <%= @usuario.name %></h2>
-      <% end %>
-    <% else %>
-        <h2>Hola <%= current_user.first_name %>, este es el perfil de la empresa: <%= @usuario.name %></h2>
-    <% end %>
-      <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
-      <p>Nombre de Empresa: <%= @usuario.name %></p>
-      <p>Califiación de usuarios: <strong><%= @usuario.rating %></strong><%= " (#{@usuario.reviews} opiniones)" %></p>
-      <p>Sitio web: <a href="https://<%= @usuario.website %>"><%= @usuario.website %></a></p>
-      <p>Industria: <%= @usuario.industry %></p>
-      <p>Acerca de: <%= @usuario.about %></p>
-  <% else %>
-    <% if current_user.role == false %>
-      <% if current_user.id == @usuario.id %>
-        <h2>Hola <%= @usuario.first_name %>, este es tu perfil</h2>
-      <% else %>
-        <h2>Hola <%= current_user.first_name %>, estás viendo el perfil de <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
-      <% end %>
-    <% else %>
-        <h2>Hola <%= current_user.name %>, este es el perfil del ususario: <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
-    <% end %>
-      <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
-      <p>Nombre: <%= @usuario.first_name %></p>
-      <p>Apellido: <%= @usuario.last_name %></p>
-      <p>Edad: <%= @usuario.age %></p>
-      <p>Ciudad: <%= @usuario.city %></p>
-      <p>País: <%= @usuario.country %></p>
-      <p>Estudios realizados: <%= @usuario.studies %></p>
-      <p>Unidad educativa: <%= @usuario.college %></p>
-      <p>Experiencia: <%= @usuario.experience %></p>
-      <p>Idioma(s): <%= @usuario.languages %></p>
-      <p>Conocimientos: <%= @usuario.knowledges %></p>
-  <% end %>
-  <%= link_to "Editar perfil", edit_user_registration_path(@usuario), class: "btn btn-primary" if current_user.id == @usuario.id %>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card mb-4">
+        <% if @usuario.empresa? %>
+          <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250), class:"rounded" %>
+          <h4 class= "text-white"><%= @usuario.name %></h4>
+          <div class="col-lg-6">
+            <b>Califiación de usuarios:</b>
+            <p><strong><%= @usuario.rating %></strong><%= " (#{@usuario.reviews} opiniones)" %></p>
+            <b>Sitio web:</b>
+            <p><a class="text-white"href="https://<%= @usuario.website %>"><%= @usuario.website %></a></p>
+            <b>Industria:</b>
+            <p><%= @usuario.industry %></p>
+            <b>Acerca de:</b>
+            <p><%= @usuario.about %></p>
+          </div>
+        <% else %>
+          <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250), class:"rounded" %>
+          <h4 class= "text-white"><%= @usuario.first_name %> <%= @usuario.last_name %></h4>
+          <div class="col-lg-6">
+            <b>Edad:</b>
+            <p><%= @usuario.age %> años</p>
+            <b>Ciudad:</b>
+            <p><%= @usuario.city %></p>
+            <b>País:</b>
+            <p><%= @usuario.country %></p>
+            <b>Estudios realizados:</b>
+            <p><%= @usuario.studies %></p>
+            <b>Unidad educativa:</b>
+            <p><%= @usuario.college %></p>
+            <b>Experiencia:</b>
+            <p><%= @usuario.experience %></p>
+            <b>Idioma(s):</b>
+            <p><%= @usuario.languages %></p>
+            <b>Conocimientos:</b>
+            <p><%= @usuario.knowledges %></p>
+          </div>
+        <% end %>
+        <%= link_to "Editar perfil", edit_user_registration_path(@usuario), class: "btn btn-primary" if current_user.id == @usuario.id %>
+      </div>
+    </div>
+  </div>
 </div>
