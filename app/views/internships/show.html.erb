@@ -268,7 +268,7 @@
                         <div class="card card-blue-pf">
                           <div class="row">
                             <div class="col-sm-5">
-                              <%= cl_image_tag student.user.photo.key, class:"card-img ms-3 rounded-4", height: 120, width: 100, crop: :thumb, gravity: :face %>
+                              <%= cl_image_tag student.user.photo.key, class:"ms-3 rounded-4", height: 120, width: 100, crop: :thumb, gravity: :face %>
                             </div>
                             <div class="col-sm-7">
                               <div class="card-body p-1">
@@ -287,10 +287,10 @@
 
                                 <% else %>
                                   <div>
-                                    <%= link_to "Aprobar", postulations_change_status_to_approved_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
+                                    <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
                                   </div>
                                   <div>
-                                    <%= link_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
+                                    <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
                                   </div>
                                 <% end %>
                               </div>
