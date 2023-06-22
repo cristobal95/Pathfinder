@@ -13,6 +13,11 @@ class InternshipsController < ApplicationController
     else
       #company
       @internships = Internship.where(user: current_user)
+      if params[:filter] == 'Abierta'
+        @internships = @internships.where(status: 'Abierta')
+      elsif params[:filter] == 'Finalizada'
+        @internships = @internships.where(status: 'Finalizada')
+      end
     end
   end
 
