@@ -204,7 +204,7 @@
                               <div class="row g-0">
                                 <div class="col d-flex">
                                   <div class="col-auto">
-                                    <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle border ms-1 mt-2" %>
+                                    <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
                                   </div>
                                   <div class="col text-left ms-3">
                                     <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
@@ -241,7 +241,7 @@
                           <div class="row g-0">
                             <div class="col d-flex">
                               <div class="col-auto">
-                                <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle border ms-1 mt-2" %>
+                                <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
                               </div>
                               <div class="col text-left ms-3">
                                 <h6 class="card-text titulo-card-seccion2" id="title-card-section2"><%= internship.title %></h6>
@@ -364,9 +364,9 @@
       <div class="logos">
         <div class="logos-slide">
           <div class="container mt-5">
-          <div class="row d-flex justify-content-evenly">
-            <% @internships.take(6).each do |internship|  %>
-              <div class="text-center col-auto mt-3">
+          <div class="row d-flex justify-content-evenly mb-4 ">
+            <% @internships[-6..-1].each do |internship|  %>
+              <div class="text-center col-auto mt-3 mb-5">
                 <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
               </div>
             <% end %>
@@ -375,9 +375,9 @@
         </div>
           <div class="logos-slide">
           <div class="container mt-5">
-          <div class="row d-flex justify-content-evenly">
-            <% @internships.take(6).each do |internship|  %>
-              <div class="text-center col-auto mt-3">
+          <div class="row d-flex justify-content-evenly mb-4">
+            <% @internships[-7..-2].each do |internship|  %>
+              <div class="text-center col-auto mt-3 mb-5">
                 <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
               </div>
             <% end %>
@@ -386,9 +386,9 @@
         </div>
         <div class="logos-slide">
           <div class="container mt-5">
-          <div class="row d-flex justify-content-evenly">
+          <div class="row d-flex justify-content-evenly mb-4">
             <% @internships.take(6).each do |internship|  %>
-              <div class="text-center col-auto mt-3">
+              <div class="text-center col-auto mt-3 mb-5">
                 <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
               </div>
             <% end %>
@@ -396,6 +396,8 @@
           </div>
         </div>
     </div>
+
+
     </section>
 
 
