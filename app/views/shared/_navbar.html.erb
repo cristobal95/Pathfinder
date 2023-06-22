@@ -34,7 +34,6 @@
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Mi perfil", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
 
