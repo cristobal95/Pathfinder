@@ -45,6 +45,11 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+a.no-underline {
+  text-decoration: none;
+}
+
 a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   text-decoration: none;
   outline: none;
