@@ -283,12 +283,16 @@
                                 <p class="card-product-infos mb-1 text-dark"><%= student.status %></p>
                               </div>
                               <div class="stat-espace">
-                                <div>
-                                  <%= link_to "Aprobar", postulations_change_status_to_approved_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
-                                </div>
-                                <div>
-                                  <%= link_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
-                                </div>
+                                <% if student.status != "Pendiente" %>
+
+                                <% else %>
+                                  <div>
+                                    <%= link_to "Aprobar", postulations_change_status_to_approved_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
+                                  </div>
+                                  <div>
+                                    <%= link_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
+                                  </div>
+                                <% end %>
                               </div>
                           </div>
                         </div>

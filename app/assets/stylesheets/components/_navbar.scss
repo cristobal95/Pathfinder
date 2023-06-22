@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: #216ce7;
   position: sticky;
+  height: 70px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -22,7 +23,7 @@ opacity: 65%;
 
 .nav-item.d-flex.align-items-center:hover {
 
-  transform: scale(1.03);
+  transform: scale(1.02);
  opacity: 100%;
 
 }
@@ -38,4 +39,17 @@ opacity: 65%;
   margin-right: auto; /* Center the container horizontally */
   margin-left: auto; /* Center the container horizontally */
   max-width: 100%; /* Ensure the container occupies the full width */
+}
+
+.dropdown-menu {
+background-color: #216ce7 !important;
+
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  color: #216ce7 !important;
 }
