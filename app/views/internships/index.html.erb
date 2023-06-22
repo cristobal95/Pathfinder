@@ -1,6 +1,10 @@
 
 <div class="banner position-relative image-index">
-  <%= image_tag("banner-index.png", alt: "Chicos usando PathFinder") %>
+  <% if user_signed_in? == false || current_user.role == false %>
+    <%= image_tag("banner-index.png", alt: "Chicos usando PathFinder") %>
+  <% else %>
+    <%= image_tag("banner-company.png", alt: "Chicos usando PathFinder") %>
+  <% end %>
   <div class="content-index text-center">
     <h1 id="titulo-principal-index">Pasantías</h1>
   </div>
@@ -31,45 +35,10 @@
     <% if user_signed_in? == false || current_user.role == false %>
 
 
-    <div class="container w-75 d-flex justify-content-center flex-column container-index-center mt-5">
-      <% @internships.each do |internship| %>
-      <div data-aos="fade-up">
-
-        <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
-          <div class="cardd-index mb-3 shadow p-2">
-            <div class="row g-0">
-              <div class="col d-flex">
-                <div class="col-auto">
-                  <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
-                </div>
-                <div class="col text-left ms-3">
-                  <h6 class="card-text titulo-card-seccion2 mb-1" id="title-card-section2"><%= internship.title %></h6>
-                  <p class="card-title card-title-section2 mb-3"><%= internship.user.name %></p>
-                  <% if internship.paid %>
-                    <p><strong>Remunerada: Sí</strong></p>
-                  <% else %>
-                    <p><strong>Remunerada: No</strong></p>
-                  <% end %>
-                </div>
-                <div class="text-left col-5 align-self-md-center p-4">
-                  <p><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
-                </div>
-                <div class="align-self-md-center me-2">
-                  <%= "Tipo: #{internship.tipo}" %></li>
-                  <p>Estado: <%= internship.status %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <% end %>
-    </div>
-
-<% else %>
-
-      <div class="container w-75 mt-5">
+      <div class="container w-75 d-flex justify-content-center flex-column container-index-center mt-5">
         <% @internships.each do |internship| %>
+        <div data-aos="fade-up">
+
           <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
             <div class="cardd-index mb-3 shadow p-2">
               <div class="row g-0">
@@ -92,18 +61,48 @@
                   <div class="align-self-md-center me-2">
                     <%= "Tipo: #{internship.tipo}" %></li>
                     <p>Estado: <%= internship.status %></p>
-                    <%=  %>
                   </div>
                 </div>
               </div>
             </div>
           <% end %>
+        </div>
         <% end %>
       </div>
-
-
+    <% else %>
+        <div class="container w-75 mt-5">
+          <% @internships.each do |internship| %>
+            <%= link_to internship_path(internship), class: "card-text card-text-seccion1" do %>
+              <div class="cardd-index mb-3 shadow p-2">
+                <div class="row g-0">
+                  <div class="col d-flex">
+                    <div class="col-auto">
+                      <%= image_tag internship.user.photo.url(crop: "fill", width: 40, height: 40), class:"rounded-circle ms-1 mt-2" %>
+                    </div>
+                    <div class="col text-left ms-3">
+                      <h6 class="card-text titulo-card-seccion2 mb-1" id="title-card-section2"><%= internship.title %></h6>
+                      <p class="card-title card-title-section2 mb-3"><%= internship.user.name %></p>
+                      <% if internship.paid %>
+                        <p><strong>Remunerada: Sí</strong></p>
+                      <% else %>
+                        <p><strong>Remunerada: No</strong></p>
+                      <% end %>
+                    </div>
+                    <div class="text-left col-5 align-self-md-center p-4">
+                      <p><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                    </div>
+                    <div class="align-self-md-center me-2">
+                      <%= "Tipo: #{internship.tipo}" %></li>
+                      <p>Estado: <%= internship.status %></p>
+                      <%=  %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
     <% end %>
-
   </div>
 </section>
 
@@ -112,4 +111,3 @@
 <script>
   AOS.init();
 </script>
-
