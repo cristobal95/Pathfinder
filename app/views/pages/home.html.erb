@@ -362,39 +362,39 @@
         <h2 id="title-section3-4">Empresas Que Confían En PathFinder</h2>
       </div>
       <div class="logos">
-        <div class="logos-slide">
-          <div class="container mt-5">
-          <div class="row d-flex justify-content-evenly mb-4 ">
-            <% @internships[-6..-1].each do |internship|  %>
-              <div class="text-center col-auto mt-3 mb-5">
-                <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
-              </div>
-            <% end %>
-          </div>
-          </div>
-        </div>
           <div class="logos-slide">
-          <div class="container mt-5">
-          <div class="row d-flex justify-content-evenly mb-4">
-            <% @internships[-7..-2].each do |internship|  %>
+            <div class="container mt-5">
+            <div class="row d-flex justify-content-evenly mb-4">
+              <% @internships[-14..-9].each do |internship|  %>
               <div class="text-center col-auto mt-3 mb-5">
                 <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
               </div>
-            <% end %>
+              <% end %>
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
-        <div class="logos-slide">
-          <div class="container mt-5">
-          <div class="row d-flex justify-content-evenly mb-4">
-            <% @internships.take(6).each do |internship|  %>
+          <div class="logos-slide">
+            <div class="container mt-5">
+            <div class="row d-flex justify-content-evenly mb-4">
+              <% @internships[-8..-3].each do |internship|  %>
               <div class="text-center col-auto mt-3 mb-5">
                 <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
               </div>
-            <% end %>
+              <% end %>
+              </div>
+            </div>
           </div>
+          <div class="logos-slide">
+            <div class="container mt-5">
+            <div class="row d-flex justify-content-evenly mb-4">
+              <% @internships[-6..-1].each do |internship|  %>
+              <div class="text-center col-auto mt-3 mb-5">
+                <a href="/users/" ><%= image_tag internship.user.photo.url(crop: "fill", width: 100, height: 100) %></a>
+              </div>
+              <% end %>
+              </div>
+            </div>
           </div>
-        </div>
     </div>
 
 

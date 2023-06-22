@@ -43,19 +43,42 @@
         <div class="content-index text-center">
         <h1 id="titulo-principal-index">Candidato </h1>
         </div>
-      </div>
-        <h2>Hola <%= current_user.name %>, este es el perfil del ususario: <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
-      <%= image_tag @usuario.photo.url(crop: "fill", width: 140, height: 140), class: "mb-5" %>
-      <p>Nombre: <%= @usuario.first_name %> <%= @usuario.last_name %></p>
-      <p>Edad: <%= @usuario.age %></p>
-      <p>Ciudad: <%= @usuario.city %> <%= @usuario.country %></p>
+    </div>
+<div class="d-flex justify-content-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="shadow p-4 mx-5 p-2 text-black colum-twoo">
+          <div class="text-center">
+          <h2><%= @usuario.first_name %> <%= @usuario.last_name %>, <%= @usuario.age %></h2>
+            <%= image_tag @usuario.photo.url(crop: "fill", width: 200, height: 200), class:" mb-5 mx-auto" %>
+          </div>
+          <p><i class="fa-solid fa-location-dot"></i> Ubicación: <%= @usuario.city %>, <%= @usuario.country %></p>
+          <p><i class="fa-solid fa-graduation-cap"></i> Estudios realizados: <%= @usuario.studies %></p>
+          <p><i class="fa-solid fa-building-columns"></i> Unidad educativa: <%= @usuario.college %></p>
+          <p><i class="fa-solid fa-language"></i> Idioma(s): <%= @usuario.languages %></p>
+          <div class="text-center mb-3 mt-5">
+           <%= link_to "Volver", internships_path(@usuario), class: "btn btn-secondary text-white"%>
+            <%= submit_tag "Mensaje", name: "", class: "btn btn-secondary search-button" %>
 
-      <p>Estudios realizados: <%= @usuario.studies %></p>
-      <p>Unidad educativa: <%= @usuario.college %></p>
-      <p>Experiencia: <%= @usuario.experience %></p>
-      <p>Idioma(s): <%= @usuario.languages %></p>
-      <p>Conocimientos: <%= @usuario.knowledges %></p>
-      <%= link_to "Editar perfil", edit_user_registration_path(@usuario), class: "btn btn-secondary" if current_user.id == @usuario.id %>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-6">
+        <div class="shadow p-4 mx-5 p-5 mb-5">
+          <p class="line-height"><strong class="h4">Experiencia</strong>: <%= @usuario.experience %></p>
+          <p><strong class="h4">Conocimientos</strong>: <%= @usuario.knowledges %></p>
+          <%= link_to "Editar perfil", edit_user_registration_path(@usuario), class: "btn btn-secondary" if current_user.id == @usuario.id %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     <% end %>
 </div>
 <% end %>
