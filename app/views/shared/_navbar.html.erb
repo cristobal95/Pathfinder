@@ -29,7 +29,7 @@
                 <% @user.id = current_user.id %>
                 <img src="<%= cl_image_path(@user.photo.key, height: 75, width: 75, crop: :fill) %>" class="avatar rounded-circle" alt="Profile Image">
               <% else %>
-                <%= image_tag("avatar2", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
+                <%= image_tag("avatar2.png", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
               <% end %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -55,7 +55,7 @@
             <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar rounded-circle" %>
           <% else %>
 
-            <%= image_tag("avatar2", alt: "avatar", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
+            <%= image_tag("avatar2.png", alt: "avatar", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
 
           <% end %>
           </a>

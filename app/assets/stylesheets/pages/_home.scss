@@ -147,6 +147,20 @@ body {
 }
 
 
+<<<<<<< HEAD
 .line-height {
   line-height: 2.5;
+=======
+.hover-blur:hover {
+  opacity: 0.9;
+}
+
+.fa-brands:hover {
+  transform: scale(1.5);
+  transform: 0.2s;
+}
+
+.hover-bold:hover {
+  font-weight: bold;
+>>>>>>> origin
 }
