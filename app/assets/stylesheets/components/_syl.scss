@@ -26,7 +26,7 @@
 .my-card-su .my-logo {
   border-radius: 50%;
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 50%;
   translate: -50% 0;
   width: 64px;
@@ -54,4 +54,22 @@
 
 .radios {
   margin-top: -15px;
+}
+
+.my-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-card-bg {
+  background-color: #216ce7;
+}
+
+.col-lg-8 {
+  text-align: center;
+}
+
+.col-lg-10 {
+  text-align: center;
 }

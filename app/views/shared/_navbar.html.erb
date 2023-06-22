@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid ms-5 me-5">
     <%= link_to(root_path, class: "navbar-brand d-flex align-items-center") do %>
-      <%= image_tag "logo.jpg", height: 40, width: 40, crop: :fill %>
+      <%= image_tag "logo.jpg", height: 40, width: 40, crop: :fill, class:"rounded-3" %>
 
 
     <% end %>
@@ -27,14 +27,13 @@
               <% if current_user.photo.present? %>
                 <% @user = User.new %>
                 <% @user.id = current_user.id %>
-                <img src="<%= cl_image_path(@user.photo.key, height: 50, width: 50, crop: :fill) %>" class="avatar rounded-circle" alt="Profile Image">
+                <img src="<%= cl_image_path(@user.photo.key, height: 75, width: 75, crop: :fill) %>" class="avatar rounded-circle" alt="Profile Image">
               <% else %>
                 <%= image_tag("avatar2", alt: "Iphone", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
               <% end %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Mi perfil", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
 
@@ -53,7 +52,7 @@
           <% if current_user.photo.present? %>
             <% @user = User.new %>
             <% @user.id = current_user.id %>
-            <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar rounded-circle" %>
+            <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar rounded-circle" %>
           <% else %>
 
             <%= image_tag("avatar2", alt: "avatar", width: "45", height: "45", class: "rounded-circle ms-2", alt: "dropdown menu") %>
