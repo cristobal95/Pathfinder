@@ -3,7 +3,8 @@ class Postulation < ApplicationRecord
   belongs_to :user
   belongs_to :internship
 
-  validates :content, length: { maximum: 150 }
+  validates :content, length: { maximum: 150,
+    too_long: ": excede el máximo permitido" }
 
   validate :unique_postulation, on: :create
 

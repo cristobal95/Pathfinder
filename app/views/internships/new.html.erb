@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-6 p-5 pb-0 mb-5">
       <div class="my-card-su shadow radios">
-       <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
+        <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
         <% if current_user.role == true %>
         <h2>Crea una pasantía!</h2>
         <%= simple_form_for(@internship) do |f| %>

@@ -34,11 +34,11 @@
   </div>
 
 
-  <div class="container">
-    <div class="my-card-su shadow radios mt-5 mb-5 w-75">
+  <div class="container d-flex justify-content-center ">
+    <div class="my-card-su shadow radios w-50 text-center">
       <%= image_tag("logologin.png", alt: "Logo aplicacion", class:"my-logo") %>
       <% if @internship.status == "Abierta" %>
-        <h2>Estás a un mensaje de conseguir tu primer trabajo!!!</h2>
+        <h2>Esta pasantía puede ser tuya!</h2>
         <%= simple_form_for [@internship, @postulation] do |f| %>
           <br>
           <div data-controller="character-counter">
