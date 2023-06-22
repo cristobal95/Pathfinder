@@ -34,22 +34,6 @@
 
     <% if user_signed_in? == false || current_user.role == false %>
 
-      <div class="container d-flex justify-content-center">
-          <div class="filter-buttons">
-            <%= link_to internships_path(filter: "remoto"), class: "btn btn-primary me-2" do %>
-              Remoto
-            <% end %>
-            <%= link_to internships_path(filter: "presencial"), class: "btn btn-primary me-2" do %>
-              Presencial
-            <% end %>
-            <%= link_to internships_path(filter: "híbrido"), class: "btn btn-primary me-2" do %>
-              Híbrido
-            <% end %>
-            <%= link_to internships_path, class: "btn btn-primary" do %>
-              Mostrar Todas
-            <% end %>
-          </div>
-      </div>
       <div class="container w-75 d-flex justify-content-center flex-column container-index-center mt-5">
         <% if @no_results %>
           <div class="text-center">
