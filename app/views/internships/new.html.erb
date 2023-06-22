@@ -10,7 +10,7 @@
           <%= f.input :title, label: "Puesto", required: true, placeholder: "Ejemplo: Desarrollador Frontend"%>
           <%= f.input :description, label: "Descripción", required: true, placeholder: "Escribe en que consiste tu pasantía" %>
           <%= f.input :category, collection: Internship.categories.keys.map { |key| [Internship.categories[key], key] }, label: "Categoría", prompt: "Categoría", required: true %>
-
+          <%= f.input :duration, label: "Duración (en meses)", collection: 1..12, required: true, prompt: "Seleccionar cantidad de meses" %>
 
           <div>
             <div class="row">
@@ -19,6 +19,9 @@
                           required: false,
                           input_html: { autocomplete: "country"}%>
           </div>
+
+
+
 
               <div class="col-6 col-md-6 col-lg-6">
                 <%= f.input :city, label: "Ciudad", required: true %>
