@@ -8,10 +8,16 @@ class InternshipsController < ApplicationController
       @internships = Internship.all
       if params[:query].present?
         @internships = @internships.search_by_title(params[:query])
+        @no_results = @internships.empty?
       end
     else
       #company
       @internships = Internship.where(user: current_user)
+      if params[:filter] == 'Abierta'
+        @internships = @internships.where(status: 'Abierta')
+      elsif params[:filter] == 'Finalizada'
+        @internships = @internships.where(status: 'Finalizada')
+      end
     end
   end
 
@@ -45,7 +51,7 @@ class InternshipsController < ApplicationController
   def categories
     @category = params[:category]
     @internships = Internship.search_by_category(@category)
-
+    @no_results = @internships.empty?
   end
 
   def change_status_to_finished

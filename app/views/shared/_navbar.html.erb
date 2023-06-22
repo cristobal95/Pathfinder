@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid ms-5 me-5">
     <%= link_to(root_path, class: "navbar-brand d-flex align-items-center") do %>
-      <%= image_tag "logo.jpg", height: 40, width: 40, crop: :fill %>
+      <%= image_tag "logo.jpg", height: 40, width: 40, crop: :fill, class:"rounded-3" %>
 
 
     <% end %>
@@ -34,7 +34,6 @@
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Mi perfil", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Mis reviews", "#", class: "dropdown-item" %>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
 
