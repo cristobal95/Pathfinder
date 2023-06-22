@@ -23,6 +23,9 @@
             </div>
             <p class="message">
               <p class="fs-6 border"><%= "Estado: #{postulation.status}" %></p>
+                <% if postulation.status == "Aprobada" %>
+                  <p><strong>Felicitaciones! Has sido preseleccionado, la empresa pronto se contactará contigo.</strong></p>
+                <% end %>
                 <p><%= "Duración: #{postulation.internship.duration}" %></p>
                 <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
                 <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
