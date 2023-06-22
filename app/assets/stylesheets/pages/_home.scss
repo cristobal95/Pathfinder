@@ -145,3 +145,17 @@ body {
   margin: 35px; /* Decreased the margin between logos to 20px */
   margin-bottom: 60px;
 }
+
+
+.hover-blur:hover {
+  opacity: 0.9;
+}
+
+.fa-brands:hover {
+  transform: scale(1.5);
+  transform: 0.2s;
+}
+
+.hover-bold:hover {
+  font-weight: bold;
+}

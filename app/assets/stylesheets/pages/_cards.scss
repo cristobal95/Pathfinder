@@ -61,18 +61,18 @@
 
 .cardd {
   width: 525px;
-  height: 80px;
+  height: 90px;
 }
 
 .cardd:hover{
-  transform: scale(1.01);
+  transform: scale(1.02);
   box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
   text-decoration: none;
   transition: 0.1s;
 }
 
 .cards-postulations:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
   transition: 0.2s;
   text-decoration: none;
 }
