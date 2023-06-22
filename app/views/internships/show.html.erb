@@ -256,19 +256,19 @@
         </div>
       </div>
   <% else %>
-        <div class="col-6">
-          <div class="container-owner ms-5">
-            <div class="d-flex justify-content-evenly mt-3">
+        <div class="col-6 my-spac">
+          <div class="container-owner">
+            <div class="d-flex justify-content-center">
               <% if current_user.role == true && current_user.id == @internship.user_id %>
                 <div class="mb-4">
                   <h4>Postulantes</h4>
-                  <div class="postulations-list">
+                  <div class="container-post">
                     <% if @internship.postulations.any? %>
                       <% @internship.postulations.each do |student| %>
                         <div class="card card-blue-pf">
                           <div class="row">
                             <div class="col-sm-5">
-                              <%= cl_image_tag student.user.photo.key, class:"card-img ms-3 rounded-4", height: 100, width: 120, crop: :thumb, gravity: :face %>
+                              <%= cl_image_tag student.user.photo.key, class:"card-img ms-3 rounded-4", height: 120, width: 100, crop: :thumb, gravity: :face %>
                             </div>
                             <div class="col-sm-7">
                               <div class="card-body p-1">
@@ -284,10 +284,10 @@
                               </div>
                               <div class="stat-espace">
                                 <div>
-                                  <%= button_to "Aprobar", postulations_change_status_to_approved_path(id: student), class:"my-btn-all text-white me-2 mb-2" %>
+                                  <%= link_to "Aprobar", postulations_change_status_to_approved_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
                                 </div>
                                 <div>
-                                  <%= button_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class:"my-btn-all text-white ms-2 mb-2" %>
+                                  <%= link_to "Rechazar", postulations_change_status_to_rejected_path(id: student), class: "my-btn-all text-white my-izq me-2" %>
                                 </div>
                               </div>
                           </div>
