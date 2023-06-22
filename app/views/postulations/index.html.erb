@@ -11,34 +11,41 @@
 
 <div class="container mx-5">
     <div class="my-post">
-      <% @postulations.each do |postulation| %>
-        <div class="mb-5 ">
-          <div class="card-index-postulations shadow cards-postulations text-center" data-controller="change-status-">
-            <div>
-              <div>
-                <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 60, height: 60), class:"rounded-circle ms-1 mt-2 mb-4" %>
-                <p class="fs-3 user-index-postulation"><%= link_to "#{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
-                <p class="fs-5"><%= postulation.internship.title %></p>
-              </div>
-            </div>
-            <p class="message">
-                <% if postulation.status == "Aprobada" %>
-                  <p class="fs-6 border p-2 congrats"><%= "Estado: #{postulation.status}" %></p>
-                  <p class="congrats"><strong>Felicitaciones! Has sido preseleccionado, la empresa pronto se contactará contigo.</strong></p>
-                <% elsif postulation.status == "Rechazada" %>
-                  <p class="fs-6 border p-2 rejected"><%= "Estado: #{postulation.status}" %></p>
-                  <p class="text-white"><strong>.                                                                                .</strong></p><br>
-                <% else %>
-                  <p class="fs-6 border p-2"><%= "Estado: #{postulation.status}" %></p>
-                  <p class="text-white"><strong>.                                                                                .</strong></p><br>
-                <% end %>
-                <p><%= "Duración: #{postulation.internship.duration}" %> meses</p>
-                <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
-                <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
-            </p>
-            <button class="btn btn-secondary mt-3 border-white custom-button" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %></button>
-          </div>
+      <% if @postulations.empty? %>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h4>Aún no has postulado a un puesto.</h4>
+          <%= image_tag("nothing.png", alt: "nothing", width: "500", height: "500", class: "rounded-circle ms-2") %>
         </div>
+      <% else %>
+        <% @postulations.each do |postulation| %>
+          <div class="mb-5 ">
+            <div class="card-index-postulations shadow cards-postulations text-center" data-controller="change-status-">
+              <div>
+                <div>
+                  <%= image_tag postulation.internship.user.photo.url(crop: "fill", width: 60, height: 60), class:"rounded-circle ms-1 mt-2 mb-4" %>
+                  <p class="fs-3 user-index-postulation"><%= link_to "#{postulation.internship.user.name}", user_path(postulation.internship.user) %></p>
+                  <p class="fs-5"><%= postulation.internship.title %></p>
+                </div>
+              </div>
+              <p class="message">
+                  <% if postulation.status == "Aprobada" %>
+                    <p class="fs-6 border p-2 congrats"><%= "Estado: #{postulation.status}" %></p>
+                    <p class="congrats"><strong>Felicitaciones! Has sido preseleccionado, la empresa pronto se contactará contigo.</strong></p>
+                  <% elsif postulation.status == "Rechazada" %>
+                    <p class="fs-6 border p-2 rejected"><%= "Estado: #{postulation.status}" %></p>
+                    <p class="text-white"><strong>.                                                                                .</strong></p><br>
+                  <% else %>
+                    <p class="fs-6 border p-2"><%= "Estado: #{postulation.status}" %></p>
+                    <p class="text-white"><strong>.                                                                                .</strong></p><br>
+                  <% end %>
+                  <p><%= "Duración: #{postulation.internship.duration}" %> meses</p>
+                  <p><%= "Remunerada: #{postulation.internship.paid}" %></p>
+                  <p><%= "Ubicación: #{postulation.internship.city}, #{postulation.internship.country}" %></p>
+              </p>
+              <button class="btn btn-secondary mt-3 border-white custom-button" type="submit"><%= link_to "Eliminar postulación", postulation_path(postulation), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro/a?" } %></button>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
