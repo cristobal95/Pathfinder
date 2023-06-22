@@ -1,20 +1,26 @@
-<div class="container">
   <% if @usuario.empresa? %>
     <% if current_user.role == true %>
       <% if current_user.id == @usuario.id %>
-        <h2>Hola <%= @usuario.name %>, este es el perfil de tu empresa</h2>
+      <div class="banner position-relative image-index mb-5">
+        <%= image_tag("index_postulations.png", alt: "Tres jovenes trabajando", class: "hide-top") %>
+        <div class="content-index text-center">
+        <h1 id="titulo-principal-index">Mi empresa </h1>
+        </div>
+      </div>
+<div class= "container shadow w-50 rounded-4 p-5 mb-5 text-center">
+        <h2><%= @usuario.name %></h2>
       <% else %>
         <h2>Hola <%= current_user.name %>, estás viendo el perfil de <%= @usuario.name %></h2>
       <% end %>
     <% else %>
         <h2>Hola <%= current_user.first_name %>, este es el perfil de la empresa: <%= @usuario.name %></h2>
     <% end %>
-      <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
+      <%= image_tag @usuario.photo.url(crop: "fill", width: 100, height: 100), class: "mb-5"  %>
       <p>Nombre de Empresa: <%= @usuario.name %></p>
       <p>Califiación de usuarios: <strong><%= @usuario.rating %></strong><%= " (#{@usuario.reviews} opiniones)" %></p>
       <p>Sitio web: <a href="https://<%= @usuario.website %>"><%= @usuario.website %></a></p>
       <p>Industria: <%= @usuario.industry %></p>
-      <p>Acerca de: <%= @usuario.about %></p>
+      <p> <%= @usuario.about %></p>
   <% else %>
     <% if current_user.role == false %>
       <% if current_user.id == @usuario.id %>
@@ -25,7 +31,7 @@
     <% else %>
         <h2>Hola <%= current_user.name %>, este es el perfil del ususario: <%= @usuario.first_name %> <%= @usuario.last_name %></h2>
     <% end %>
-      <%= image_tag @usuario.photo.url(crop: "fill", width: 250, height: 250) %>
+      <%= image_tag @usuario.photo.url(crop: "fill", width: 100, height: 100), class: "mb-5" %>
       <p>Nombre: <%= @usuario.first_name %></p>
       <p>Apellido: <%= @usuario.last_name %></p>
       <p>Edad: <%= @usuario.age %></p>
@@ -37,5 +43,5 @@
       <p>Idioma(s): <%= @usuario.languages %></p>
       <p>Conocimientos: <%= @usuario.knowledges %></p>
   <% end %>
-  <%= link_to "Editar perfil", edit_user_registration_path(@usuario), class: "btn btn-primary" if current_user.id == @usuario.id %>
+  <%= link_to "Editar perfil", edit_user_registration_path(@usuario), class: "btn btn-secondary" if current_user.id == @usuario.id %>
 </div>

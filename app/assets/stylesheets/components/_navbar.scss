@@ -39,3 +39,16 @@ opacity: 65%;
   margin-left: auto; /* Center the container horizontally */
   max-width: 100%; /* Ensure the container occupies the full width */
 }
+
+.dropdown-menu {
+background-color: #216ce7 !important;
+
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  color: #216ce7 !important;
+}
