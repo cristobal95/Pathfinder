@@ -24,9 +24,10 @@
 
 .cardd-index {
   width: 100%;
-  height: 120px;
+  height: auto;
   background-color: #FFF;
   align-items: center;
+  border-radius: 5px;
 }
 
 
@@ -60,7 +61,8 @@
 }
 
 .cardd-index:hover{
-  transform: scale(1.05);
+  transform: scale(1.008);
+  transition: 0.2s;
   box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
   text-decoration: none;
 }
