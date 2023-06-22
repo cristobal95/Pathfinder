@@ -63,10 +63,10 @@
                           <% end %>
                         </div>
                         <div class="text-left col-5 align-self-md-center p-4">
-                          <p><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                          <p><small><%= "#{internship.city} " %></small></p>
                         </div>
                         <div class="align-self-md-center me-2">
-                          <%= "Tipo: #{internship.tipo}" %></li>
+                          <%= "Tipo: #{internship.tipo.capitalize}" %></li>
                           <p>Estado: <%= internship.status %></p>
                         </div>
                       </div>
@@ -111,10 +111,10 @@
                       <% end %>
                     </div>
                     <div class="text-left col-5 align-self-md-center p-4">
-                      <p><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                      <p><small><%= "#{internship.city}" %></small></p>
                     </div>
                     <div class="align-self-md-center me-2">
-                      <%= "Tipo: #{internship.tipo}" %></li>
+                      <%= "Tipo: #{internship.tipo.capitalize}" %></li>
                       <p>Estado: <%= internship.status %></p>
                       <p>Postulantes: <%= internship.postulations.count %></p>
                       <%=  %>
