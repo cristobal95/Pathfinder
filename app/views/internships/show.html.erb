@@ -221,9 +221,16 @@
               <p><%= @internship.description %></p>
             </div>
               <div class="my-bot-all">
-                <%= link_to "Editar", edit_internship_path, class: "btn btn-secondary text-white my-izq me-2" %>
-                <%= button_to "Finalizar Pasantía", internships_change_status_to_finished_path(id: @internship), class: "btn btn-secondary text-white ms-2" %>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to "Editar", edit_internship_path, class: "btn btn-secondary text-white my-izq me-2" %>
+                  </div>
+                  <div class="col">
+                    <%= button_to "Finalizar Pasantía", internships_change_status_to_finished_path(id: @internship), class: "btn btn-secondary text-white ms-2" %>
+                  </div>
+                </div>
               </div>
+
           </div>
         </div>
   <% end %>
