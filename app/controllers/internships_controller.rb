@@ -54,6 +54,7 @@ class InternshipsController < ApplicationController
     @no_results = @internships.empty?
   end
 
+
   def change_status_to_finished
     @internship = Internship.find(params[:id])
     @internship.status = true
