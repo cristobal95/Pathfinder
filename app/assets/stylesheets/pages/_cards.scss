@@ -3,7 +3,7 @@
   width: fit-content; /* Adjust the card width as needed */
   height: fit-content; /* Adjust the card height as needed */
   background-color: #253078 ; /* Adjust the background color as needed */
-  border-radius: 10px; /* Adjust the border radius as needed */
+  border-radius: 5px; /* Adjust the border radius as needed */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,9 +36,15 @@
 
 .row .card a {
   text-decoration: none;
-
-  color: #253078;
+  color: #216ce7;
 }
+
+
+.row .card a:hover {
+  text-decoration: underline;
+  color: #216ce7;
+}
+
 
 .row .card .btn {
   color: white;
