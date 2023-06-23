@@ -6,7 +6,6 @@ class PagesController < ApplicationController
     if params[:query].present?
       @internships = @internships.search_by_title(params[:query])
     end
+    @users = User.where(role: true)
   end
-
-
 end
