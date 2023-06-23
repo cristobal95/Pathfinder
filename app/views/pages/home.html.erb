@@ -211,8 +211,8 @@
                                     <p class="card-title card-title-section2"><%= internship.user.name %></p>
                                   </div>
                                   <div class="col-auto ml-auto text-right">
-                                    <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
-                                    <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
+                                    <p class="card-text text-end"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                                    <p class="card-text text-end"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
                                     <% index += 1 %>
                                   </div>
                                 </div>
@@ -248,8 +248,8 @@
                                 <p class="card-title card-title-section2"><%= internship.user.name %></p>
                               </div>
                               <div class="col-auto ml-auto text-right">
-                                <p class="card-text"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
-                                <p class="card-text"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
+                                <p class="card-text text-end"><small><%= "#{internship.city} (#{internship.tipo})" %></small></p>
+                                <p class="card-text text-end"><small class="text-muted"><%= "Publicada hace #{ dias[index] } días" %></small></p>
                                 <% index += 1 %>
                               </div>
                             </div>
@@ -292,7 +292,7 @@
             <div class="text-center col-lg-3 col-md-4 col-sm-6 col-12">
               <%= image_tag("juanma.png", alt: "Iphone", width: "200", height: "200", class: "rounded-circle border hover-blur") %>
               <h6 class="titulo-card-seccion2 mt-3 p-2" id="title-section3-4">Juan Manuel Binda</h6>
-              <p class="card-text text-muted hover-bold">Desarrollador Full Stack</p>
+              <p class="card-text text-muted">Desarrollador Full Stack</p>
               <div class="d-flex justify-content-center">
                 <p class="w-50 text-dark-emphasis">Diseño de la experiencia del usuario, así como la programación y mantenimiento de la arquitectura interna del sitio web</p>
               </div>
